@@ -7,6 +7,7 @@ import javafx.stage.Stage;
 
 public class Controladorainformes {
 
+	//pantalla
 	 private  Main ProgramaPrincipal;
 		
 		@FXML
@@ -22,4 +23,6 @@ public class Controladorainformes {
 		public void closeWindow(){
 			this.ventana.close();
 		}
+		
+		//elementos
 }

@@ -14,7 +14,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="484.0" prefWidth="785.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Vista.ControladoraDonante">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="484.0" prefWidth="785.0" stylesheets="@application.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Vista.ControladoraDonante">
    <children>
       <SplitPane dividerPositions="0.5308641975308642" layoutX="1.0" layoutY="-5.0" orientation="VERTICAL" prefHeight="488.0" prefWidth="785.0">
         <items>
@@ -146,15 +146,18 @@
                      </font>
                   </Label>
                   <Button layoutX="521.0" layoutY="172.0" mnemonicParsing="false" text="buscar por DNI" />
-                  <TextField layoutX="480.0" layoutY="141.0" prefHeight="27.0" prefWidth="163.0">
+                  <TextField layoutX="488.0" layoutY="141.0" prefHeight="27.0" prefWidth="163.0">
                      <font>
                         <Font size="10.0" />
                      </font>
                   </TextField>
                   <Button layoutX="497.0" layoutY="218.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="66.0" text="Guardar" textFill="#26bd18" />
-                  <Button layoutX="569.0" layoutY="218.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="89.0" text="Borrar datos " textFill="#242323" />
-                  <Button layoutX="673.0" layoutY="218.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="66.0" text="Eliminar" textFill="#f21111" />
-                  <Button layoutX="659.0" layoutY="55.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="119.0" text="seleciona imagen" />
+                  <Button layoutX="569.0" layoutY="218.0" mnemonicParsing="false" prefHeight="28.0" prefWidth="99.0" text="Borrar datos" textFill="#242323" />
+                  <Button layoutX="677.0" layoutY="218.0" mnemonicParsing="false" prefHeight="28.0" prefWidth="83.0" text="Eliminar" textFill="#f21111" />
+                  <Button layoutX="659.0" layoutY="55.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="119.0" text="seleciona imagen">
+                     <font>
+                        <Font size="8.0" />
+                     </font></Button>
                   <ImageView fitHeight="119.0" fitWidth="175.0" layoutX="474.0" layoutY="17.0" pickOnBounds="true" preserveRatio="true" />
                   <ComboBox layoutX="322.0" layoutY="98.0" prefHeight="13.0" prefWidth="119.0" />
                   <ComboBox layoutX="322.0" layoutY="69.0" prefHeight="25.0" prefWidth="119.0" />
@@ -186,7 +189,6 @@
                                     <TableColumn prefWidth="82.0" text="CORREO" />
                                     <TableColumn prefWidth="45.0" text="SEXO" />
                                     <TableColumn prefWidth="83.0" text="GRUP_SANG" />
-                                    <TableColumn text="FOTO" />
                                 </columns>
                               </TableView>
                            </children>

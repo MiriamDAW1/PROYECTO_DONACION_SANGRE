@@ -9,7 +9,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 
 public class ControladoraPrincipal implements Initializable {
-	
+	//pantalla
 	 private  Main ProgramaPrincipal;
 
 	 	@FXML
@@ -47,5 +47,6 @@ public class ControladoraPrincipal implements Initializable {
 	       	this.ProgramaPrincipal.mostrarVentanainformes();
 	    }
 	   
+	    //elementos
 	   
 }

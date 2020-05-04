@@ -1,10 +1,12 @@
 package Vista;
+import Controlador.Main;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
 
 public class ControladoraDonante {
-	 private  Controlador.Main ProgramaPrincipal;
+	//pantalla
+	private Main ProgramaPrincipal;
 		
 		@FXML
 		private Button buttonclose;
@@ -20,4 +22,5 @@ public class ControladoraDonante {
 			this.ventana.close();
 		}
 
+		//elementos
 }

@@ -4,7 +4,7 @@ import java.io.IOException;
 
 import Vista.ControladoraDonacion;
 import Vista.ControladoraDonante;
-
+import Vista.ControladoraFormulario;
 import Vista.ControladoraPrincipal;
 import Vista.Controladorainformes;
 import javafx.application.Application;
@@ -80,7 +80,7 @@ public class Main  extends Application{
 	        }
 	    }
 	    
-	  //Ventana donantes  
+	  //Ventana donaciones  
 	    public void mostrarVentanaDonaciones() {
 	        try {
 	            FXMLLoader loader = new FXMLLoader(Main.class.getResource("../vista/PantallaDonacion.fxml"));
@@ -94,6 +94,31 @@ public class Main  extends Application{
 	            ventana.setScene(scene);
 
 	            ControladoraDonacion controller2 = loader.getController();
+	            controller2.setStagePrincipal(ventana);
+	            controller2.setProgramaPrincipal(this);
+
+	            ventana.show();
+
+	        } catch (Exception e) {
+	            //tratar la excepción
+	        }
+	    }
+	    
+	    
+	  //Ventana formulario  
+	    public void mostrarVentanaFormulario() {
+	        try {
+	            FXMLLoader loader = new FXMLLoader(Main.class.getResource("../vista/FormularioDonantess.fxml"));
+	            AnchorPane ventanaDos = (AnchorPane) loader.load();
+	            /* Creamos la segunda ventana como otro stage */
+	            Stage ventana = new Stage();
+	            ventana.setTitle("Ventana formulario");
+	            /* Le decimos a la ventana quién es la ventana original */
+	            ventana.initOwner(stagePrincipal);
+	            Scene scene = new Scene(ventanaDos);
+	            ventana.setScene(scene);
+
+	            ControladoraFormulario controller2 = loader.getController();
 	            controller2.setStagePrincipal(ventana);
 
 	            ventana.show();

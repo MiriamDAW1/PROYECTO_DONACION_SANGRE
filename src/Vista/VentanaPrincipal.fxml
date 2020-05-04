@@ -7,22 +7,22 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Vista.ControladoraPrincipal">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" stylesheets="@application.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Vista.ControladoraPrincipal">
    <children>
       <ImageView fitHeight="419.0" fitWidth="600.0" layoutY="23.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../../Users/javichu/Desktop/PROYECTO%20APLICACION%20DONAR%20SANGRE/img%20pantalla%20incial.jpg" />
+            <Image url="@../../../../../Users/javichu/Desktop/PROYECTO%20APLICACION%20DONAR%20SANGRE/img%20pantalla%20incial.jpg" />
          </image>
       </ImageView>
-      <Button fx:id="adminDonantes" layoutX="351.0" layoutY="123.0" mnemonicParsing="false" onAction="#abrirVentanaDonante" prefHeight="77.0" prefWidth="210.0" text="Gestión de Donantes">
+      <Button fx:id="adminDonantes" layoutX="333.0" layoutY="123.0" mnemonicParsing="false" onAction="#abrirVentanaDonante" prefHeight="77.0" prefWidth="233.0" text="Gestión de Donantes">
          <font>
             <Font size="19.0" />
          </font></Button>
-      <Button fx:id="adminDonaciones" layoutX="33.0" layoutY="284.0" mnemonicParsing="false" onAction="#abrirVentanaDonacion" prefHeight="77.0" prefWidth="222.0" text="Gestión de Donaciones">
+      <Button fx:id="adminDonaciones" layoutX="33.0" layoutY="284.0" mnemonicParsing="false" onAction="#abrirVentanaDonacion" prefHeight="77.0" prefWidth="254.0" text="Gestión de Donaciones">
          <font>
             <Font size="19.0" />
          </font></Button>
-      <Button fx:id="adminInformesyestadisticas" layoutX="333.0" layoutY="297.0" mnemonicParsing="false" onAction="#abrirVentanaInformes" prefHeight="77.0" prefWidth="199.0" text="Reproducir Informes" textFill="#070101">
+      <Button fx:id="adminInformesyestadisticas" layoutX="333.0" layoutY="297.0" mnemonicParsing="false" onAction="#abrirVentanaInformes" prefHeight="77.0" prefWidth="233.0" text="Reproducir Informes" textFill="#070101">
          <font>
             <Font size="19.0" />
          </font></Button>
