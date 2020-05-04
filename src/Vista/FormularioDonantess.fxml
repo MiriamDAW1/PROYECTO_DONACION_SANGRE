@@ -1,0 +1,602 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="738.0" prefWidth="671.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <ScrollPane layoutX="-4.0" prefHeight="738.0" prefWidth="671.0">
+        <content>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="735.0" prefWidth="674.0">
+               <children>
+                  <SplitPane dividerPositions="0.17313915857605178" layoutX="2.0" layoutY="-8.0" orientation="VERTICAL" prefHeight="738.0" prefWidth="661.0">
+                    <items>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="87.0" prefWidth="661.0">
+                           <children>
+                              <Label alignment="CENTER" layoutX="87.0" layoutY="19.0" text="FORMULARIO GENERAL AL DONANTE DE SANGRE " textAlignment="CENTER">
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="108.0" layoutY="46.0" prefHeight="17.0" prefWidth="389.0" text="POR FAVOR LEA ATENTAMENTE Y SEÑALE SÍ O NO A CADA PREGUNTA" />
+                              <Label layoutX="577.0" layoutY="75.0" prefHeight="17.0" prefWidth="49.0" text="FECHA" />
+                              <DatePicker layoutX="386.0" layoutY="71.0" />
+                              <Label layoutX="54.0" layoutY="75.0" text="Codigo del donante " />
+                              <TextField layoutX="171.0" layoutY="71.0" />
+                              <Button layoutY="7.0" mnemonicParsing="false" text="Atras" />
+                           </children>
+                        </AnchorPane>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="565.0" prefWidth="659.0">
+                           <children>
+                              <Label layoutX="14.0" layoutY="14.0" prefHeight="13.0" prefWidth="505.0" text="1)¿su edad esta comprendida entre los 18 y los 65 años?.............................................................................................................................................">
+                                 <font>
+                                    <Font size="9.0" />
+                                 </font>
+                              </Label>
+                              <RadioButton layoutX="528.0" layoutY="14.0" mnemonicParsing="false" text="SI">
+                                 <font>
+                                    <Font size="9.0" />
+                                 </font>
+                              </RadioButton>
+                              <RadioButton layoutX="556.0" layoutY="14.0" mnemonicParsing="false" text="NO">
+                                 <font>
+                                    <Font size="9.0" />
+                                 </font>
+                              </RadioButton>
+                              <Label layoutX="14.0" layoutY="27.0" prefHeight="13.0" prefWidth="505.0" text="2)¿Se encuentra bien hoy? ..........................................................................................................................................................................................................">
+                                 <font>
+                                    <Font size="9.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="14.0" layoutY="40.0" prefHeight="13.0" prefWidth="505.0" text="3)¿Pesa mas de 50 kg?......................................................................................................................,...........................................................................................">
+                                 <font>
+                                    <Font size="9.0" />
+                                 </font>
+                              </Label>
+                              <RadioButton layoutX="528.0" layoutY="27.0" mnemonicParsing="false" text="SI">
+                                 <font>
+                                    <Font size="9.0" />
+                                 </font>
+                              </RadioButton>
+                              <RadioButton layoutX="556.0" layoutY="27.0" mnemonicParsing="false" text="NO">
+                                 <font>
+                                    <Font size="9.0" />
+                                 </font>
+                              </RadioButton>
+                              <RadioButton layoutX="528.0" layoutY="40.0" mnemonicParsing="false" text="SI">
+                                 <font>
+                                    <Font size="9.0" />
+                                 </font>
+                              </RadioButton>
+                              <RadioButton layoutX="556.0" layoutY="40.0" mnemonicParsing="false" text="NO">
+                                 <font>
+                                    <Font size="9.0" />
+                                 </font>
+                              </RadioButton>
+                              <Label layoutX="14.0" layoutY="53.0" prefHeight="13.0" prefWidth="505.0" text="4)¿Es la primera vez que dona sangre?..............................................................................................................................................................................">
+                                 <font>
+                                    <Font size="9.0" />
+                                 </font>
+                              </Label>
+                              <RadioButton layoutX="528.0" layoutY="53.0" mnemonicParsing="false" text="SI">
+                                 <font>
+                                    <Font size="9.0" />
+                                 </font>
+                              </RadioButton>
+                              <RadioButton layoutX="556.0" layoutY="53.0" mnemonicParsing="false" text="NO">
+                                 <font>
+                                    <Font size="9.0" />
+                                 </font>
+                              </RadioButton>
+                              <Label layoutX="14.0" layoutY="66.0" prefHeight="13.0" prefWidth="505.0" text="5)¿Ha donado  sangre o aféresis en los últimos 12 meses?.....................................................................................................................................">
+                                 <font>
+                                    <Font size="9.0" />
+                                 </font>
+                              </Label>
+                              <RadioButton layoutX="528.0" layoutY="66.0" mnemonicParsing="false" text="SI">
+                                 <font>
+                                    <Font size="9.0" />
+                                 </font>
+                              </RadioButton>
+                              <RadioButton layoutX="556.0" layoutY="66.0" mnemonicParsing="false" text="NO">
+                                 <font>
+                                    <Font size="9.0" />
+                                 </font>
+                              </RadioButton>
+                              <Label layoutX="14.0" layoutY="79.0" prefHeight="13.0" prefWidth="505.0" text="6)¿Ha sido rechazado alguna vez como donante?.....................................................................................................................................................">
+                                 <font>
+                                    <Font size="9.0" />
+                                 </font>
+                              </Label>
+                              <RadioButton layoutX="528.0" layoutY="79.0" mnemonicParsing="false" text="SI">
+                                 <font>
+                                    <Font size="9.0" />
+                                 </font>
+                              </RadioButton>
+                              <RadioButton layoutX="556.0" layoutY="79.0" mnemonicParsing="false" text="NO">
+                                 <font>
+                                    <Font size="9.0" />
+                                 </font>
+                              </RadioButton>
+                              <Label layoutX="14.0" layoutY="92.0" prefHeight="13.0" prefWidth="505.0" text="7)¿Convive en la actualidad o ha convivido en los últimos 4 meses con algún enfermo de SIDA o hepatitis?...............................................................">
+                                 <font>
+                                    <Font size="9.0" />
+                                 </font>
+                              </Label>
+                              <RadioButton layoutX="528.0" layoutY="92.0" mnemonicParsing="false" text="SI">
+                                 <font>
+                                    <Font size="9.0" />
+                                 </font>
+                              </RadioButton>
+                              <RadioButton layoutX="556.0" layoutY="92.0" mnemonicParsing="false" text="NO">
+                                 <font>
+                                    <Font size="9.0" />
+                                 </font>
+                              </RadioButton>
+                              <Label layoutX="14.0" layoutY="105.0" prefHeight="13.0" prefWidth="505.0" text="8)¿Ha compartido  en los últimos 4 meses maquinillas de afeitar o cepillos de dientes, aunque sea con familiares o amigos?...............................................................">
+                                 <font>
+                                    <Font size="9.0" />
+                                 </font>
+                              </Label>
+                              <RadioButton layoutX="528.0" layoutY="105.0" mnemonicParsing="false" text="SI">
+                                 <font>
+                                    <Font size="9.0" />
+                                 </font>
+                              </RadioButton>
+                              <RadioButton layoutX="556.0" layoutY="105.0" mnemonicParsing="false" text="NO">
+                                 <font>
+                                    <Font size="9.0" />
+                                 </font>
+                              </RadioButton>
+                              <Label layoutX="14.0" layoutY="118.0" prefHeight="13.0" prefWidth="505.0" text="9)¿Se ha vacunado en el último mes o le han puesto inmunoglobulinas en los últimos 12 meses?...............................................................">
+                                 <font>
+                                    <Font size="9.0" />
+                                 </font>
+                              </Label>
+                              <RadioButton layoutX="528.0" layoutY="119.0" mnemonicParsing="false" text="SI">
+                                 <font>
+                                    <Font size="9.0" />
+                                 </font>
+                              </RadioButton>
+                              <RadioButton layoutX="556.0" layoutY="118.0" mnemonicParsing="false" text="NO">
+                                 <font>
+                                    <Font size="9.0" />
+                                 </font>
+                              </RadioButton>
+                              <Label layoutX="14.0" layoutY="132.0" prefHeight="13.0" prefWidth="505.0" text="10)¿Le han puesto la vacuna  de la rabia en el último año?..........................................................................................................................................">
+                                 <font>
+                                    <Font size="9.0" />
+                                 </font>
+                              </Label>
+                              <RadioButton layoutX="528.0" layoutY="132.0" mnemonicParsing="false" text="SI">
+                                 <font>
+                                    <Font size="9.0" />
+                                 </font>
+                              </RadioButton>
+                              <RadioButton layoutX="556.0" layoutY="132.0" mnemonicParsing="false" text="NO">
+                                 <font>
+                                    <Font size="9.0" />
+                                 </font>
+                              </RadioButton>
+                              <Label layoutX="14.0" layoutY="145.0" prefHeight="13.0" prefWidth="505.0" text="11)¿Se ha realizado algún tratamiento dental en los últimos 7 días?......................................................................................................................................">
+                                 <font>
+                                    <Font size="9.0" />
+                                 </font>
+                              </Label>
+                              <RadioButton layoutX="528.0" layoutY="145.0" mnemonicParsing="false" text="SI">
+                                 <font>
+                                    <Font size="9.0" />
+                                 </font>
+                              </RadioButton>
+                              <RadioButton layoutX="556.0" layoutY="145.0" mnemonicParsing="false" text="NO">
+                                 <font>
+                                    <Font size="9.0" />
+                                 </font>
+                              </RadioButton>
+                              <Label layoutX="14.0" layoutY="158.0" prefHeight="13.0" prefWidth="505.0" text="12)¿Ha tomado alguna vez: PROSCAR, PROPECIA, ROACUTAN, ISOTREX, TIGASON, NEOTIGASON, AVODART, DUAGEN?......................................................................................................................................">
+                                 <font>
+                                    <Font size="9.0" />
+                                 </font>
+                              </Label>
+                              <RadioButton layoutX="528.0" layoutY="158.0" mnemonicParsing="false" text="SI">
+                                 <font>
+                                    <Font size="9.0" />
+                                 </font>
+                              </RadioButton>
+                              <RadioButton layoutX="556.0" layoutY="158.0" mnemonicParsing="false" text="NO">
+                                 <font>
+                                    <Font size="9.0" />
+                                 </font>
+                              </RadioButton>
+                              <Label layoutX="14.0" layoutY="171.0" prefHeight="13.0" prefWidth="505.0" text="13)¿Ha tenido fiebre (&gt;38º C), diarrea, o alguna otra infección en los últimos quince días?......................................................................................................................................">
+                                 <font>
+                                    <Font size="9.0" />
+                                 </font>
+                              </Label>
+                              <RadioButton layoutX="528.0" layoutY="171.0" mnemonicParsing="false" text="SI">
+                                 <font>
+                                    <Font size="9.0" />
+                                 </font>
+                              </RadioButton>
+                              <RadioButton layoutX="556.0" layoutY="171.0" mnemonicParsing="false" text="NO">
+                                 <font>
+                                    <Font size="9.0" />
+                                 </font>
+                              </RadioButton>
+                              <Label layoutX="14.0" layoutY="184.0" prefHeight="13.0" prefWidth="505.0" text="14)¿a sido hospitalizado, operado de algo o le han realizado una endoscopia (gastroscopia, artroscopia, colonoscopia, ">
+                                 <font>
+                                    <Font size="9.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="24.0" layoutY="194.0" prefHeight="13.0" prefWidth="505.0" text="rinoscopia) en los últimos cuatro meses?............................................................................................................................................................................">
+                                 <font>
+                                    <Font size="9.0" />
+                                 </font>
+                              </Label>
+                              <RadioButton layoutX="528.0" layoutY="194.0" mnemonicParsing="false" text="SI">
+                                 <font>
+                                    <Font size="9.0" />
+                                 </font>
+                              </RadioButton>
+                              <RadioButton layoutX="556.0" layoutY="194.0" mnemonicParsing="false" text="NO">
+                                 <font>
+                                    <Font size="9.0" />
+                                 </font>
+                              </RadioButton>
+                              <Label layoutX="14.0" layoutY="207.0" prefHeight="13.0" prefWidth="505.0" text="15)¿Ha sufrido alguna salpicadura con sangre o punción accidental con aguja en los últimos 4 meses?..............................................">
+                                 <font>
+                                    <Font size="9.0" />
+                                 </font>
+                              </Label>
+                              <RadioButton layoutX="528.0" layoutY="207.0" mnemonicParsing="false" text="SI">
+                                 <font>
+                                    <Font size="9.0" />
+                                 </font>
+                              </RadioButton>
+                              <RadioButton layoutX="556.0" layoutY="207.0" mnemonicParsing="false" text="NO">
+                                 <font>
+                                    <Font size="9.0" />
+                                 </font>
+                              </RadioButton>
+                              <Label layoutX="14.0" layoutY="220.0" prefHeight="13.0" prefWidth="505.0" text="16)¿Se ha hecho algún tatuaje, piercing, agujero en oreja, acupuntura en los últimos 4 meses?.............................................................">
+                                 <font>
+                                    <Font size="9.0" />
+                                 </font>
+                              </Label>
+                              <RadioButton layoutX="528.0" layoutY="220.0" mnemonicParsing="false" text="SI">
+                                 <font>
+                                    <Font size="9.0" />
+                                 </font>
+                              </RadioButton>
+                              <RadioButton layoutX="556.0" layoutY="220.0" mnemonicParsing="false" text="NO">
+                                 <font>
+                                    <Font size="9.0" />
+                                 </font>
+                              </RadioButton>
+                              <Label layoutX="14.0" layoutY="233.0" prefHeight="13.0" prefWidth="505.0" text="17)¿Si es mujer ¿Ha estado embarazada en los últimos seis meses? ¿Está todavía amamantando al niño?,........................................">
+                                 <font>
+                                    <Font size="9.0" />
+                                 </font>
+                              </Label>
+                              <RadioButton layoutX="528.0" layoutY="233.0" mnemonicParsing="false" text="SI">
+                                 <font>
+                                    <Font size="9.0" />
+                                 </font>
+                              </RadioButton>
+                              <RadioButton layoutX="556.0" layoutY="233.0" mnemonicParsing="false" text="NO">
+                                 <font>
+                                    <Font size="9.0" />
+                                 </font>
+                              </RadioButton>
+                              <Label layoutX="14.0" layoutY="246.0" prefHeight="13.0" prefWidth="505.0" text="18)¿Ha tenido algún episodio alérgico importante en el último año? ¿Sufre de asma? ...............................................................................">
+                                 <font>
+                                    <Font size="9.0" />
+                                 </font>
+                              </Label>
+                              <RadioButton layoutX="528.0" layoutY="246.0" mnemonicParsing="false" text="SI">
+                                 <font>
+                                    <Font size="9.0" />
+                                 </font>
+                              </RadioButton>
+                              <RadioButton layoutX="556.0" layoutY="246.0" mnemonicParsing="false" text="NO">
+                                 <font>
+                                    <Font size="9.0" />
+                                 </font>
+                              </RadioButton>
+                              <Label layoutX="14.0" layoutY="259.0" prefHeight="13.0" prefWidth="505.0" text="19)¿Ha padecido alguna enfermedad infecciosa grave: hepatitis, tuberculosis, fiebre de malta, toxoplasmosis, sífilis, gonorrea, ? ...............................................................................">
+                                 <font>
+                                    <Font size="9.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="24.0" layoutY="269.0" prefHeight="13.0" prefWidth="505.0" text=" babesiosis, paludismo o malaria, SIDA, fiebre reumática, mononucleosis infecciosa, osteomielitis, fiebre Q, Kala-Azar?...............">
+                                 <font>
+                                    <Font size="9.0" />
+                                 </font>
+                              </Label>
+                              <RadioButton layoutX="528.0" layoutY="269.0" mnemonicParsing="false" text="SI">
+                                 <font>
+                                    <Font size="9.0" />
+                                 </font>
+                              </RadioButton>
+                              <RadioButton layoutX="556.0" layoutY="269.0" mnemonicParsing="false" text="NO">
+                                 <font>
+                                    <Font size="9.0" />
+                                 </font>
+                              </RadioButton>
+                              <Label layoutX="14.0" layoutY="282.0" prefHeight="13.0" prefWidth="505.0" text="20)¿ Ha tenido alguna enfermedad grave de cerebro, riñón, tiroides, pulmón, corazón  (infarto, angina, arritmia),">
+                                 <font>
+                                    <Font size="9.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="24.0" layoutY="292.0" prefHeight="13.0" prefWidth="505.0" text="aparato digestivo,diabetes, cáncer, o problemas de coagulación?........................................................................................................................">
+                                 <font>
+                                    <Font size="9.0" />
+                                 </font>
+                              </Label>
+                              <RadioButton layoutX="528.0" layoutY="292.0" mnemonicParsing="false" text="SI">
+                                 <font>
+                                    <Font size="9.0" />
+                                 </font>
+                              </RadioButton>
+                              <RadioButton layoutX="556.0" layoutY="292.0" mnemonicParsing="false" text="NO">
+                                 <font>
+                                    <Font size="9.0" />
+                                 </font>
+                              </RadioButton>
+                              <Label layoutX="14.0" layoutY="305.0" prefHeight="13.0" prefWidth="505.0" text="21)¿Ha tenido convulsiones no febriles, desmayos o epilepsia?..............................................................................................................................">
+                                 <font>
+                                    <Font size="9.0" />
+                                 </font>
+                              </Label>
+                              <RadioButton layoutX="528.0" layoutY="305.0" mnemonicParsing="false" text="SI">
+                                 <font>
+                                    <Font size="9.0" />
+                                 </font>
+                              </RadioButton>
+                              <RadioButton layoutX="556.0" layoutY="305.0" mnemonicParsing="false" text="NO">
+                                 <font>
+                                    <Font size="9.0" />
+                                 </font>
+                              </RadioButton>
+                              <Label layoutX="14.0" layoutY="318.0" prefHeight="13.0" prefWidth="505.0" text="22)¿Le han transfundido sangre en alguna ocasión? ....................................................................................................................................................">
+                                 <font>
+                                    <Font size="9.0" />
+                                 </font>
+                              </Label>
+                              <RadioButton layoutX="528.0" layoutY="318.0" mnemonicParsing="false" text="SI">
+                                 <font>
+                                    <Font size="9.0" />
+                                 </font>
+                              </RadioButton>
+                              <RadioButton layoutX="556.0" layoutY="318.0" mnemonicParsing="false" text="NO">
+                                 <font>
+                                    <Font size="9.0" />
+                                 </font>
+                              </RadioButton>
+                              <Label layoutX="14.0" layoutY="331.0" prefHeight="13.0" prefWidth="505.0" text="23)¿Ha utilizado anabolizantes para aumentar la musculatura alguna vez en su vida? ....................................................................................................................................................">
+                                 <font>
+                                    <Font size="9.0" />
+                                 </font>
+                              </Label>
+                              <RadioButton layoutX="528.0" layoutY="331.0" mnemonicParsing="false" text="SI">
+                                 <font>
+                                    <Font size="9.0" />
+                                 </font>
+                              </RadioButton>
+                              <RadioButton layoutX="556.0" layoutY="331.0" mnemonicParsing="false" text="NO">
+                                 <font>
+                                    <Font size="9.0" />
+                                 </font>
+                              </RadioButton>
+                              <Label layoutX="14.0" layoutY="344.0" prefHeight="13.0" prefWidth="505.0" text="24)¿Ha sido tratado con hormonas de crecimiento?, ¿tiene antecedentes de trasplante de cornea  o injerto de duramadre? ....">
+                                 <font>
+                                    <Font size="9.0" />
+                                 </font>
+                              </Label>
+                              <RadioButton layoutX="528.0" layoutY="344.0" mnemonicParsing="false" text="SI">
+                                 <font>
+                                    <Font size="9.0" />
+                                 </font>
+                              </RadioButton>
+                              <RadioButton layoutX="556.0" layoutY="344.0" mnemonicParsing="false" text="NO">
+                                 <font>
+                                    <Font size="9.0" />
+                                 </font>
+                              </RadioButton>
+                              <Label layoutX="14.0" layoutY="357.0" prefHeight="13.0" prefWidth="505.0" text="25)¿Ha residido en el Reino Unido más de un año acumulativo entre los años 1980 a 1996 inclusive? ¿Tiene antecedentes">
+                                 <font>
+                                    <Font size="9.0" />
+                                 </font>
+                              </Label>
+                              <RadioButton layoutX="528.0" layoutY="357.0" mnemonicParsing="false" text="SI">
+                                 <font>
+                                    <Font size="9.0" />
+                                 </font>
+                              </RadioButton>
+                              <RadioButton layoutX="556.0" layoutY="357.0" mnemonicParsing="false" text="NO">
+                                 <font>
+                                    <Font size="9.0" />
+                                 </font>
+                              </RadioButton>
+                              <Label layoutX="14.0" layoutY="370.0" prefHeight="13.0" prefWidth="505.0" text=" familiares  de enfermedad de Creutzfeldt Jacob (enfermedad de las vacas locas)?..........................................................................................">
+                                 <font>
+                                    <Font size="9.0" />
+                                 </font>
+                              </Label>
+                              <RadioButton layoutX="528.0" layoutY="370.0" mnemonicParsing="false" text="SI">
+                                 <font>
+                                    <Font size="9.0" />
+                                 </font>
+                              </RadioButton>
+                              <RadioButton layoutX="556.0" layoutY="370.0" mnemonicParsing="false" text="NO">
+                                 <font>
+                                    <Font size="9.0" />
+                                 </font>
+                              </RadioButton>
+                              <Label layoutX="14.0" layoutY="383.0" prefHeight="13.0" prefWidth="505.0" text="26)¿Ha nacido Vd.,su madre o su abuela materna fuera de la UE? ........................................................................................................................">
+                                 <font>
+                                    <Font size="9.0" />
+                                 </font>
+                              </Label>
+                              <RadioButton layoutX="528.0" layoutY="383.0" mnemonicParsing="false" text="SI">
+                                 <font>
+                                    <Font size="9.0" />
+                                 </font>
+                              </RadioButton>
+                              <RadioButton layoutX="556.0" layoutY="383.0" mnemonicParsing="false" text="NO">
+                                 <font>
+                                    <Font size="9.0" />
+                                 </font>
+                              </RadioButton>
+                              <Label layoutX="14.0" layoutY="396.0" prefHeight="13.0" prefWidth="505.0">
+                                 <font>
+                                    <Font size="9.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="14.0" layoutY="396.0" prefHeight="13.0" prefWidth="505.0" text="27)¿Ha viajado fuera de la UE en los últimos 6 meses? ...............................................................................................................................................">
+                                 <font>
+                                    <Font size="9.0" />
+                                 </font>
+                              </Label>
+                              <RadioButton layoutX="528.0" layoutY="396.0" mnemonicParsing="false" text="SI">
+                                 <font>
+                                    <Font size="9.0" />
+                                 </font>
+                              </RadioButton>
+                              <RadioButton layoutX="556.0" layoutY="396.0" mnemonicParsing="false" text="NO">
+                                 <font>
+                                    <Font size="9.0" />
+                                 </font>
+                              </RadioButton>
+                              <Label layoutX="14.0" layoutY="409.0" prefHeight="13.0" prefWidth="505.0" text="28)¿Ha residido en algún momento de su vida 6 o más meses fuera de la UE?.............................................................................................">
+                                 <font>
+                                    <Font size="9.0" />
+                                 </font>
+                              </Label>
+                              <RadioButton layoutX="528.0" layoutY="409.0" mnemonicParsing="false" text="SI">
+                                 <font>
+                                    <Font size="9.0" />
+                                 </font>
+                              </RadioButton>
+                              <RadioButton layoutX="556.0" layoutY="409.0" mnemonicParsing="false" text="NO">
+                                 <font>
+                                    <Font size="9.0" />
+                                 </font>
+                              </RadioButton>
+                              <Label layoutX="14.0" layoutY="422.0" prefHeight="13.0" prefWidth="505.0" text="29)¿Va a realizar en las siguientes doce horas tras la donación alguna actividad laboral de riesgo?.............................................................................................">
+                                 <font>
+                                    <Font size="9.0" />
+                                 </font>
+                              </Label>
+                              <RadioButton layoutX="528.0" layoutY="422.0" mnemonicParsing="false" text="SI">
+                                 <font>
+                                    <Font size="9.0" />
+                                 </font>
+                              </RadioButton>
+                              <RadioButton layoutX="556.0" layoutY="422.0" mnemonicParsing="false" text="NO">
+                                 <font>
+                                    <Font size="9.0" />
+                                 </font>
+                              </RadioButton>
+                              <Label layoutX="14.0" layoutY="435.0" prefHeight="13.0" prefWidth="505.0" text="30)En el último año, ¿Le han hecho alguna prueba o reconocimiento médico?..............................................................................................">
+                                 <font>
+                                    <Font size="9.0" />
+                                 </font>
+                              </Label>
+                              <RadioButton layoutX="528.0" layoutY="435.0" mnemonicParsing="false" text="SI">
+                                 <font>
+                                    <Font size="9.0" />
+                                 </font>
+                              </RadioButton>
+                              <RadioButton layoutX="556.0" layoutY="435.0" mnemonicParsing="false" text="NO">
+                                 <font>
+                                    <Font size="9.0" />
+                                 </font>
+                              </RadioButton>
+                              <Label layoutX="14.0" layoutY="448.0" prefHeight="13.0" prefWidth="505.0" text="31¿Ha entendido correctamente las preguntas formuladas en este cuestionario?...............................................................................................">
+                                 <font>
+                                    <Font size="9.0" />
+                                 </font>
+                              </Label>
+                              <RadioButton layoutX="528.0" layoutY="448.0" mnemonicParsing="false" text="SI">
+                                 <font>
+                                    <Font size="9.0" />
+                                 </font>
+                              </RadioButton>
+                              <RadioButton layoutX="556.0" layoutY="448.0" mnemonicParsing="false" text="NO">
+                                 <font>
+                                    <Font size="9.0" />
+                                 </font>
+                              </RadioButton>
+                              <Label layoutX="14.0" layoutY="481.0" prefHeight="13.0" prefWidth="555.0" text="1-¿Padece o ha padecido alguna vez una enfermedad de transmisión sexual o transmisible por la sangre (SIDA, sífilis, gonorrea, clamidia)? ">
+                                 <font>
+                                    <Font size="9.0" />
+                                 </font>
+                              </Label>
+                              <RadioButton layoutX="569.0" layoutY="481.0" mnemonicParsing="false" text="SI">
+                                 <font>
+                                    <Font size="9.0" />
+                                 </font>
+                              </RadioButton>
+                              <RadioButton layoutX="601.0" layoutY="481.0" mnemonicParsing="false" text="NO">
+                                 <font>
+                                    <Font size="9.0" />
+                                 </font>
+                              </RadioButton>
+                              <Label layoutX="14.0" layoutY="494.0" prefHeight="13.0" prefWidth="555.0" text="2- ¿Ha mantenido una relación sexual con una nueva pareja en los últimos 4 meses sin protección?   ">
+                                 <font>
+                                    <Font size="9.0" />
+                                 </font>
+                              </Label>
+                              <RadioButton layoutX="569.0" layoutY="494.0" mnemonicParsing="false" text="SI">
+                                 <font>
+                                    <Font size="9.0" />
+                                 </font>
+                              </RadioButton>
+                              <RadioButton layoutX="601.0" layoutY="494.0" mnemonicParsing="false" text="NO">
+                                 <font>
+                                    <Font size="9.0" />
+                                 </font>
+                              </RadioButton>
+                              <Label layoutX="14.0" layoutY="507.0" prefHeight="13.0" prefWidth="555.0" text="3-¿Ha consumido drogas ilegales alguna vez (heroína, cocaína, etc)?">
+                                 <font>
+                                    <Font size="9.0" />
+                                 </font>
+                              </Label>
+                              <RadioButton layoutX="569.0" layoutY="507.0" mnemonicParsing="false" text="SI">
+                                 <font>
+                                    <Font size="9.0" />
+                                 </font>
+                              </RadioButton>
+                              <RadioButton layoutX="601.0" layoutY="507.0" mnemonicParsing="false" text="NO">
+                                 <font>
+                                    <Font size="9.0" />
+                                 </font>
+                              </RadioButton>
+                              <Button layoutX="167.0" layoutY="537.0" mnemonicParsing="false" text="GUARDAR ">
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font>
+                              </Button>
+                              <Button layoutX="352.0" layoutY="537.0" mnemonicParsing="false" text="BORAR DATOS">
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font>
+                              </Button>
+                           </children>
+                        </AnchorPane>
+                    </items>
+                  </SplitPane>
+               </children>
+            </AnchorPane>
+        </content>
+      </ScrollPane>
+   </children>
+</AnchorPane>
