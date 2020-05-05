@@ -1,5 +1,7 @@
 package Modelo;
 
+import java.sql.Blob;
+
 import oracle.sql.BLOB;
 
 public class Donante {
@@ -24,7 +26,7 @@ public class Donante {
 	//constructor
 	public Donante(int nUM_DONANTE, String nOMBRE, String aPELLIDO1, String aPELLIDO2, String dNI,
 			String fECHA_NACIMIENTO, String pAIS_NACIMIENTO, String dIRECCION, String pOBLACION, int cODIGO_POSTAL,
-			int tELEFONO, int tELEFONO2, String cORREO_ELECTRONICO, char sEXO, String gRUPO_SANGUINEO, BLOB fOTO) {
+			int tELEFONO, int tELEFONO2, String cORREO_ELECTRONICO, char sEXO, String gRUPO_SANGUINEO) {
 		super();
 		NUM_DONANTE = nUM_DONANTE;
 		NOMBRE = nOMBRE;
@@ -41,7 +43,6 @@ public class Donante {
 		CORREO_ELECTRONICO = cORREO_ELECTRONICO;
 		SEXO = sEXO;
 		GRUPO_SANGUINEO = gRUPO_SANGUINEO;
-		FOTO = fOTO;
 	}
 
 	//getters y setters 
@@ -165,13 +166,7 @@ public class Donante {
 		GRUPO_SANGUINEO = gRUPO_SANGUINEO;
 	}
 
-	public BLOB getFOTO() {
-		return FOTO;
-	}
-
-	public void setFOTO(BLOB fOTO) {
-		FOTO = fOTO;
-	}
+	
 	
 	
 	

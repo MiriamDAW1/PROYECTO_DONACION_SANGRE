@@ -10,6 +10,7 @@
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
@@ -18,7 +19,7 @@
    <children>
       <SplitPane dividerPositions="0.5308641975308642" layoutX="1.0" layoutY="-5.0" orientation="VERTICAL" prefHeight="488.0" prefWidth="785.0">
         <items>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="240.0" prefWidth="783.0">
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="244.0" prefWidth="776.0">
                <children>
                   <Button fx:id="buttonvolver" mnemonicParsing="false" onAction="#closeWindow" prefHeight="25.0" prefWidth="48.0" text="Atras" />
                   <Label alignment="CENTER" contentDisplay="CENTER" layoutX="304.0" layoutY="1.0" text="Datos del Donante " textFill="#fc2121">
@@ -31,7 +32,7 @@
                         <Font size="9.0" />
                      </font>
                   </Label>
-                  <TextField layoutX="94.0" layoutY="36.0">
+                  <TextField fx:id="NUM_DONANTE" layoutX="94.0" layoutY="36.0">
                      <font>
                         <Font size="9.0" />
                      </font>
@@ -41,7 +42,7 @@
                         <Font size="9.0" />
                      </font>
                   </Label>
-                  <TextField layoutX="94.0" layoutY="58.0">
+                  <TextField fx:id="NOMBRE" layoutX="94.0" layoutY="58.0">
                      <font>
                         <Font size="9.0" />
                      </font>
@@ -51,12 +52,12 @@
                         <Font size="9.0" />
                      </font>
                   </Label>
-                  <TextField layoutX="94.0" layoutY="81.0">
+                  <TextField fx:id="APELLIDO1" layoutX="94.0" layoutY="81.0">
                      <font>
                         <Font size="9.0" />
                      </font>
                   </TextField>
-                  <TextField layoutX="94.0" layoutY="104.0">
+                  <TextField fx:id="APELLIDO2" layoutX="94.0" layoutY="104.0">
                      <font>
                         <Font size="9.0" />
                      </font>
@@ -66,12 +67,12 @@
                         <Font size="9.0" />
                      </font>
                   </Label>
-                  <TextField layoutX="94.0" layoutY="126.0">
+                  <TextField fx:id="DNI" layoutX="94.0" layoutY="126.0">
                      <font>
                         <Font size="9.0" />
                      </font>
                   </TextField>
-                  <DatePicker layoutX="94.0" layoutY="150.0" prefHeight="17.0" prefWidth="119.0" />
+                  <DatePicker fx:id="FECHA_NACIMIENTO" layoutX="94.0" layoutY="150.0" prefHeight="17.0" prefWidth="119.0" />
                   <Label layoutX="4.0" layoutY="154.0" prefHeight="17.0" prefWidth="89.0" text="FECHA_NACIMIENTO">
                      <font>
                         <Font size="9.0" />
@@ -82,7 +83,7 @@
                         <Font size="9.0" />
                      </font>
                   </Label>
-                  <TextField layoutX="325.0" layoutY="34.0" prefHeight="23.0" prefWidth="113.0">
+                  <TextField fx:id="DIRECCION" layoutX="325.0" layoutY="34.0" prefHeight="23.0" prefWidth="113.0">
                      <font>
                         <Font size="10.0" />
                      </font>
@@ -102,7 +103,7 @@
                         <Font size="9.0" />
                      </font>
                   </Label>
-                  <TextField layoutX="325.0" layoutY="124.0" prefHeight="23.0" prefWidth="113.0">
+                  <TextField fx:id="TELEFONO" layoutX="325.0" layoutY="124.0" prefHeight="23.0" prefWidth="113.0">
                      <font>
                         <Font size="10.0" />
                      </font>
@@ -112,7 +113,7 @@
                         <Font size="9.0" />
                      </font>
                   </Label>
-                  <TextField layoutX="325.0" layoutY="151.0" prefHeight="23.0" prefWidth="113.0">
+                  <TextField fx:id="TELEFONO2" layoutX="325.0" layoutY="151.0" prefHeight="23.0" prefWidth="113.0">
                      <font>
                         <Font size="10.0" />
                      </font>
@@ -132,38 +133,49 @@
                         <Font size="9.0" />
                      </font>
                   </Label>
-                  <TextField layoutX="325.0" layoutY="181.0" prefHeight="23.0" prefWidth="113.0">
+                  <TextField fx:id="CORREO_ELECTRONICO" layoutX="325.0" layoutY="181.0" prefHeight="23.0" prefWidth="113.0">
                      <font>
                         <Font size="10.0" />
                      </font>
                   </TextField>
                   <Label layoutX="260.0" layoutY="220.0" text="SEXO" />
-                  <RadioButton layoutX="329.0" layoutY="229.0" mnemonicParsing="false" text="M" />
-                  <RadioButton layoutX="330.0" layoutY="210.0" mnemonicParsing="false" text="H" />
+                  <RadioButton fx:id="M" layoutX="329.0" layoutY="229.0" mnemonicParsing="false" text="M" />
+                  <RadioButton fx:id="H" layoutX="330.0" layoutY="210.0" mnemonicParsing="false" text="H">
+                     <toggleGroup>
+                        <ToggleGroup fx:id="SEXO" />
+                     </toggleGroup></RadioButton>
                   <Label layoutY="223.0" prefHeight="17.0" prefWidth="89.0" text="GRUPO_SANGUINEO">
                      <font>
                         <Font size="9.0" />
                      </font>
                   </Label>
-                  <Button layoutX="521.0" layoutY="172.0" mnemonicParsing="false" text="buscar por DNI" />
-                  <TextField layoutX="488.0" layoutY="141.0" prefHeight="27.0" prefWidth="163.0">
+                  <Button fx:id="BotonbuscarDNI" layoutX="521.0" layoutY="172.0" mnemonicParsing="false" text="buscar por DNI" />
+                  <TextField fx:id="TextFieldBucarporDNI" layoutX="488.0" layoutY="141.0" prefHeight="27.0" prefWidth="163.0">
                      <font>
                         <Font size="10.0" />
                      </font>
                   </TextField>
-                  <Button layoutX="497.0" layoutY="218.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="66.0" text="Guardar" textFill="#26bd18" />
-                  <Button layoutX="569.0" layoutY="218.0" mnemonicParsing="false" prefHeight="28.0" prefWidth="99.0" text="Borrar datos" textFill="#242323" />
-                  <Button layoutX="677.0" layoutY="218.0" mnemonicParsing="false" prefHeight="28.0" prefWidth="83.0" text="Eliminar" textFill="#f21111" />
-                  <Button layoutX="659.0" layoutY="55.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="119.0" text="seleciona imagen">
+                  <Button fx:id="GUARDAR" layoutX="497.0" layoutY="218.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="66.0" text="Guardar" textFill="#26bd18" />
+                  <Button fx:id="BORRAR" layoutX="569.0" layoutY="218.0" mnemonicParsing="false" prefHeight="28.0" prefWidth="99.0" text="Borrar datos" textFill="#242323" />
+                  <Button fx:id="ELIMINAR" layoutX="677.0" layoutY="218.0" mnemonicParsing="false" prefHeight="28.0" prefWidth="83.0" text="Eliminar" textFill="#f21111" />
+                  <Button fx:id="SELECIONARIMAGEN" layoutX="659.0" layoutY="55.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="119.0" text="seleciona imagen">
                      <font>
                         <Font size="8.0" />
                      </font></Button>
                   <ImageView fitHeight="119.0" fitWidth="175.0" layoutX="474.0" layoutY="17.0" pickOnBounds="true" preserveRatio="true" />
-                  <ComboBox layoutX="322.0" layoutY="98.0" prefHeight="13.0" prefWidth="119.0" />
-                  <ComboBox layoutX="322.0" layoutY="69.0" prefHeight="25.0" prefWidth="119.0" />
-                  <ComboBox layoutX="94.0" layoutY="180.0" prefHeight="13.0" prefWidth="119.0" />
-                  <ComboBox layoutX="94.0" layoutY="211.0" prefHeight="13.0" prefWidth="119.0" />
-                  <Button layoutX="659.0" layoutY="90.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="119.0" text="Generar Carnet" />
+                  <ComboBox fx:id="PAIS_NACIMIENTO" layoutX="94.0" layoutY="180.0" prefHeight="13.0" prefWidth="119.0" />
+                  <ComboBox fx:id="GRUPO_SANGUINEO" layoutX="94.0" layoutY="211.0" prefHeight="13.0" prefWidth="119.0" />
+                  <Button fx:id="GENERARCARNET" layoutX="659.0" layoutY="90.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="119.0" text="Generar Carnet" />
+                  <TextField fx:id="CODIGO_POSTAL" layoutX="325.0" layoutY="99.0" prefHeight="23.0" prefWidth="113.0">
+                     <font>
+                        <Font size="10.0" />
+                     </font>
+                  </TextField>
+                  <TextField fx:id="POBLACION" layoutX="325.0" layoutY="69.0" prefHeight="23.0" prefWidth="113.0">
+                     <font>
+                        <Font size="10.0" />
+                     </font>
+                  </TextField>
                </children>
             </AnchorPane>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="213.0" prefWidth="783.0">
@@ -172,23 +184,23 @@
                     <content>
                       <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="204.0" prefWidth="1185.0">
                            <children>
-                              <TableView layoutX="-2.0" layoutY="4.0" prefHeight="196.0" prefWidth="1187.0">
+                              <TableView fx:id="tabla" layoutX="1.0" prefHeight="202.0" prefWidth="1185.0">
                                 <columns>
-                                  <TableColumn prefWidth="99.0" text="NUM_DONANTE" />
-                                  <TableColumn minWidth="0.0" text="NOMBRE" />
-                                    <TableColumn minWidth="0.0" prefWidth="77.0" text="APELLIDO1" />
-                                    <TableColumn prefWidth="77.0" text="APELLIDO2" />
-                                    <TableColumn prefWidth="42.0" text="DNI" />
-                                    <TableColumn prefWidth="84.0" text="FECHA_NAC" />
-                                    <TableColumn prefWidth="68.0" text="PAIS_NAC" />
-                                    <TableColumn prefWidth="78.0" text="DIRECCION" />
-                                    <TableColumn prefWidth="86.0" text="POBLACION" />
-                                    <TableColumn prefWidth="85.0" text="COD_POSTAL" />
-                                    <TableColumn prefWidth="62.0" text="TELEF" />
-                                    <TableColumn prefWidth="58.0" text="TELEF2" />
-                                    <TableColumn prefWidth="82.0" text="CORREO" />
-                                    <TableColumn prefWidth="45.0" text="SEXO" />
-                                    <TableColumn prefWidth="83.0" text="GRUP_SANG" />
+                                  <TableColumn fx:id="col_NUM_DONANTE" prefWidth="99.0" text="NUM_DONANTE" />
+                                  <TableColumn fx:id="col_NOMBRE" minWidth="0.0" text="NOMBRE" />
+                                    <TableColumn fx:id="col_APELLIDO1" minWidth="0.0" prefWidth="77.0" text="APELLIDO1" />
+                                    <TableColumn fx:id="col_APELLIDO2" prefWidth="77.0" text="APELLIDO2" />
+                                    <TableColumn fx:id="col_DNI" prefWidth="42.0" text="DNI" />
+                                    <TableColumn fx:id="col_FECHA_NACIMIENTO" prefWidth="84.0" text="FECHA_NAC" />
+                                    <TableColumn fx:id="col_PAIS_NACIMIENTO" prefWidth="68.0" text="PAIS_NAC" />
+                                    <TableColumn fx:id="col_DIRECCION" prefWidth="78.0" text="DIRECCION" />
+                                    <TableColumn fx:id="col_POBLACION" prefWidth="86.0" text="POBLACION" />
+                                    <TableColumn fx:id="col_CODIGO_POSTAL" prefWidth="85.0" text="COD_POSTAL" />
+                                    <TableColumn fx:id="col_TELEFONO" prefWidth="62.0" text="TELEF" />
+                                    <TableColumn fx:id="col_TELEFONO2" prefWidth="58.0" text="TELEF2" />
+                                    <TableColumn fx:id="col_CORREO_ELECTRONICO" prefWidth="82.0" text="CORREO" />
+                                    <TableColumn fx:id="col_SEXO" prefWidth="45.0" text="SEXO" />
+                                    <TableColumn fx:id="col_GRUPO_SANGUINEO" prefWidth="83.0" text="GRUP_SANG" />
                                 </columns>
                               </TableView>
                            </children>
