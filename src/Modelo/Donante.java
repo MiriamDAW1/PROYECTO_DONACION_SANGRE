@@ -2,8 +2,6 @@ package Modelo;
 
 import java.sql.Blob;
 
-import oracle.sql.BLOB;
-
 public class Donante {
 	//atributos
 	private int NUM_DONANTE;
