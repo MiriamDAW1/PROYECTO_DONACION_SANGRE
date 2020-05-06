@@ -17,6 +17,7 @@ import javafx.collections.ObservableList;
 import oracle.sql.BLOB;
 
 public class ConexionBBDD {
+	
 		private String url= "jdbc:oracle:thin:@localhost:1521:XE";
 		private String usr = "";
 		private String esptrab = "";
@@ -84,8 +85,8 @@ public class ConexionBBDD {
 		
 		//metodo bbddObtenerDonantes
 		public ObservableList<Donante> bbddObtenerDonantes() throws SQLException{
-
-			ObservableList<Donante> listapersonas = FXCollections.observableArrayList();
+			System.out.println("conecta bbdd");
+			ObservableList<Donante> listaDonantes = FXCollections.observableArrayList();
 
 			//Preparo la conexión para ejecutar sentencias SQL de tipo update
 			Statement stm = conexion.createStatement();
@@ -116,11 +117,10 @@ public class ConexionBBDD {
 					String CORREO_ELECTRONICO=resultado.getString(13);
 					char SEXO = resultado.getString(14).charAt(0);
 					String GRUPO_SANGUINEO=resultado.getString(15);
+					Blob FOTO=resultado.getBlob(16);
 					
-				
-
-					Donante nueva = new Donante(NUM_DONANTE, NOMBRE, APELLIDO1,APELLIDO2,DNI,FECHA_NACIMIENTO,PAIS_NACIMIENTO,DIRECCION,POBLACION,CODIGO_POSTAL,TELEFONO,TELEFONO2,CORREO_ELECTRONICO,SEXO,GRUPO_SANGUINEO);
-					listapersonas.add(nueva);
+					Donante nueva = new Donante(NUM_DONANTE, NOMBRE, APELLIDO1,APELLIDO2,DNI,FECHA_NACIMIENTO,PAIS_NACIMIENTO,DIRECCION,POBLACION,CODIGO_POSTAL,TELEFONO,TELEFONO2,CORREO_ELECTRONICO,SEXO,GRUPO_SANGUINEO,FOTO);
+					listaDonantes.add(nueva);
 				}
 
 				if(contador==0)
@@ -134,7 +134,7 @@ public class ConexionBBDD {
 				System.out.println(codeErrorSQL);
 			}
 
-			return listapersonas;
+			return listaDonantes;
 		}
 
 		

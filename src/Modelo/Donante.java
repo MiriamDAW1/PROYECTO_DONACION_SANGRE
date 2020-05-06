@@ -21,12 +21,12 @@ public class Donante {
 	private String CORREO_ELECTRONICO;
 	private char SEXO;
 	private String GRUPO_SANGUINEO;
-	private BLOB FOTO;
+	private Blob FOTO;
 	
 	//constructor
 	public Donante(int nUM_DONANTE, String nOMBRE, String aPELLIDO1, String aPELLIDO2, String dNI,
 			String fECHA_NACIMIENTO, String pAIS_NACIMIENTO, String dIRECCION, String pOBLACION, int cODIGO_POSTAL,
-			int tELEFONO, int tELEFONO2, String cORREO_ELECTRONICO, char sEXO, String gRUPO_SANGUINEO) {
+			int tELEFONO, int tELEFONO2, String cORREO_ELECTRONICO, char sEXO, String gRUPO_SANGUINEO, Blob fOTO) {
 		super();
 		NUM_DONANTE = nUM_DONANTE;
 		NOMBRE = nOMBRE;
@@ -43,6 +43,7 @@ public class Donante {
 		CORREO_ELECTRONICO = cORREO_ELECTRONICO;
 		SEXO = sEXO;
 		GRUPO_SANGUINEO = gRUPO_SANGUINEO;
+		FOTO = fOTO;
 	}
 
 	//getters y setters 
@@ -165,6 +166,21 @@ public class Donante {
 	public void setGRUPO_SANGUINEO(String gRUPO_SANGUINEO) {
 		GRUPO_SANGUINEO = gRUPO_SANGUINEO;
 	}
+
+	public Blob getFOTO() {
+		return FOTO;
+	}
+
+	public void setFOTO(Blob fOTO) {
+		FOTO = fOTO;
+	}
+	
+	
+	
+	
+	
+
+	
 
 	
 	

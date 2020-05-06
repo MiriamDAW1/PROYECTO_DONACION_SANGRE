@@ -275,7 +275,7 @@ public class ControladoraDonante implements Initializable{
 			private int indiceedicion;
 			
 			public void initialize() throws SQLException{
-
+				System.out.println("inicialize");
 				// Llamar a un método de la clase de manipulación de BBDD para que me devuelva un ObservableList<Persona> datos
 
 				ConexionBBDD con = new ConexionBBDD();
@@ -304,10 +304,11 @@ public class ControladoraDonante implements Initializable{
 				// Al arrancar la vista se pone edicion a false
 				edicion = false;
 				indiceedicion = 0;
+				}
+			
+			
 
 			}
 
-		
-		
-}
+	
 
