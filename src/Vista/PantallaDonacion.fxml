@@ -12,9 +12,9 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="491.0" prefWidth="796.0" stylesheets="@application.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Vista.ControladoraDonacion">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="491.0" prefWidth="820.0" stylesheets="@application.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Vista.ControladoraDonacion">
    <children>
-      <SplitPane dividerPositions="0.5" layoutX="-2.0" orientation="VERTICAL" prefHeight="492.0" prefWidth="796.0">
+      <SplitPane dividerPositions="0.5" layoutX="-2.0" orientation="VERTICAL" prefHeight="492.0" prefWidth="820.0">
         <items>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
                <children>
@@ -60,11 +60,11 @@
             </AnchorPane>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="242.0" prefWidth="843.0">
                <children>
-                  <ScrollPane layoutX="2.0" prefHeight="242.0" prefWidth="796.0">
+                  <ScrollPane layoutX="2.0" prefHeight="242.0" prefWidth="818.0">
                     <content>
-                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="242.0" prefWidth="792.0">
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="242.0" prefWidth="802.0">
                            <children>
-                              <TableView fx:id="tabla" layoutY="-5.0" prefHeight="232.0" prefWidth="782.0">
+                              <TableView fx:id="tabla" layoutY="-5.0" prefHeight="232.0" prefWidth="802.0">
                                 <columns>
                                   <TableColumn fx:id="col_NUM_DONACION" prefWidth="116.0" text="NUM_DONACION" />
                                   <TableColumn fx:id="col_COD_COLECTA" prefWidth="106.0" text="COD_COLECTA" />
@@ -73,8 +73,8 @@
                                     <TableColumn fx:id="col_TA_SIST" prefWidth="74.0" text="TA_SIST" />
                                     <TableColumn fx:id="col_TA_DIAST" prefWidth="74.0" text="TA_DIAST" />
                                     <TableColumn fx:id="col_HB_CAP" prefWidth="79.0" text="HB_CAP" />
-                                    <TableColumn fx:id="col_HB_VEN" prefWidth="71.0" text="HB_VEN" />
-                                    <TableColumn fx:id="col_FECHA" prefWidth="89.0" text="FECHA" />
+                                    <TableColumn fx:id="col_HB_VEN" prefWidth="66.0" text="HB_VEN" />
+                                    <TableColumn fx:id="col_FECHA" prefWidth="114.0" text="FECHA" />
                                 </columns>
                               </TableView>
                            </children>
