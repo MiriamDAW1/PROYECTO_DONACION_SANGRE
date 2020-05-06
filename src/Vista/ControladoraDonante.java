@@ -1,8 +1,5 @@
 package Vista;
-import java.net.URL;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.ResourceBundle;
 
 import Controlador.Main;
 import Modelo.ConexionBBDD;
@@ -10,7 +7,6 @@ import Modelo.Donante;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
@@ -21,9 +17,8 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
-import oracle.sql.BLOB;
 
-public class ControladoraDonante implements Initializable{
+public class ControladoraDonante {
 	//pantalla
 	private Main ProgramaPrincipal;
 		
@@ -56,9 +51,9 @@ public class ControladoraDonante implements Initializable{
 		@FXML
 		private DatePicker FECHA_NACIMIENTO;
 		@FXML
-		private ComboBox PAIS_NACIMIENTO;
+		private ComboBox<String> PAIS_NACIMIENTO;
 		@FXML
-		private ComboBox GRUPO_SANGUINEO;
+		private ComboBox<String> GRUPO_SANGUINEO;
 		@FXML
 		private TextField DIRECCION;
 		@FXML
@@ -131,8 +126,16 @@ public class ControladoraDonante implements Initializable{
 		//comboboxañadir
 		ObservableList<String>ListacomboPais=FXCollections.observableArrayList();
 		ObservableList<String>ListacomboGrupoSanguineo=FXCollections.observableArrayList();
-			@Override
-			public void initialize(URL arg0, ResourceBundle arg1) {
+		
+		//datos tabla
+		ObservableList<Donante> datos = FXCollections.observableArrayList();
+
+		// Atributos necesarios para codificar la edicion
+		private boolean edicion;
+		private int indiceedicion;
+		
+		//inial al cargar
+		public void initialize() throws SQLException{
 				//listacomboPais
 				ListacomboPais.add("Afganistán");
 				ListacomboPais.add("Albania");
@@ -265,19 +268,9 @@ public class ControladoraDonante implements Initializable{
 				ListacomboGrupoSanguineo.add("0 POSITIVO");
 				ListacomboGrupoSanguineo.add("0 NEGATIVO");
 				GRUPO_SANGUINEO.setItems(ListacomboGrupoSanguineo);
-			}
-		
-			//datos tabla
-			ObservableList<Donante> datos = FXCollections.observableArrayList();
-
-			// Atributos necesarios para codificar la edicion
-			private boolean edicion;
-			private int indiceedicion;
-			
-			public void initialize() throws SQLException{
-				System.out.println("inicialize");
+				
 				// Llamar a un método de la clase de manipulación de BBDD para que me devuelva un ObservableList<Persona> datos
-
+				
 				ConexionBBDD con = new ConexionBBDD();
 				datos = con.bbddObtenerDonantes();
 

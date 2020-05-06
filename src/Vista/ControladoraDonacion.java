@@ -1,8 +1,6 @@
 package Vista;
 
-import java.net.URL;
 import java.sql.SQLException;
-import java.util.ResourceBundle;
 
 import Controlador.Main;
 import Modelo.ConexionBBDD;
@@ -11,7 +9,6 @@ import Modelo.Donante;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
@@ -21,7 +18,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
-public class ControladoraDonacion implements Initializable {
+public class ControladoraDonacion  {
 	 private  Main ProgramaPrincipal;
 		
 	 //pantalla
@@ -57,9 +54,9 @@ public class ControladoraDonacion implements Initializable {
 		 @FXML
 			private TextField COD_COLECTA;
 		 @FXML
-			private ComboBox TIPO_DONACION;
+			private ComboBox<String> TIPO_DONACION;
 		 @FXML
-			private ComboBox PULSO;
+			private ComboBox<String> PULSO;
 		 @FXML
 			private TextField TA_SIST;
 		 @FXML
@@ -83,7 +80,7 @@ public class ControladoraDonacion implements Initializable {
 			
 		 //tabla
 		 @FXML
-			private TableView<Donante> tabla;
+			private TableView<Donacion> tabla;
 		 @FXML
 			private TableColumn<Donacion,Integer> col_NUM_DONACION;
 		 @FXML
@@ -101,15 +98,23 @@ public class ControladoraDonacion implements Initializable {
 		 @FXML
 			private TableColumn<Donacion,Integer> col_HB_VEN;
 		 @FXML
-			private TableColumn<Donacion,Integer> col_FECHA;
+			private TableColumn<Donacion,String> col_FECHA;
 		 
 		 
 		 
 		 //comboboxañadir
 			ObservableList<String>ListaTipoDonacion=FXCollections.observableArrayList();
 			ObservableList<String>ListaPulso=FXCollections.observableArrayList();
-		 @Override
-			public void initialize(URL arg0, ResourceBundle arg1) {
+			
+		//datos tabla
+			ObservableList<Donacion> datos = FXCollections.observableArrayList();
+			
+		//Atributos necesarios para codificar la edicion
+			private boolean edicion;
+			private int indiceedicion;
+			
+			//inial al cargar
+			public void initialize() throws SQLException{
 			 //LitaTipoDonacion
 			 ListaTipoDonacion.add("SANGRE");
 			 ListaTipoDonacion.add("AFERESIS");
@@ -156,6 +161,27 @@ public class ControladoraDonacion implements Initializable {
 			 ListaPulso.add("98");
 			 ListaPulso.add("99");
 			 ListaPulso.add("100");
+			 
+				// Llamar a un método de la clase de manipulación de BBDD para que me devuelva un ObservableList<Persona> datos
+
+				ConexionBBDD con = new ConexionBBDD();
+				datos = con.bbddObtenerDonaciones();
+
+				tabla.setItems(datos);
+
+				col_NUM_DONACION.setCellValueFactory(new PropertyValueFactory<Donacion,Integer>("NUM_DONACION"));
+				col_COD_COLECTA.setCellValueFactory(new PropertyValueFactory<Donacion,Integer>("COD_COLECTA"));
+				col_TIPO_DONACION.setCellValueFactory(new PropertyValueFactory<Donacion,String>("TIPO_DONACION"));
+				col_PULSO.setCellValueFactory(new PropertyValueFactory<Donacion,Integer>("PULSO"));
+				col_TA_SIST.setCellValueFactory(new PropertyValueFactory<Donacion,Integer>("TA_SIST"));
+				col_TA_DIAST.setCellValueFactory(new PropertyValueFactory<Donacion,Integer>("TA_DIAST"));
+				col_HB_CAP.setCellValueFactory(new PropertyValueFactory<Donacion,Integer>("HB_CAP"));
+				col_HB_VEN.setCellValueFactory(new PropertyValueFactory<Donacion,Integer>("HB_VEN"));
+				col_FECHA.setCellValueFactory(new PropertyValueFactory<Donacion,String>("FECHA"));
+				
+				// Al arrancar la vista se pone edicion a false
+				edicion = false;
+				indiceedicion = 0;
 			}
 		 
 		 

@@ -85,7 +85,7 @@ public class ConexionBBDD {
 		
 		//metodo bbddObtenerDonantes
 		public ObservableList<Donante> bbddObtenerDonantes() throws SQLException{
-			System.out.println("conecta bbdd");
+			
 			ObservableList<Donante> listaDonantes = FXCollections.observableArrayList();
 
 			//Preparo la conexión para ejecutar sentencias SQL de tipo update
@@ -137,6 +137,54 @@ public class ConexionBBDD {
 			return listaDonantes;
 		}
 
+		
+		//metodo bbddObtenerDonaciones
+				public ObservableList<Donacion> bbddObtenerDonaciones() throws SQLException{
+	
+					ObservableList<Donacion> listaDonantes = FXCollections.observableArrayList();
+
+					//Preparo la conexión para ejecutar sentencias SQL de tipo update
+					Statement stm = conexion.createStatement();
+
+					// Preparo la sentencia SQL CrearTablaPersonas
+					String selectsql = "SELECT * FROM "+ esptrab+".DONACION";
+
+					//ejecuto la sentencia
+					try{
+						ResultSet resultado = stm.executeQuery(selectsql);
+
+						int contador = 0;
+						while(resultado.next()){
+							contador++;
+
+							int NUM_DONACION = resultado.getInt(1);
+							int COD_COLECTA = resultado.getInt(2);
+							String TIPO_DONACION = resultado.getString(3);
+							int PULSO = resultado.getInt(4);
+							int TA_SIST = resultado.getInt(5);
+							int TA_DIAST = resultado.getInt(6);
+							int HB_CAP = resultado.getInt(7);
+							int HB_VEN = resultado.getInt(8);
+							String FECHA = resultado.getString(9);
+							
+							Donacion nueva = new Donacion(NUM_DONACION,COD_COLECTA,TIPO_DONACION,PULSO,TA_SIST,TA_DIAST,HB_CAP,HB_VEN,FECHA);
+							listaDonantes.add(nueva);
+						}
+
+						if(contador==0)
+							System.out.println("no data found");
+
+					}catch(SQLException sqle){
+
+						int pos = sqle.getMessage().indexOf(":");
+						String codeErrorSQL = sqle.getMessage().substring(0,pos);
+
+						System.out.println(codeErrorSQL);
+					}
+
+					return listaDonantes;
+				}
+		
 		
 		
 		
