@@ -7,6 +7,8 @@ import Controlador.Main;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.DatePicker;
+import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 public class ControladoraFormulario  implements Initializable {
@@ -26,15 +28,22 @@ public class ControladoraFormulario  implements Initializable {
 			this.ventana.close();
 		}
 
-		
-		
-		//elementos
-		
-		
-		
+
 		@Override
 		public void initialize(URL arg0, ResourceBundle arg1) {
 			
 		}
+		
+		 public void setProgramaPrincipal(Main ProgramaPrincipal) {
+		     this.ProgramaPrincipal = ProgramaPrincipal;
+		  }
+		
+		//***********elementos************
+		
+		
+		
+		
+		
+		
 		
 }

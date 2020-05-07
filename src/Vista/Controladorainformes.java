@@ -30,10 +30,14 @@ public class Controladorainformes implements Initializable{
 			this.ventana = ventana;
 		}
 
+		
 		public void closeWindow(){
 			this.ventana.close();
 		}
 		
+		 public void setProgramaPrincipal(Main ProgramaPrincipal) {
+		     this.ProgramaPrincipal = ProgramaPrincipal;
+		  }
 		//elementos
 		 @FXML
 			private DatePicker FechaInicial;

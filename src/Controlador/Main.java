@@ -72,6 +72,7 @@ public class Main  extends Application{
 
 	            ControladoraDonante controller2 = loader.getController();
 	            controller2.setStagePrincipal(ventana);
+	            controller2.setProgramaPrincipal(this);
 
 	            ventana.show();
 
@@ -120,7 +121,8 @@ public class Main  extends Application{
 
 	            ControladoraFormulario controller2 = loader.getController();
 	            controller2.setStagePrincipal(ventana);
-
+	            controller2.setProgramaPrincipal(this);
+	            
 	            ventana.show();
 
 	        } catch (Exception e) {
@@ -143,7 +145,8 @@ public class Main  extends Application{
 
 	            Controladorainformes controller2 = loader.getController();
 	            controller2.setStagePrincipal(ventana);
-
+	            controller2.setProgramaPrincipal(this);
+	            
 	            ventana.show();
 
 	        } catch (Exception e) {

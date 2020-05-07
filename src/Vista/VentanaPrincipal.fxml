@@ -11,7 +11,7 @@
    <children>
       <ImageView fitHeight="419.0" fitWidth="600.0" layoutY="23.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../../../Users/javichu/Desktop/PROYECTO%20APLICACION%20DONAR%20SANGRE/img%20pantalla%20incial.jpg" />
+            <Image url="@img%20pantalla%20incial.jpg" />
          </image>
       </ImageView>
       <Button fx:id="adminDonantes" layoutX="333.0" layoutY="123.0" mnemonicParsing="false" onAction="#abrirVentanaDonante" prefHeight="77.0" prefWidth="233.0" text="Gestión de Donantes">

@@ -1,5 +1,10 @@
 package Vista;
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.sql.SQLException;
+import java.util.ArrayList;
+
+import com.itextpdf.text.DocumentException;
 
 import Controlador.Main;
 import Modelo.ConexionBBDD;
@@ -16,6 +21,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 
 public class ControladoraDonante {
@@ -35,6 +41,10 @@ public class ControladoraDonante {
 		public void closeWindow(){
 			this.ventana.close();
 		}
+		
+		 public void setProgramaPrincipal(Main ProgramaPrincipal) {
+		     this.ProgramaPrincipal = ProgramaPrincipal;
+		  }
 
 		//***********elementos************
 		
@@ -86,6 +96,16 @@ public class ControladoraDonante {
 		private Button BORRAR;
 		@FXML
 		private Button ELIMINAR;
+		
+		//imagen
+		@FXML
+		private ImageView Imagen;
+		private int position;
+		private int maximo;
+		private File file;
+		
+		@FXML
+		private TextField txtf_ruta;
 	
 		//tabla
 		@FXML
@@ -269,6 +289,8 @@ public class ControladoraDonante {
 				ListacomboGrupoSanguineo.add("0 NEGATIVO");
 				GRUPO_SANGUINEO.setItems(ListacomboGrupoSanguineo);
 				
+				
+				
 				// Llamar a un método de la clase de manipulación de BBDD para que me devuelva un ObservableList<Persona> datos
 				
 				ConexionBBDD con = new ConexionBBDD();
@@ -298,10 +320,20 @@ public class ControladoraDonante {
 				edicion = false;
 				indiceedicion = 0;
 				}
-			
-			
+		
+				
+				//imprimir carnet
+				public void imprimeCarnet() throws FileNotFoundException, DocumentException{
+				
+				ImprimeArchivo imprime = new ImprimeArchivo("CarnetDonante2020","C:\\Users\\javichu\\Downloads\\");
+				imprime.generarArchivoPDF();
 
+				}
+
+	
+
+			
 			}
-
+		
 	
 

@@ -15,12 +15,12 @@
    <children>
       <ImageView fitHeight="400.0" fitWidth="600.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../../../Users/javichu/Desktop/PROYECTO%20APLICACION%20DONAR%20SANGRE/fondo%20rosa.jpg" />
+            <Image url="@fondo%20rosa.jpg" />
          </image>
       </ImageView>
       <ImageView fitHeight="142.0" fitWidth="201.0" layoutX="22.0" layoutY="32.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../../../Users/javichu/Desktop/PROYECTO%20APLICACION%20DONAR%20SANGRE/extracion%20sangre.jpg" />
+            <Image url="@extracion%20sangre.jpg" />
          </image>
       </ImageView>
       <Label layoutX="265.0" layoutY="14.0" prefHeight="32.0" prefWidth="288.0" text="INFORMES   Y ESTADISTICAS">

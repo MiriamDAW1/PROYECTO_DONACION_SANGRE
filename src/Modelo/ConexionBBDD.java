@@ -7,13 +7,18 @@ import java.io.InputStream;
 import java.sql.Blob;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.Properties;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.scene.control.ComboBox;
+import javafx.scene.control.DatePicker;
+import javafx.scene.control.TextField;
 import oracle.sql.BLOB;
 
 public class ConexionBBDD {
@@ -82,7 +87,7 @@ public class ConexionBBDD {
 		
 		//*************************METODOS APLICACION*****************************************
 		
-		
+		//*******************************DONANTE*********************************
 		//metodo bbddObtenerDonantes
 		public ObservableList<Donante> bbddObtenerDonantes() throws SQLException{
 			
@@ -137,14 +142,14 @@ public class ConexionBBDD {
 			return listaDonantes;
 		}
 
-		
+		//*******************************DONACCION*********************************
 		//metodo bbddObtenerDonaciones
-				public ObservableList<Donacion> bbddObtenerDonaciones() throws SQLException{
+			public ObservableList<Donacion> bbddObtenerDonaciones() throws SQLException{
 	
-					ObservableList<Donacion> listaDonantes = FXCollections.observableArrayList();
+			ObservableList<Donacion> listaDonantes = FXCollections.observableArrayList();
 
-					//Preparo la conexión para ejecutar sentencias SQL de tipo update
-					Statement stm = conexion.createStatement();
+			//Preparo la conexión para ejecutar sentencias SQL de tipo update
+				Statement stm = conexion.createStatement();
 
 					// Preparo la sentencia SQL CrearTablaPersonas
 					String selectsql = "SELECT * FROM "+ esptrab+".DONACION";
@@ -185,8 +190,17 @@ public class ConexionBBDD {
 					return listaDonantes;
 				}
 		
-		
-		
+				
+
+			
+				
+
+
+
+
+
+
+				
 		
 		
 	}
