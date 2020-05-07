@@ -178,7 +178,7 @@
                         <Font size="10.0" />
                      </font>
                   </TextField>
-                  <TextField fx:id="txtf_ruta" layoutX="669.0" layoutY="56.0" prefHeight="27.0" prefWidth="163.0">
+                  <TextField fx:id="txtf_ruta" layoutX="669.0" layoutY="54.0" prefHeight="27.0" prefWidth="163.0">
                      <font>
                         <Font size="10.0" />
                      </font>

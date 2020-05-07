@@ -7,6 +7,7 @@ import Controlador.Main;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.CheckBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
@@ -40,9 +41,23 @@ public class ControladoraFormulario  implements Initializable {
 		
 		//***********elementos************
 		
+		 @FXML
+			private TextField codigodonante;
+		 @FXML
+			private TextField estadodonacion;
 		
+		 @FXML
+			private DatePicker FECHA;
+		 @FXML
+			private DatePicker FECHA_exclusion;
 		
-		
+		 
+		 
+		 @FXML
+			private Button guardar;
+		 @FXML
+			private Button borrar;
+
 		
 		
 		

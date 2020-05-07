@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.sql.Array;
 import java.sql.Blob;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -18,6 +19,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
+import javafx.scene.control.ListCell;
 import javafx.scene.control.TextField;
 import oracle.sql.BLOB;
 
@@ -80,9 +82,7 @@ public class ConexionBBDD {
 
 			}
 
-
 		
-
 		
 		
 		//*************************METODOS APLICACION*****************************************
@@ -142,7 +142,11 @@ public class ConexionBBDD {
 			return listaDonantes;
 		}
 
-		//*******************************DONACCION*********************************
+		
+				
+			
+		
+//*******************************DONACCION**********************************************************
 		//metodo bbddObtenerDonaciones
 			public ObservableList<Donacion> bbddObtenerDonaciones() throws SQLException{
 	
@@ -162,14 +166,14 @@ public class ConexionBBDD {
 						while(resultado.next()){
 							contador++;
 
-							int NUM_DONACION = resultado.getInt(1);
-							int COD_COLECTA = resultado.getInt(2);
+							String NUM_DONACION = resultado.getString(1);
+							String COD_COLECTA = resultado.getString(2);
 							String TIPO_DONACION = resultado.getString(3);
-							int PULSO = resultado.getInt(4);
-							int TA_SIST = resultado.getInt(5);
-							int TA_DIAST = resultado.getInt(6);
-							int HB_CAP = resultado.getInt(7);
-							int HB_VEN = resultado.getInt(8);
+							String PULSO = resultado.getString(4);
+							String TA_SIST = resultado.getString(5);
+							String TA_DIAST = resultado.getString(6);
+							String HB_CAP = resultado.getString(7);
+							String HB_VEN = resultado.getString(8);
 							String FECHA = resultado.getString(9);
 							
 							Donacion nueva = new Donacion(NUM_DONACION,COD_COLECTA,TIPO_DONACION,PULSO,TA_SIST,TA_DIAST,HB_CAP,HB_VEN,FECHA);
@@ -192,8 +196,199 @@ public class ConexionBBDD {
 		
 				
 
-			
+			/*
+			 * El método InsertarDonacion devuelve un código de error para los siguientes casos:
+			 *
+			 * 0 - Persona insertada OK!
+			 * 1 - Se ha queriro introducir uan persona con un email existente (Primary key violated)
+			 * 2 - Otro fallo en el tipo de datos o en la base de datos al hacer la inserción
+			 *
+			 *
+			 */
+			public int InsertarDonacion(String NUM_DONACION,String COD_COLECTA,String TIPO_DONACION, String PULSO,String TA_SIST, String TA_DIAST,String HB_CAP,String HB_VEN,String FECHA) throws SQLException{
 				
+				// Preparo la sentencia SQL CrearTablaPersonas
+				String insertsql = "INSERT INTO " + esptrab+".DONACION VALUES (?,?,?,?,?,?,?,?,?)";
+
+				//Seguridad en las Aplicaciones: SQL Injection
+
+				PreparedStatement pstmt = conexion.prepareStatement (insertsql);
+				pstmt.setString(1, NUM_DONACION);
+				pstmt.setString(2, COD_COLECTA);
+				pstmt.setString(3, TIPO_DONACION);
+				pstmt.setString(4, PULSO);
+				pstmt.setString(5, TA_SIST);
+				pstmt.setString(6, TA_DIAST);
+				pstmt.setString(7, HB_CAP);
+				pstmt.setString(8, HB_VEN);
+				pstmt.setDate(9,java.sql.Date.valueOf(FECHA));
+				
+				
+				//ejecuto la sentencia
+				try{
+					int resultado = pstmt.executeUpdate();//pstmt y tiene que estar vacio
+
+					if(resultado != 1)
+						System.out.println("Error en la inserción " + resultado);
+					else
+						System.out.println("Persona insertada con éxito!!!");
+
+					return 0;
+				}catch(SQLException sqle){
+
+					int pos = sqle.getMessage().indexOf(":");
+					String codeErrorSQL = sqle.getMessage().substring(0,pos);
+
+					if(codeErrorSQL.equals("ORA-00001") ){
+						System.out.println("Ya existe una persona con  ese email!!");
+						return 1;
+					}
+					else{
+						System.out.println("Ha habido algún problema con  Oracle al hacer la insercion");
+						return 2;
+					}
+
+				}
+
+			}
+			
+			
+			/*
+			 * El método ModificarDonacion devuelve un código de error para los siguientes casos:
+			 *
+			 * 0 - Persona insertada OK!
+			 * 1 - Se ha queriro introducir uan persona con un email existente (Primary key violated)
+			 * 2 - Otro fallo en el tipo de datos o en la base de datos al hacer la inserción
+			 *
+			 *
+			 */
+			public int ModificarDonacion(String NUM_DONACION,String COD_COLECTA,String TIPO_DONACION, String PULSO,String TA_SIST, String TA_DIAST,String HB_CAP,String HB_VEN,String FECHA) throws SQLException{
+
+				// Preparo la sentencia SQL CrearTablaPersonas
+				String updatesql = "UPDATE " + esptrab+".DONACION SET COD_COLECTA=?,TIPO_DONACION=?,PULSO=?,TA_SIST=?,TA_DIAST=?,HB_CAP=?,HB_VEN=?,FECHA=? WHERE NUM_DONACION=?";
+
+				//Seguridad en las Aplicaciones: SQL Injection
+
+						PreparedStatement pstmt = conexion.prepareStatement (updatesql);
+						pstmt.setString(1, NUM_DONACION);
+						pstmt.setString(2, COD_COLECTA);
+						pstmt.setString(3, TIPO_DONACION);
+						pstmt.setString(4, PULSO);
+						pstmt.setString(5, TA_SIST);
+						pstmt.setString(6, TA_DIAST);
+						pstmt.setString(7, HB_CAP);
+						pstmt.setString(8, HB_VEN);
+						pstmt.setDate(9,java.sql.Date.valueOf(FECHA));
+						
+						
+				//ejecuto la sentencia
+				try{
+					int resultado = pstmt.executeUpdate(); //pstmt y tiene que estar vacio
+
+					if(resultado != 1)
+						System.out.println("Error en la actualización " + resultado);
+					else
+						System.out.println("Persona actualizada con éxito!!!");
+
+					return 0;
+				}catch(SQLException sqle){
+
+					int pos = sqle.getMessage().indexOf(":");
+					String codeErrorSQL = sqle.getMessage().substring(0,pos);
+
+					if(codeErrorSQL.equals("ORA-00001") ){
+						System.out.println("Ya existe una persona con  ese email!!");
+						return 1;
+					}
+					else{
+						System.out.println("Ha habido algún problema con  Oracle al hacer la insercion");
+						return 2;
+					}
+
+				}
+
+			}
+			
+			//eliminar Donacion
+			public int BorrarPersona(String NUM_DONACION) throws SQLException{
+
+				// Preparo la sentencia SQL
+				String deletesql = "DELETE "+ esptrab+".DONACION WHERE NUM_DONACION=?";
+
+				//Seguridad en las Aplicaciones: SQL Injection
+
+				PreparedStatement pstmt = conexion.prepareStatement (deletesql);
+				pstmt.setString(1, NUM_DONACION);
+				
+				//ejecuto la sentencia
+				try{
+					int resultado = pstmt.executeUpdate();//pstmt y tiene que estar vacio
+
+					if(resultado != 1)
+						System.out.println("Error en el borrado " + resultado);
+					else
+						System.out.println("Persona borrada con éxito!!!");
+
+					return 0;
+				}catch(SQLException sqle){
+
+					int pos = sqle.getMessage().indexOf(":");
+					String codeErrorSQL = sqle.getMessage().substring(0,pos);
+
+					System.out.println("Ha habido algún problema con  Oracle al hacer el borrado" + codeErrorSQL);
+					return 2;
+				}
+
+			}
+
+			//buscar por tipo de donacion
+			public ObservableList<Donacion> BuscarPersonas(String tipodonacion) throws SQLException{
+
+				ObservableList<Donacion> listapersonas = FXCollections.observableArrayList();		
+				
+				// Preparo la sentencia SQL en función de lo que venga en apellido
+				String selectsql ="SELECT * FROM "+ esptrab+".DONACION WHERE TIPO_DONACION LIKE ?";
+
+				
+				//Seguridad en las Aplicaciones: SQL Injection
+				PreparedStatement pstmt = conexion.prepareStatement (selectsql);
+				pstmt.setString(1, tipodonacion + "%");
+				
+				//ejecuto la sentencia
+				try{
+					ResultSet resultado = pstmt.executeQuery();//pstmt y tiene que estar vacio
+
+					int contador = 0;
+					while(resultado.next()){
+						contador++;
+						
+						String NUM_DONACION = resultado.getString(1);
+						String COD_COLECTA = resultado.getString(2);
+						String TIPO_DONACION = resultado.getString(3);
+						String PULSO = resultado.getString(4);
+						String TA_SIST = resultado.getString(5);
+						String TA_DIAST = resultado.getString(6);
+						String HB_CAP = resultado.getString(7);
+						String HB_VEN = resultado.getString(8);
+						String FECHA = resultado.getString(9);
+						
+						Donacion nueva = new Donacion(NUM_DONACION, COD_COLECTA, TIPO_DONACION,PULSO,TA_SIST,TA_DIAST,HB_CAP,HB_VEN,FECHA);
+						listapersonas.add(nueva);
+					}
+
+					if(contador==0)
+						System.out.println("no data found");
+
+				}catch(SQLException sqle){
+
+					int pos = sqle.getMessage().indexOf(":");
+					String codeErrorSQL = sqle.getMessage().substring(0,pos);
+
+					System.out.println(codeErrorSQL);
+				}
+
+				return listapersonas;
+			}
 
 
 

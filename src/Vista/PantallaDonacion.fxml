@@ -37,7 +37,7 @@
                   <Label layoutX="566.0" layoutY="149.0" prefHeight="17.0" prefWidth="56.0" text="HB_VEN" />
                   <Label layoutX="33.0" layoutY="188.0" prefHeight="17.0" prefWidth="48.0" text="FECHA" />
                   <DatePicker fx:id="FECHA" layoutX="93.0" layoutY="184.0" />
-                  <Button fx:id="BotonbuscartipoDonacion" layoutX="641.0" layoutY="69.0" mnemonicParsing="false" prefHeight="28.0" prefWidth="149.0" text="Buscar tipo donacion" />
+                  <Button fx:id="BotonbuscartipoDonacion" layoutX="641.0" layoutY="69.0" mnemonicParsing="false" onAction="#Buscar" prefHeight="28.0" prefWidth="149.0" text="Buscar tipo donacion" />
                   <TextField fx:id="TextFieldBuacarTipoDonacion" layoutX="483.0" layoutY="70.0" />
                   <Button fx:id="buttonabrirformularioDonante" layoutX="526.0" layoutY="8.0" mnemonicParsing="false" onAction="#abrirVentanaDonante" prefHeight="25.0" prefWidth="250.0" text="Rellena este formulario">
                      <font>
@@ -48,9 +48,9 @@
                         <Font size="11.0" />
                      </font>
                   </Label>
-                  <Button fx:id="GUARDAR" layoutX="516.0" layoutY="197.0" mnemonicParsing="false" text="Guardar" textFill="#078326" />
-                  <Button fx:id="BORRAR" layoutX="598.0" layoutY="197.0" mnemonicParsing="false" text="Borrar Datos  " />
-                  <Button fx:id="ELIMINAR" layoutX="715.0" layoutY="197.0" mnemonicParsing="false" text="Eliminar" textFill="#b20707" />
+                  <Button fx:id="GUARDAR" layoutX="516.0" layoutY="197.0" mnemonicParsing="false" onAction="#Guardar" text="Guardar" textFill="#078326" />
+                  <Button fx:id="BORRAR" layoutX="598.0" layoutY="197.0" mnemonicParsing="false" onAction="#Borrar" text="Borrar Datos  " />
+                  <Button fx:id="ELIMINAR" layoutX="715.0" layoutY="197.0" mnemonicParsing="false" onAction="#Eliminar" text="Eliminar" textFill="#b20707" />
                   <Button fx:id="buttonvolver" mnemonicParsing="false" onAction="#closeWindow" text="Atras" />
                   <TextField fx:id="TA_SIST" layoutX="193.0" layoutY="145.0" prefHeight="25.0" prefWidth="77.0" />
                   <TextField fx:id="TA_DIAST" layoutX="338.0" layoutY="145.0" prefHeight="25.0" prefWidth="77.0" />
