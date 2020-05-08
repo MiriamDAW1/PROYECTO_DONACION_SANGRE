@@ -4,7 +4,7 @@ import java.sql.Blob;
 
 public class Donante {
 	//atributos
-	private int NUM_DONANTE;
+	private String NUM_DONANTE;
 	private String NOMBRE;
 	private String APELLIDO1;
 	private String APELLIDO2;
@@ -13,18 +13,19 @@ public class Donante {
 	private String PAIS_NACIMIENTO;
 	private String DIRECCION;
 	private String POBLACION;
-	private int CODIGO_POSTAL;
-	private int TELEFONO;
-	private int TELEFONO2;
+	private String CODIGO_POSTAL;
+	private String TELEFONO;
+	private String TELEFONO2;
 	private String CORREO_ELECTRONICO;
 	private char SEXO;
 	private String GRUPO_SANGUINEO;
 	private Blob FOTO;
 	
 	//constructor
-	public Donante(int nUM_DONANTE, String nOMBRE, String aPELLIDO1, String aPELLIDO2, String dNI,
-			String fECHA_NACIMIENTO, String pAIS_NACIMIENTO, String dIRECCION, String pOBLACION, int cODIGO_POSTAL,
-			int tELEFONO, int tELEFONO2, String cORREO_ELECTRONICO, char sEXO, String gRUPO_SANGUINEO, Blob fOTO) {
+	public Donante(String nUM_DONANTE, String nOMBRE, String aPELLIDO1, String aPELLIDO2, String dNI,
+			String fECHA_NACIMIENTO, String pAIS_NACIMIENTO, String dIRECCION, String pOBLACION, String cODIGO_POSTAL,
+			String tELEFONO, String tELEFONO2, String cORREO_ELECTRONICO, char sEXO, String gRUPO_SANGUINEO,
+			Blob fOTO) {
 		super();
 		NUM_DONANTE = nUM_DONANTE;
 		NOMBRE = nOMBRE;
@@ -41,15 +42,15 @@ public class Donante {
 		CORREO_ELECTRONICO = cORREO_ELECTRONICO;
 		SEXO = sEXO;
 		GRUPO_SANGUINEO = gRUPO_SANGUINEO;
-		FOTO = fOTO;
+		FOTO = null;
 	}
 
 	//getters y setters 
-	public int getNUM_DONANTE() {
+	public String getNUM_DONANTE() {
 		return NUM_DONANTE;
 	}
 
-	public void setNUM_DONANTE(int nUM_DONANTE) {
+	public void setNUM_DONANTE(String nUM_DONANTE) {
 		NUM_DONANTE = nUM_DONANTE;
 	}
 
@@ -117,27 +118,27 @@ public class Donante {
 		POBLACION = pOBLACION;
 	}
 
-	public int getCODIGO_POSTAL() {
+	public String getCODIGO_POSTAL() {
 		return CODIGO_POSTAL;
 	}
 
-	public void setCODIGO_POSTAL(int cODIGO_POSTAL) {
+	public void setCODIGO_POSTAL(String cODIGO_POSTAL) {
 		CODIGO_POSTAL = cODIGO_POSTAL;
 	}
 
-	public int getTELEFONO() {
+	public String getTELEFONO() {
 		return TELEFONO;
 	}
 
-	public void setTELEFONO(int tELEFONO) {
+	public void setTELEFONO(String tELEFONO) {
 		TELEFONO = tELEFONO;
 	}
 
-	public int getTELEFONO2() {
+	public String getTELEFONO2() {
 		return TELEFONO2;
 	}
 
-	public void setTELEFONO2(int tELEFONO2) {
+	public void setTELEFONO2(String tELEFONO2) {
 		TELEFONO2 = tELEFONO2;
 	}
 
@@ -172,21 +173,6 @@ public class Donante {
 	public void setFOTO(Blob fOTO) {
 		FOTO = fOTO;
 	}
-	
-	
-	
-	
-	
 
-	
-
-	
-	
-	
-	
-	
-	
-	
-	
 	
 }

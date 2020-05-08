@@ -107,7 +107,7 @@ public class ConexionBBDD {
 				while(resultado.next()){
 					contador++;
 
-					int NUM_DONANTE = resultado.getInt(1);
+					String NUM_DONANTE = resultado.getString(1);
 					String NOMBRE = resultado.getString(2);
 					String APELLIDO1 = resultado.getString(3);
 					String APELLIDO2 = resultado.getString(4);
@@ -116,9 +116,9 @@ public class ConexionBBDD {
 					String PAIS_NACIMIENTO=resultado.getString(7);
 					String DIRECCION=resultado.getString(8);
 					String POBLACION=resultado.getString(9);
-					int CODIGO_POSTAL=resultado.getInt(10);
-					int TELEFONO=resultado.getInt(11);
-					int TELEFONO2=resultado.getInt(12);
+					String CODIGO_POSTAL=resultado.getString(10);
+					String TELEFONO=resultado.getString(11);
+					String TELEFONO2=resultado.getString(12);
 					String CORREO_ELECTRONICO=resultado.getString(13);
 					char SEXO = resultado.getString(14).charAt(0);
 					String GRUPO_SANGUINEO=resultado.getString(15);
@@ -143,8 +143,238 @@ public class ConexionBBDD {
 		}
 
 		
-				
+		/*
+		 * El método InsertarDonante devuelve un código de error para los siguientes casos:
+		 *
+		 * 0 - Persona insertada OK!
+		 * 1 - Se ha queriro introducir uan persona con un email existente (Primary key violated)
+		 * 2 - Otro fallo en el tipo de datos o en la base de datos al hacer la inserción
+		 *
+		 *
+		 */
+		public int InsertarDonante(String NUM_DONANTE,String NOMBRE,String APELLIDO1,String APELLIDO2,String  DNI,String FECHA_NACIMIENTO,String PAIS_NACIMIENTO,String DIRECCION ,String POBLACION,String CODIGO_POSTAL,String TELEFONO,String TELEFONO2,String CORREO_ELECTRONICO,char SEXO,String GRUPO_SANGUINEO,Blob FOTO) throws SQLException{
+
+			// Preparo la sentencia SQL CrearTablaPersonas
+			String insertsql = "INSERT INTO " + esptrab+".DONANTE VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+
+			//Seguridad en las Aplicaciones: SQL Injection
+
+			PreparedStatement pstmt = conexion.prepareStatement (insertsql);
+			pstmt.setString(1, NUM_DONANTE);
+			pstmt.setString(2, NOMBRE);
+			pstmt.setString(3, APELLIDO1);
+			pstmt.setString(4,APELLIDO2);
+			pstmt.setString(5,DNI);
+			pstmt.setString(6,FECHA_NACIMIENTO);
+			pstmt.setString(7,PAIS_NACIMIENTO);
+			pstmt.setString(8,DIRECCION);
+			pstmt.setString(9,POBLACION);
+			pstmt.setString(10,CODIGO_POSTAL);
+			pstmt.setString(11,TELEFONO);
+			pstmt.setString(12,TELEFONO2);
+			pstmt.setString(13,CORREO_ELECTRONICO);
+			pstmt.setString(14 ,Character.toString(SEXO));
+			pstmt.setString(15,GRUPO_SANGUINEO);
+			pstmt.setBlob(16, FOTO);
 			
+			//ejecuto la sentencia
+			try{
+				int resultado = pstmt.executeUpdate();//pstmt y tiene que estar vacio
+
+				if(resultado != 1)
+					System.out.println("Error en la inserción " + resultado);
+				else
+					System.out.println("Persona insertada con éxito!!!");
+
+				return 0;
+			}catch(SQLException sqle){
+
+				int pos = sqle.getMessage().indexOf(":");
+				String codeErrorSQL = sqle.getMessage().substring(0,pos);
+
+				if(codeErrorSQL.equals("ORA-00001") ){
+					System.out.println("Ya existe una persona con  ese email!!");
+					return 1;
+				}
+				else{
+					System.out.println("Ha habido algún problema con  Oracle al hacer la insercion");
+					return 2;
+				}
+
+			}
+
+		}
+
+
+		/*
+		 * El método ModificarPersona devuelve un código de error para los siguientes casos:
+		 *
+		 * 0 - Persona insertada OK!
+		 * 1 - Se ha queriro introducir uan persona con un email existente (Primary key violated)
+		 * 2 - Otro fallo en el tipo de datos o en la base de datos al hacer la inserción
+		 *
+		 *
+		 */
+		public int ModificarDonante(String NUM_DONANTE,String NOMBRE,String APELLIDO1,String APELLIDO2,String  DNI,String FECHA_NACIMIENTO,String PAIS_NACIMIENTO,String DIRECCION ,String POBLACION,String CODIGO_POSTAL,String TELEFONO,String TELEFONO2,String CORREO_ELECTRONICO,char SEXO,String GRUPO_SANGUINEO,Blob FOTO) throws SQLException{
+
+			// Preparo la sentencia SQL CrearTablaPersonas
+			String updatesql = "UPDATE " + esptrab+".DONANTE SET NOMBRE=?,APELLIDO1=?,APELLIDO2=?,DNI=?,FECHA_NACIMIENTO=?,PAIS_NACIMIENTO=?,DIRECCION=?,POBLACION=?,CODIGO_POSTAL=?,TELEFONO=?,TELEFONO2=?,CORREO_ELECTRONICO=?,SEXO=?,GRUPO_SANGUINEO=?,FOTO=? WHERE NUM_DONANTE=?";
+
+			//Seguridad en las Aplicaciones: SQL Injection
+
+					PreparedStatement pstmt = conexion.prepareStatement (updatesql);
+					pstmt.setString(1, NUM_DONANTE);
+					pstmt.setString(2, NOMBRE);
+					pstmt.setString(3, APELLIDO1);
+					pstmt.setString(4,APELLIDO2);
+					pstmt.setString(5,DNI);
+					pstmt.setString(6,FECHA_NACIMIENTO);
+					pstmt.setString(7,PAIS_NACIMIENTO);
+					pstmt.setString(8,DIRECCION);
+					pstmt.setString(9,POBLACION);
+					pstmt.setString(10,CODIGO_POSTAL);
+					pstmt.setString(11,TELEFONO);
+					pstmt.setString(12,TELEFONO2);
+					pstmt.setString(13,CORREO_ELECTRONICO);
+					pstmt.setString(14 ,Character.toString(SEXO));
+					pstmt.setString(15,GRUPO_SANGUINEO);
+					pstmt.setBlob(16, FOTO);
+					
+					
+			//ejecuto la sentencia
+			try{
+				int resultado = pstmt.executeUpdate(); //pstmt y tiene que estar vacio
+
+				if(resultado != 1)
+					System.out.println("Error en la actualización " + resultado);
+				else
+					System.out.println("Persona actualizada con éxito!!!");
+
+				return 0;
+			}catch(SQLException sqle){
+
+				int pos = sqle.getMessage().indexOf(":");
+				String codeErrorSQL = sqle.getMessage().substring(0,pos);
+
+				if(codeErrorSQL.equals("ORA-00001") ){
+					System.out.println("Ya existe una persona con  ese email!!");
+					return 1;
+				}
+				else{
+					System.out.println("Ha habido algún problema con  Oracle al hacer la insercion");
+					return 2;
+				}
+
+			}
+
+		}
+
+
+				
+		//eliminar Donante
+		
+		public int BorrarDonante(String NUM_DONANTE) throws SQLException{
+
+			// Preparo la sentencia SQL
+			String deletesql = "DELETE "+ esptrab+".DONANTE WHERE NUM_DONANTE=?";
+
+			//Seguridad en las Aplicaciones: SQL Injection
+
+			PreparedStatement pstmt = conexion.prepareStatement (deletesql);
+			pstmt.setString(1, NUM_DONANTE);
+			
+			//ejecuto la sentencia
+			try{
+				int resultado = pstmt.executeUpdate();//pstmt y tiene que estar vacio
+
+				if(resultado != 1)
+					System.out.println("Error en el borrado " + resultado);
+				else
+					System.out.println("Persona borrada con éxito!!!");
+
+				return 0;
+			}catch(SQLException sqle){
+
+				int pos = sqle.getMessage().indexOf(":");
+				String codeErrorSQL = sqle.getMessage().substring(0,pos);
+
+				System.out.println("Ha habido algún problema con  Oracle al hacer el borrado" + codeErrorSQL);
+				return 2;
+			}
+
+		}
+
+
+		//buscar por DNI
+		public ObservableList<Donante> BuscarDniDonante(String dni) throws SQLException{
+
+			ObservableList<Donante> listaDonantes = FXCollections.observableArrayList();		
+			
+			// Preparo la sentencia SQL en función de lo que venga en apellido
+			String selectsql ="SELECT * FROM "+ esptrab+".DONANTE WHERE DNI LIKE ?";
+
+			
+			//Seguridad en las Aplicaciones: SQL Injection
+			PreparedStatement pstmt = conexion.prepareStatement (selectsql);
+			pstmt.setString(1, dni + "%");
+			
+			//ejecuto la sentencia
+			try{
+				ResultSet resultado = pstmt.executeQuery();//pstmt y tiene que estar vacio
+
+				int contador = 0;
+				while(resultado.next()){
+					contador++;
+					String NUM_DONANTE = resultado.getString(1);
+					String NOMBRE = resultado.getString(2);
+					String APELLIDO1 = resultado.getString(3);
+					String APELLIDO2 = resultado.getString(4);
+					String DNI=resultado.getString(5);
+					String FECHA_NACIMIENTO=resultado.getString(6);
+					String PAIS_NACIMIENTO=resultado.getString(7);
+					String DIRECCION=resultado.getString(8);
+					String POBLACION=resultado.getString(9);
+					String CODIGO_POSTAL=resultado.getString(10);
+					String TELEFONO=resultado.getString(11);
+					String TELEFONO2=resultado.getString(12);
+					String CORREO_ELECTRONICO=resultado.getString(13);
+					char SEXO = resultado.getString(14).charAt(0);
+					String GRUPO_SANGUINEO=resultado.getString(15);
+					Blob FOTO=resultado.getBlob(16);
+					
+					Donante nueva = new Donante(NUM_DONANTE, NOMBRE, APELLIDO1,APELLIDO2,DNI,FECHA_NACIMIENTO,PAIS_NACIMIENTO,DIRECCION,POBLACION,CODIGO_POSTAL,TELEFONO,TELEFONO2,CORREO_ELECTRONICO,SEXO,GRUPO_SANGUINEO,FOTO);
+					listaDonantes.add(nueva);
+				}
+
+				if(contador==0)
+					System.out.println("no data found");
+
+			}catch(SQLException sqle){
+
+				int pos = sqle.getMessage().indexOf(":");
+				String codeErrorSQL = sqle.getMessage().substring(0,pos);
+
+				System.out.println(codeErrorSQL);
+			}
+
+			return listaDonantes;
+		}
+		
+		
+		
+		
+		
+		
+		
+		
+			
+		
+		
+		
+		
+		
+		
+		
 		
 //*******************************DONACCION**********************************************************
 		//metodo bbddObtenerDonaciones
