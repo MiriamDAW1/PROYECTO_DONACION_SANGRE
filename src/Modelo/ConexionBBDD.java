@@ -221,7 +221,7 @@ public class ConexionBBDD {
 				pstmt.setString(6, TA_DIAST);
 				pstmt.setString(7, HB_CAP);
 				pstmt.setString(8, HB_VEN);
-				pstmt.setDate(9,java.sql.Date.valueOf(FECHA));
+				pstmt.setString(9,FECHA);
 				
 				
 				//ejecuto la sentencia
@@ -278,7 +278,7 @@ public class ConexionBBDD {
 						pstmt.setString(6, TA_DIAST);
 						pstmt.setString(7, HB_CAP);
 						pstmt.setString(8, HB_VEN);
-						pstmt.setDate(9,java.sql.Date.valueOf(FECHA));
+						pstmt.setString(9,FECHA);
 						
 						
 				//ejecuto la sentencia

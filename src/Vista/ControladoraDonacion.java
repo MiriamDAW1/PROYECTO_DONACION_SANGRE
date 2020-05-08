@@ -28,9 +28,6 @@ public class ControladoraDonacion  {
 	 //pantalla
 		@FXML
 		private Button buttonclose;
-		
-		@FXML
-		private Button buttonabrirformularioDonante;
 
 		private Stage ventana;
 	
@@ -47,11 +44,6 @@ public class ControladoraDonacion  {
 		     this.ProgramaPrincipal = ProgramaPrincipal;
 		  }
 
-		 @FXML
-		    public void abrirVentanaDonante() {
-		       	this.ProgramaPrincipal.mostrarVentanaFormulario();
-		       	this.ventana.close();
-		    }
 		 
 		//***********elementos************
 		 @FXML
@@ -123,7 +115,7 @@ public class ControladoraDonacion  {
 			 //LitaTipoDonacion
 			 ListaTipoDonacion.add("SANGRE");
 			 ListaTipoDonacion.add("AFERESIS");
-			
+			 TIPO_DONACION.setItems(ListaTipoDonacion);
 			 //ListaPulso
 			 ListaPulso.add("60");
 			 ListaPulso.add("61");
@@ -166,7 +158,7 @@ public class ControladoraDonacion  {
 			 ListaPulso.add("98");
 			 ListaPulso.add("99");
 			 ListaPulso.add("100");
-			 
+			 PULSO.setItems(ListaPulso);
 				// Llamar a un método de la clase de manipulación de BBDD para que me devuelva un ObservableList<Persona> datos
 
 				ConexionBBDD con = new ConexionBBDD();
@@ -207,7 +199,7 @@ public class ControladoraDonacion  {
 
 				// Hago la llamda al método que hace el update en la base de datos
 					ConexionBBDD con = new ConexionBBDD();
-						int res = con.ModificarDonacion(NUM_DONACION.getText(), COD_COLECTA.getText(), TIPO_DONACION.getButtonCell().getText(), PULSO.getButtonCell().getText(), TA_SIST.getText(), TA_DIAST.getText(), HB_CAP.getText(), HB_VEN.getText(), FECHA.getAccessibleText());
+						int res = con.ModificarDonacion(NUM_DONACION.getText(), COD_COLECTA.getText(), TIPO_DONACION.getButtonCell().getText(), PULSO.getButtonCell().getText(), TA_SIST.getText(), TA_DIAST.getText(), HB_CAP.getText(), HB_VEN.getText(), FECHA.getChronology().getCalendarType());
 						switch (res){
 
 							case 0:
@@ -235,7 +227,7 @@ public class ControladoraDonacion  {
 							else{
 								// Realizar el insertado de datos en la base de datos
 									ConexionBBDD con = new ConexionBBDD();
-									int res = con.InsertarDonacion(NUM_DONACION.getText(), COD_COLECTA.getText(), TIPO_DONACION.getButtonCell().getText(), PULSO.getButtonCell().getText(), TA_SIST.getText(), TA_DIAST.getText(), HB_CAP.getText(), HB_VEN.getText(), FECHA.getAccessibleText());
+									int res = con.InsertarDonacion(NUM_DONACION.getText(), COD_COLECTA.getText(), TIPO_DONACION.getButtonCell().getText(), PULSO.getButtonCell().getText(), TA_SIST.getText(), TA_DIAST.getText(), HB_CAP.getText(), HB_VEN.getText(), FECHA.getChronology().getCalendarType());
 									
 								
 									switch (res){

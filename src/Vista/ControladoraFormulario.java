@@ -18,6 +18,9 @@ public class ControladoraFormulario  implements Initializable {
 	 	private Main ProgramaPrincipal;
 		@FXML
 		private Button buttonvolver;
+		
+		 @FXML
+			private Button guardar;
 
 		private Stage ventana;
 		
@@ -38,23 +41,18 @@ public class ControladoraFormulario  implements Initializable {
 		 public void setProgramaPrincipal(Main ProgramaPrincipal) {
 		     this.ProgramaPrincipal = ProgramaPrincipal;
 		  }
-		
+		 @FXML
+		    public void abrirVentanaDonacion() {
+		       	this.ProgramaPrincipal.mostrarVentanaDonaciones();
+		       	this.ventana.close();
+		    }
+		 
 		//***********elementos************
 		
 		 @FXML
 			private TextField codigodonante;
 		 @FXML
-			private TextField estadodonacion;
-		
-		 @FXML
 			private DatePicker FECHA;
-		 @FXML
-			private DatePicker FECHA_exclusion;
-		
-		 
-		 
-		 @FXML
-			private Button guardar;
 		 @FXML
 			private Button borrar;
 

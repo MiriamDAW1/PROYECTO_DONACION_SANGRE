@@ -16,9 +16,9 @@
         <content>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="741.0" prefWidth="674.0">
                <children>
-                  <SplitPane dividerPositions="0.1994645247657296" layoutX="2.0" layoutY="-8.0" orientation="VERTICAL" prefHeight="749.0" prefWidth="661.0">
+                  <SplitPane dividerPositions="0.2034805890227577" layoutX="2.0" layoutY="-8.0" orientation="VERTICAL" prefHeight="749.0" prefWidth="661.0">
                     <items>
-                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="133.0" prefWidth="659.0">
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="145.0" prefWidth="659.0">
                            <children>
                               <Label alignment="CENTER" layoutX="87.0" layoutY="19.0" text="FORMULARIO GENERAL AL DONANTE DE SANGRE " textAlignment="CENTER">
                                  <font>
@@ -26,15 +26,12 @@
                                  </font>
                               </Label>
                               <Label layoutX="108.0" layoutY="46.0" prefHeight="17.0" prefWidth="389.0" text="POR FAVOR LEA ATENTAMENTE Y SEÑALE SÍ O NO A CADA PREGUNTA" />
-                              <Label layoutX="540.0" layoutY="75.0" prefHeight="17.0" prefWidth="49.0" text="FECHA" />
-                              <DatePicker layoutX="345.0" layoutY="74.0" />
-                              <Label layoutX="54.0" layoutY="75.0" text="Codigo del donante " />
-                              <TextField layoutX="171.0" layoutY="71.0" />
+                              <Label layoutX="531.0" layoutY="104.0" prefHeight="17.0" prefWidth="49.0" text="FECHA" />
+                              <DatePicker fx:id="FECHA" layoutX="345.0" layoutY="100.0" />
+                              <Label layoutX="33.0" layoutY="104.0" text="Codigo del donante " />
+                              <TextField fx:id="codigodonante" layoutX="153.0" layoutY="100.0" />
                               <Button fx:id="buttonvolver" layoutY="7.0" mnemonicParsing="false" onAction="#closeWindow" text="Atras" />
-                              <Label layoutX="74.0" layoutY="108.0" text="estado donacion" />
-                              <TextField layoutX="171.0" layoutY="104.0" />
-                              <DatePicker layoutX="345.0" layoutY="104.0" />
-                              <Label layoutX="540.0" layoutY="108.0" prefHeight="17.0" prefWidth="106.0" text="FECHA EXCLUSION" />
+                              <Label layoutX="108.0" layoutY="66.0" prefHeight="17.0" prefWidth="387.0" text="LAS  PREGUNTAS  DECIDIRAN SI  PODRA REALIZAR DONACIONES " />
                            </children>
                         </AnchorPane>
                       <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="610.0" prefWidth="659.0">
@@ -569,12 +566,12 @@
                                     <Font size="9.0" />
                                  </font>
                               </RadioButton>
-                              <Button layoutX="231.0" layoutY="559.0" mnemonicParsing="false" text="GUARDAR ">
+                              <Button fx:id="guardar" layoutX="231.0" layoutY="547.0" mnemonicParsing="false" onAction="#abrirVentanaDonacion" text="GUARDAR ">
                                  <font>
                                     <Font size="13.0" />
                                  </font>
                               </Button>
-                              <Button layoutX="352.0" layoutY="559.0" mnemonicParsing="false" text="BORAR DATOS">
+                              <Button fx:id="borrar" layoutX="352.0" layoutY="547.0" mnemonicParsing="false" text="BORAR DATOS">
                                  <font>
                                     <Font size="13.0" />
                                  </font>

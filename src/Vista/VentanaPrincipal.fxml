@@ -18,7 +18,7 @@
          <font>
             <Font size="19.0" />
          </font></Button>
-      <Button fx:id="adminDonaciones" layoutX="33.0" layoutY="284.0" mnemonicParsing="false" onAction="#abrirVentanaDonacion" prefHeight="77.0" prefWidth="254.0" text="Gestión de Donaciones">
+      <Button fx:id="adminDonaciones" layoutX="33.0" layoutY="284.0" mnemonicParsing="false" onAction="#abrirVentanaFormulario" prefHeight="77.0" prefWidth="254.0" text="Gestión de Donaciones">
          <font>
             <Font size="19.0" />
          </font></Button>

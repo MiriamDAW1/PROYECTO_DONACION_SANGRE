@@ -39,8 +39,8 @@ public class ControladoraPrincipal implements Initializable {
 	       	this.ProgramaPrincipal.mostrarVentanaDonante();
 	    }
 	    @FXML
-	    private void abrirVentanaDonacion() {
-	       	this.ProgramaPrincipal.mostrarVentanaDonaciones();
+	    private void abrirVentanaFormulario() {
+	       	this.ProgramaPrincipal.mostrarVentanaFormulario();
 	    }
 	    @FXML
 	    private void abrirVentanaInformes() {
