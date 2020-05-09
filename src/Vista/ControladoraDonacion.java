@@ -1,6 +1,8 @@
 package Vista;
 
+import java.sql.Date;
 import java.sql.SQLException;
+import java.time.format.DateTimeFormatter;
 import java.util.Optional;
 
 import Controlador.Main;
@@ -186,7 +188,7 @@ public class ControladoraDonacion  {
 			public void Guardar() throws SQLException{
 
 			// Añadir un chequeo de campos vacíos o de validación de formato como el email
-				if(NUM_DONACION.getText().equals("") || COD_COLECTA.getText().equals("") || TA_SIST.getText().equals("") || TA_DIAST.getText().equals("") || HB_CAP.getText().equals("") || HB_VEN.getText().equals("")){
+				if(NUM_DONACION.getText().equals("") || COD_COLECTA.getText().equals("") || TA_SIST.getText().equals("") || TA_DIAST.getText().equals("") || HB_CAP.getText().equals("") || HB_VEN.getText().equals("") || FECHA.getValue() == null){
 					Alert alert = new Alert(AlertType.ERROR);
 					alert.setTitle("Error!!!");
 					alert.setHeaderText("Observa que hayas introducido todos los datos");
@@ -199,7 +201,11 @@ public class ControladoraDonacion  {
 
 				// Hago la llamda al método que hace el update en la base de datos
 					ConexionBBDD con = new ConexionBBDD();
-						int res = con.ModificarDonacion(NUM_DONACION.getText(), COD_COLECTA.getText(), TIPO_DONACION.getButtonCell().getText(), PULSO.getButtonCell().getText(), TA_SIST.getText(), TA_DIAST.getText(), HB_CAP.getText(), HB_VEN.getText(), FECHA.getChronology().getCalendarType());
+					
+					DateTimeFormatter isoFecha = DateTimeFormatter.ISO_LOCAL_DATE;
+					String fcita = FECHA.getValue().format(isoFecha);
+					
+						int res = con.ModificarDonacion(NUM_DONACION.getText(), COD_COLECTA.getText(),TIPO_DONACION.getValue() , PULSO.getValue(), TA_SIST.getText(), TA_DIAST.getText(), HB_CAP.getText(), HB_VEN.getText(), fcita);
 						switch (res){
 
 							case 0:
@@ -227,7 +233,12 @@ public class ControladoraDonacion  {
 							else{
 								// Realizar el insertado de datos en la base de datos
 									ConexionBBDD con = new ConexionBBDD();
-									int res = con.InsertarDonacion(NUM_DONACION.getText(), COD_COLECTA.getText(), TIPO_DONACION.getButtonCell().getText(), PULSO.getButtonCell().getText(), TA_SIST.getText(), TA_DIAST.getText(), HB_CAP.getText(), HB_VEN.getText(), FECHA.getChronology().getCalendarType());
+							
+									DateTimeFormatter isoFecha = DateTimeFormatter.ISO_LOCAL_DATE;
+									String fcita = FECHA.getValue().format(isoFecha);
+									
+									
+									int res = con.InsertarDonacion(NUM_DONACION.getText(), COD_COLECTA.getText(),TIPO_DONACION.getValue() , PULSO.getValue(), TA_SIST.getText(), TA_DIAST.getText(), HB_CAP.getText(), HB_VEN.getText(), fcita);
 									
 								
 									switch (res){
