@@ -152,7 +152,7 @@ public class ConexionBBDD {
 		 *
 		 *
 		 */
-		public int InsertarDonante(String NUM_DONANTE,String NOMBRE,String APELLIDO1,String APELLIDO2,String  DNI,String FECHA_NACIMIENTO,String PAIS_NACIMIENTO,String DIRECCION ,String POBLACION,String CODIGO_POSTAL,String TELEFONO,String TELEFONO2,String CORREO_ELECTRONICO,char SEXO,String GRUPO_SANGUINEO,Blob FOTO) throws SQLException{
+		public int InsertarDonante(String NUM_DONANTE,String NOMBRE,String APELLIDO1,String APELLIDO2,String  DNI,String FECHA_NACIMIENTO,String PAIS_NACIMIENTO,String DIRECCION ,String POBLACION,String CODIGO_POSTAL,String TELEFONO,String TELEFONO2,String CORREO_ELECTRONICO,char SEXO,String GRUPO_SANGUINEO,String foto) throws SQLException{
 
 			// Preparo la sentencia SQL CrearTablaPersonas
 			String insertsql = "INSERT INTO " + esptrab+".DONANTE VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
@@ -165,7 +165,7 @@ public class ConexionBBDD {
 			pstmt.setString(3, APELLIDO1);
 			pstmt.setString(4,APELLIDO2);
 			pstmt.setString(5,DNI);
-			pstmt.setString(6,FECHA_NACIMIENTO);
+			pstmt.setDate(6,java.sql.Date.valueOf(FECHA_NACIMIENTO));
 			pstmt.setString(7,PAIS_NACIMIENTO);
 			pstmt.setString(8,DIRECCION);
 			pstmt.setString(9,POBLACION);
@@ -173,9 +173,9 @@ public class ConexionBBDD {
 			pstmt.setString(11,TELEFONO);
 			pstmt.setString(12,TELEFONO2);
 			pstmt.setString(13,CORREO_ELECTRONICO);
-			pstmt.setString(14 ,Character.toString(SEXO));
+			pstmt.setString(3, Character.toString(SEXO));
 			pstmt.setString(15,GRUPO_SANGUINEO);
-			pstmt.setBlob(16, FOTO);
+			pstmt.setString(16, foto);
 			
 			//ejecuto la sentencia
 			try{
@@ -236,7 +236,7 @@ public class ConexionBBDD {
 					pstmt.setString(11,TELEFONO);
 					pstmt.setString(12,TELEFONO2);
 					pstmt.setString(13,CORREO_ELECTRONICO);
-					pstmt.setString(14 ,Character.toString(SEXO));
+					pstmt.setString(3, Character.toString(SEXO));
 					pstmt.setString(15,GRUPO_SANGUINEO);
 					pstmt.setBlob(16, FOTO);
 					

@@ -42,9 +42,10 @@ public class Donante {
 		CORREO_ELECTRONICO = cORREO_ELECTRONICO;
 		SEXO = sEXO;
 		GRUPO_SANGUINEO = gRUPO_SANGUINEO;
-		FOTO = null;
+		FOTO = fOTO;
 	}
 
+	
 	//getters y setters 
 	public String getNUM_DONANTE() {
 		return NUM_DONANTE;
@@ -173,6 +174,8 @@ public class Donante {
 	public void setFOTO(Blob fOTO) {
 		FOTO = fOTO;
 	}
-
+	
+	
+	
 	
 }

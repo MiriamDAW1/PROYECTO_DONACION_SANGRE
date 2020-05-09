@@ -2,6 +2,8 @@ package Vista;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.sql.SQLException;
+import java.time.format.DateTimeFormatter;
+import java.util.Optional;
 
 import com.itextpdf.text.DocumentException;
 
@@ -13,6 +15,7 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.RadioButton;
@@ -100,7 +103,7 @@ public class ControladoraDonante {
 		
 		//imagen
 		@FXML
-		private ImageView Imagen;
+		private ImageView FOTO;
 		private int position;
 		private int maximo;
 		private File file;
@@ -114,7 +117,7 @@ public class ControladoraDonante {
 		private TableView<Donante> tabla;
 		
 		@FXML
-		private TableColumn<Donante,Integer> col_NUM_DONANTE;
+		private TableColumn<Donante,String> col_NUM_DONANTE;
 		@FXML
 		private TableColumn<Donante,String> col_NOMBRE;
 		@FXML
@@ -132,11 +135,11 @@ public class ControladoraDonante {
 		@FXML
 		private TableColumn<Donante,String> col_POBLACION;
 		@FXML
-		private TableColumn<Donante,Integer> col_CODIGO_POSTAL;
+		private TableColumn<Donante,String> col_CODIGO_POSTAL;
 		@FXML
-		private TableColumn<Donante,Integer> col_TELEFONO;
+		private TableColumn<Donante,String> col_TELEFONO;
 		@FXML
-		private TableColumn<Donante,Integer> col_TELEFONO2;
+		private TableColumn<Donante,String> col_TELEFONO2;
 		@FXML
 		private TableColumn<Donante,String> col_CORREO_ELECTRONICO;
 		@FXML
@@ -300,7 +303,7 @@ public class ControladoraDonante {
 
 				tabla.setItems(datos);
 
-				col_NUM_DONANTE.setCellValueFactory(new PropertyValueFactory<Donante,Integer>("NUM_DONACION"));
+				col_NUM_DONANTE.setCellValueFactory(new PropertyValueFactory<Donante,String>("NUM_DONANTE"));
 				col_NOMBRE.setCellValueFactory(new PropertyValueFactory<Donante,String>("NOMBRE"));
 				col_APELLIDO1.setCellValueFactory(new PropertyValueFactory<Donante,String>("APELLIDO1"));
 				col_APELLIDO2.setCellValueFactory(new PropertyValueFactory<Donante,String>("APELLIDO2"));
@@ -309,9 +312,9 @@ public class ControladoraDonante {
 				col_PAIS_NACIMIENTO.setCellValueFactory(new PropertyValueFactory<Donante,String>("PAIS_NACIMIENTO"));
 				col_DIRECCION.setCellValueFactory(new PropertyValueFactory<Donante,String>("DIRECCION"));
 				col_POBLACION.setCellValueFactory(new PropertyValueFactory<Donante,String>("POBLACION"));
-				col_CODIGO_POSTAL.setCellValueFactory(new PropertyValueFactory<Donante,Integer>("CODIGO_POSTAL"));
-				col_TELEFONO.setCellValueFactory(new PropertyValueFactory<Donante,Integer>("TELEFONO"));
-				col_TELEFONO2.setCellValueFactory(new PropertyValueFactory<Donante,Integer>("TELEFONO2"));
+				col_CODIGO_POSTAL.setCellValueFactory(new PropertyValueFactory<Donante,String>("CODIGO_POSTAL"));
+				col_TELEFONO.setCellValueFactory(new PropertyValueFactory<Donante,String>("TELEFONO"));
+				col_TELEFONO2.setCellValueFactory(new PropertyValueFactory<Donante,String>("TELEFONO2"));
 				col_CORREO_ELECTRONICO.setCellValueFactory(new PropertyValueFactory<Donante,String>("CORREO_ELECTRONICO"));
 				col_SEXO.setCellValueFactory(new PropertyValueFactory<Donante,Character>("SEXO"));
 				col_GRUPO_SANGUINEO.setCellValueFactory(new PropertyValueFactory<Donante,String>("GRUPO_SANGUINEO"));
@@ -333,16 +336,249 @@ public class ControladoraDonante {
 				}
 				
 				
+				//***********************************BBDDGUARDAR(INSERTAR DONACION)******************************
+				public void Guardar() throws SQLException{
+					char sexo;
+
+					if(H.isSelected())
+						sexo = 'H';
+					else
+						sexo = 'M';
 
 
-				
-				
-				
+					// Añadir un chequeo de campos vacíos o de validación de formato como el email
+					if(NUM_DONANTE.getText().equals("") || NOMBRE.getText().equals("") || APELLIDO1.getText().equals("") || APELLIDO2.getText().equals("") || DNI.getText().equals("") || DIRECCION.getText().equals("") || POBLACION.getText().equals("") || CODIGO_POSTAL.getText().equals("") || TELEFONO.getText().equals("") || TELEFONO2.getText().equals("") || CORREO_ELECTRONICO.getText().equals("") ){
+						Alert alert = new Alert(AlertType.ERROR);
+						alert.setTitle("Error!!!");
+						alert.setHeaderText("Observa que hayas introducido todos los datos");
+						alert.setContentText("¡No se pueden grabar campos vacíos!");
+						alert.showAndWait();
+					}
+					else{
 
-	
+						if(edicion == true){
 
+							// Hago la llamda al método que hace el update en la base de datos
+							ConexionBBDD con = new ConexionBBDD();
+							DateTimeFormatter isoFecha = DateTimeFormatter.ISO_LOCAL_DATE;
+							String fcita = FECHA_NACIMIENTO.getValue().format(isoFecha);
+							
+							int res = con.ModificarDonante(NUM_DONANTE.getText(),NOMBRE.getText(),APELLIDO1.getText(),APELLIDO2.getText(),DNI.getText(),fcita,PAIS_NACIMIENTO.getValue(),DIRECCION.getText(),POBLACION.getText(),CODIGO_POSTAL.getText(),TELEFONO.getText(),TELEFONO2.getText(),CORREO_ELECTRONICO.getText(),sexo,GRUPO_SANGUINEO.getValue(),null);
+							switch (res){
+
+								case 0:
+									Alert alert = new Alert(AlertType.INFORMATION);
+									alert.setTitle("OK!");
+									alert.setHeaderText("Modificación OK!");
+									alert.setContentText("¡Persona modificada con éxito!");
+									alert.showAndWait();
+
+									// Actualizo los datos de la tabla
+									datos = con.bbddObtenerDonantes();
+									tabla.setItems(datos);
+									break;
+
+								default:
+										alert = new Alert(AlertType.ERROR);
+										alert.setTitle("Error!");
+										alert.setHeaderText("Modificación NOK!");
+										alert.setContentText("¡Ha habido un problema al realizar el update!");
+										alert.showAndWait();
+										break;
+
+									}
+
+
+
+
+						}
+						else{
+							// Realizar el insertado de datos en la base de datos
+							ConexionBBDD con = new ConexionBBDD();
+							
+							DateTimeFormatter isoFecha = DateTimeFormatter.ISO_LOCAL_DATE;
+							String fcita = FECHA_NACIMIENTO.getValue().format(isoFecha);
+							
+							
+							int res = con.InsertarDonante(NUM_DONANTE.getText(),NOMBRE.getText(),APELLIDO1.getText(),APELLIDO2.getText(),DNI.getText(),fcita,PAIS_NACIMIENTO.getValue(),DIRECCION.getText(),POBLACION.getText(),CODIGO_POSTAL.getText(),TELEFONO.getText(),TELEFONO2.getText(),CORREO_ELECTRONICO.getText(),sexo,GRUPO_SANGUINEO.getValue(),null);
+							
+						
+							switch (res){
+
+							case 0:
+								Alert alert = new Alert(AlertType.INFORMATION);
+								alert.setTitle("OK!");
+								alert.setHeaderText("Inserción OK!");
+								alert.setContentText("¡Persona insertada con éxito!");
+								alert.showAndWait();
+
+								// Actualizo los datos de la tabla
+								datos = con.bbddObtenerDonantes();
+								tabla.setItems(datos);
+								break;
+
+							case 1:
+								alert = new Alert(AlertType.WARNING);
+								alert.setTitle("Aviso!");
+								alert.setHeaderText("Inserción NOK!");
+								alert.setContentText("¡Ya existe una persona con ese email!");
+								alert.showAndWait();
+								break;
+
+							default:
+								alert = new Alert(AlertType.ERROR);
+								alert.setTitle("Error!");
+								alert.setHeaderText("Inserción NOK!");
+								alert.setContentText("¡Ha habido un problema al realizar la inserción!");
+								alert.showAndWait();
+								break;
+
+							}
+
+						}
+
+
+						}
+
+					}
+
+
+				//eliminar Donante
+				public void Eliminar() throws SQLException{
+					int index = tabla.getSelectionModel().getSelectedIndex();
+					if( index >= 0){
+
+						Donante seleccionada = tabla.getSelectionModel().getSelectedItem();
+
+						// Se abre un dialog box de confirmacion de eliminar
+						Alert alert = new Alert(AlertType.CONFIRMATION);
+						alert.setTitle("Conformación!!!");
+						alert.setHeaderText("Por favor confirme el borrado");
+						alert.setContentText("Dese borrar al usuario "+ seleccionada.getNOMBRE() + " " +seleccionada.getAPELLIDO1() +" ?");
+
+						Optional<ButtonType> result = alert.showAndWait();
+						if (result.get() == ButtonType.OK){
+						    // ... user chose OK
+
+							// Llamar a un método que realice el DELETE en la base de datos
+							ConexionBBDD con = new ConexionBBDD();
+							int res = con.BorrarPersona(seleccionada.getCORREO_ELECTRONICO());
+							switch(res){
+								case 0:
+									alert = new Alert(AlertType.INFORMATION);
+									alert.setTitle("OK!");
+									alert.setHeaderText("Borrado OK!");
+									alert.setContentText("¡Persona borrada con éxito!");
+									alert.showAndWait();
+
+									// Actualizo los datos de la tabla
+									datos = con.bbddObtenerDonantes();
+									tabla.setItems(datos);
+									break;
+
+								default:
+									alert = new Alert(AlertType.ERROR);
+									alert.setTitle("Error!");
+									alert.setHeaderText("Inserción NOK!");
+									alert.setContentText("¡Ha habido un problema al eliminar!");
+									alert.showAndWait();
+									break;
+							}
+
+							Borrar();
+						}
+
+					}else{
+
+						Alert alert = new Alert(AlertType.ERROR);
+						alert.setTitle("Error");
+						alert.setHeaderText("Error en selección de datos");
+						alert.setContentText("NO HAY NINGUN ELEMENTO SELECCIONADO!");
+						alert.showAndWait();
+
+					}
+				}
 			
-			}
+				public void Borrar(){
+					NUM_DONANTE.setText("");
+					NOMBRE.setText("");
+					APELLIDO1.setText("");
+					APELLIDO2.setText("");
+					DNI.setText("");
+					DIRECCION.setText("");
+					POBLACION.setText("");
+					CODIGO_POSTAL.setText("");
+					TELEFONO.setText("");
+					TELEFONO2.setText("");
+					CORREO_ELECTRONICO.setText("");
+					
+					
+					edicion = false;
+					indiceedicion = 0;
+				}
+
+
+				//modificar 
+				public void Editar(){
+
+
+					int index = tabla.getSelectionModel().getSelectedIndex();
+
+
+					if( index >= 0){
+
+						// Activo la "funcionalidad" de editar para luego que el botón guardar sepa a qué PErsona estoy "editando"
+						edicion = true;
+						indiceedicion = index;
+
+
+						Donante seleccionada = tabla.getSelectionModel().getSelectedItem();
+
+						NUM_DONANTE.setText(seleccionada.getNUM_DONANTE());
+						NOMBRE.setText(seleccionada.getNOMBRE());
+						APELLIDO1.setText(seleccionada.getCORREO_ELECTRONICO());
+						APELLIDO2.setText(seleccionada.getAPELLIDO2());
+						DNI.setText(seleccionada.getDNI());
+						FECHA_NACIMIENTO.setAccessibleText(seleccionada.getFECHA_NACIMIENTO());
+						PAIS_NACIMIENTO.setAccessibleText(seleccionada.getPAIS_NACIMIENTO());
+						DIRECCION.setAccessibleText(seleccionada.getDIRECCION());
+						POBLACION.setAccessibleText(seleccionada.getPOBLACION());
+						CODIGO_POSTAL.setAccessibleText(seleccionada.getCODIGO_POSTAL());
+						TELEFONO.setAccessibleText(seleccionada.getTELEFONO());
+						TELEFONO2.setAccessibleText(seleccionada.getTELEFONO2());
+						CORREO_ELECTRONICO.setAccessibleText(seleccionada.getCORREO_ELECTRONICO());
+						if(seleccionada.getSEXO() == 'H')
+							H.setSelected(true);
+						else
+							M.setSelected(true);
+						
+						GRUPO_SANGUINEO.setAccessibleText(seleccionada.getGRUPO_SANGUINEO());
+
+					}
+				}
+				
+				
+				//buscar DNI
+
+				public void Buscar() throws SQLException{
+
+					String buscar = TextFieldBucarporDNI.getText();
+					System.out.println(buscar);
+					// llama a un  método  que haga el select de la base de datos
+					ConexionBBDD con = new ConexionBBDD();
+					datos = con.BuscarDniDonante(buscar);
+
+					tabla.setItems(datos);
+
+
+				}
+
+				
+				
+}
+
+
+
 		
 	
 
