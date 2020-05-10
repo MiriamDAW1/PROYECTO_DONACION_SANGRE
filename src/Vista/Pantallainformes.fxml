@@ -33,13 +33,34 @@
       <DatePicker fx:id="FechaInicial" layoutX="322.0" layoutY="49.0" />
       <Label layoutX="251.0" layoutY="80.0" text="Fecha Final " />
       <DatePicker fx:id="FechaFinal" layoutX="322.0" layoutY="76.0" />
-      <TextArea fx:id="resultados" layoutX="43.0" layoutY="196.0" prefHeight="156.0" prefWidth="454.0" />
+      <TextArea fx:id="resultados" layoutX="20.0" layoutY="179.0" prefHeight="156.0" prefWidth="454.0" />
       <Label layoutX="252.0" layoutY="107.0" text="Donante Tipo" />
       <ComboBox fx:id="TipoDonante" layoutX="334.0" layoutY="103.0" prefHeight="25.0" prefWidth="111.0" />
       <Label layoutX="247.0" layoutY="138.0" text="Volumen tipo sanguineo" />
       <TextField fx:id="volumentiposanguineo" layoutX="388.0" layoutY="134.0" prefHeight="25.0" prefWidth="62.0" />
-      <Button fx:id="Buscar" layoutX="507.0" layoutY="239.0" mnemonicParsing="false" text="Buscar" />
-      <Button fx:id="Borrar" layoutX="503.0" layoutY="297.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="62.0" text="Borrar" />
-      <Button fx:id="buttonclose" layoutY="2.0" mnemonicParsing="false" onAction="#closeWindow" text="Atras" />
+      <Button fx:id="Buscar" layoutX="479.0" layoutY="186.0" mnemonicParsing="false">
+         <graphic>
+            <ImageView fitHeight="52.0" fitWidth="89.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../../Users/javichu/Desktop/PROYECTO%20APLICACION%20DONAR%20SANGRE/buscar%20boton.jpg" />
+               </image>
+            </ImageView>
+         </graphic></Button>
+      <Button fx:id="Borrar" layoutX="480.0" layoutY="261.0" mnemonicParsing="false" prefHeight="66.0" prefWidth="77.0">
+         <graphic>
+            <ImageView fitHeight="60.0" fitWidth="63.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../../Users/javichu/Desktop/PROYECTO%20APLICACION%20DONAR%20SANGRE/cerrrar%20ventana.jpg" />
+               </image>
+            </ImageView>
+         </graphic></Button>
+      <Button fx:id="buttonclose" layoutX="-6.0" layoutY="-2.0" mnemonicParsing="false" onAction="#closeWindow" prefHeight="32.0" prefWidth="41.0">
+         <graphic>
+            <ImageView fitHeight="13.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../../Users/javichu/Desktop/PROYECTO%20APLICACION%20DONAR%20SANGRE/atras%20boton.jpg" />
+               </image>
+            </ImageView>
+         </graphic></Button>
    </children>
 </AnchorPane>

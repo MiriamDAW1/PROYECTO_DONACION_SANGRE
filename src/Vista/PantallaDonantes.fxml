@@ -10,6 +10,7 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
@@ -20,7 +21,14 @@
         <items>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="244.0" prefWidth="776.0">
                <children>
-                  <Button fx:id="buttonvolver" mnemonicParsing="false" onAction="#closeWindow" prefHeight="25.0" prefWidth="48.0" text="Atras" />
+                  <Button fx:id="buttonvolver" mnemonicParsing="false" onAction="#closeWindow" prefHeight="25.0" prefWidth="48.0">
+                     <graphic>
+                        <ImageView fitHeight="19.0" fitWidth="34.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../../../Users/javichu/Desktop/PROYECTO%20APLICACION%20DONAR%20SANGRE/atras%20boton.jpg" />
+                           </image>
+                        </ImageView>
+                     </graphic></Button>
                   <Label alignment="CENTER" contentDisplay="CENTER" layoutX="304.0" layoutY="1.0" text="Datos del Donante " textFill="#fc2121">
                      <font>
                         <Font size="18.0" />
@@ -148,26 +156,51 @@
                         <Font size="9.0" />
                      </font>
                   </Label>
-                  <Button fx:id="BotonbuscarDNI" layoutX="521.0" layoutY="172.0" mnemonicParsing="false" onAction="#Buscar" text="buscar por DNI" />
-                  <TextField fx:id="TextFieldBucarporDNI" layoutX="488.0" layoutY="141.0" prefHeight="27.0" prefWidth="163.0">
+                  <Button fx:id="BotonbuscarDNI" layoutX="648.0" layoutY="160.0" mnemonicParsing="false" onAction="#Buscar" prefHeight="28.0" prefWidth="140.0" text="buscar por DNI">
+                     <graphic>
+                        <ImageView fitHeight="27.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../../../Users/javichu/Desktop/PROYECTO%20APLICACION%20DONAR%20SANGRE/buscar%20boton.jpg" />
+                           </image>
+                        </ImageView>
+                     </graphic></Button>
+                  <TextField fx:id="TextFieldBucarporDNI" layoutX="482.0" layoutY="167.0" prefHeight="27.0" prefWidth="163.0">
                      <font>
                         <Font size="10.0" />
                      </font>
                   </TextField>
-                  <Button fx:id="GUARDAR" layoutX="497.0" layoutY="218.0" mnemonicParsing="false" onAction="#Guardar" prefHeight="26.0" prefWidth="66.0" text="Guardar" textFill="#26bd18" />
-                  <Button fx:id="BORRAR" layoutX="569.0" layoutY="218.0" mnemonicParsing="false" onAction="#Borrar" prefHeight="28.0" prefWidth="99.0" text="Borrar datos" textFill="#242323" />
-                  <Button fx:id="ELIMINAR" layoutX="677.0" layoutY="218.0" mnemonicParsing="false" onAction="#Eliminar" prefHeight="28.0" prefWidth="83.0" text="Eliminar" textFill="#f21111" />
-                  <Button fx:id="SELECIONARIMAGEN" layoutX="673.0" layoutY="19.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="154.0" text="seleciona imagen">
+                  <Button fx:id="GUARDAR" layoutX="450.0" layoutY="218.0" mnemonicParsing="false" onAction="#Guardar" prefHeight="28.0" prefWidth="113.0" text="Guardar" textFill="#26bd18">
+                     <graphic>
+                        <ImageView fitHeight="25.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../../../Users/javichu/Desktop/PROYECTO%20APLICACION%20DONAR%20SANGRE/guardar%20boton.jpg" />
+                           </image>
+                        </ImageView>
+                     </graphic></Button>
+                  <Button fx:id="BORRAR" layoutX="569.0" layoutY="218.0" mnemonicParsing="false" onAction="#Borrar" prefHeight="39.0" prefWidth="99.0" text="Borrar datos" textFill="#242323" />
+                  <Button fx:id="ELIMINAR" layoutX="677.0" layoutY="218.0" mnemonicParsing="false" onAction="#Eliminar" prefHeight="40.0" prefWidth="119.0" text="Eliminar" textFill="#f21111">
+                     <graphic>
+                        <ImageView fitHeight="23.0" fitWidth="34.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../../../Users/javichu/Desktop/PROYECTO%20APLICACION%20DONAR%20SANGRE/cerrrar%20ventana.jpg" />
+                           </image>
+                        </ImageView>
+                     </graphic></Button>
+                  <Button fx:id="SELECIONARIMAGEN" layoutX="648.0" layoutY="13.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="154.0" text="seleciona imagen">
                      <font>
                         <Font size="14.0" />
                      </font></Button>
-                  <ImageView fx:id="Imagen" fitHeight="119.0" fitWidth="175.0" layoutX="474.0" layoutY="17.0" pickOnBounds="true" preserveRatio="true" />
+                  <ImageView fx:id="Imagen" fitHeight="105.0" fitWidth="169.0" layoutX="464.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true" />
                   <ComboBox fx:id="PAIS_NACIMIENTO" layoutX="94.0" layoutY="180.0" prefHeight="13.0" prefWidth="119.0" />
                   <ComboBox fx:id="GRUPO_SANGUINEO" layoutX="94.0" layoutY="211.0" prefHeight="13.0" prefWidth="119.0" />
-                  <Button fx:id="GENERARCARNET" layoutX="679.0" layoutY="107.0" mnemonicParsing="false" onAction="#imprimeCarnet" prefHeight="35.0" prefWidth="163.0" text="Generar Carnet">
-                     <font>
-                        <Font size="14.0" />
-                     </font></Button>
+                  <Button fx:id="GENERARCARNET" layoutX="737.0" layoutY="96.0" mnemonicParsing="false" onAction="#imprimeCarnet" prefHeight="56.0" prefWidth="190.0" text="Generar Carnet">
+                     <graphic>
+                        <ImageView fitHeight="54.0" fitWidth="59.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../../../Users/javichu/Desktop/PROYECTO%20APLICACION%20DONAR%20SANGRE/icono%20boton%20generar%20carnet.jpg" />
+                           </image>
+                        </ImageView>
+                     </graphic></Button>
                   <TextField fx:id="CODIGO_POSTAL" layoutX="325.0" layoutY="99.0" prefHeight="23.0" prefWidth="113.0">
                      <font>
                         <Font size="10.0" />
@@ -178,7 +211,7 @@
                         <Font size="10.0" />
                      </font>
                   </TextField>
-                  <TextField fx:id="txtf_ruta" layoutX="669.0" layoutY="54.0" prefHeight="27.0" prefWidth="163.0">
+                  <TextField fx:id="txtf_ruta" layoutX="643.0" layoutY="56.0" prefHeight="27.0" prefWidth="163.0">
                      <font>
                         <Font size="10.0" />
                      </font>

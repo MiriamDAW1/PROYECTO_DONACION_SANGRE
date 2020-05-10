@@ -14,24 +14,35 @@
             <Image url="@img%20pantalla%20incial.jpg" />
          </image>
       </ImageView>
-      <Button fx:id="adminDonantes" layoutX="333.0" layoutY="123.0" mnemonicParsing="false" onAction="#abrirVentanaDonante" prefHeight="77.0" prefWidth="233.0" text="Gestión de Donantes">
-         <font>
-            <Font size="19.0" />
-         </font></Button>
-      <Button fx:id="adminDonaciones" layoutX="33.0" layoutY="284.0" mnemonicParsing="false" onAction="#abrirVentanaFormulario" prefHeight="77.0" prefWidth="254.0" text="Gestión de Donaciones">
-         <font>
-            <Font size="19.0" />
-         </font></Button>
-      <Button fx:id="adminInformesyestadisticas" layoutX="333.0" layoutY="297.0" mnemonicParsing="false" onAction="#abrirVentanaInformes" prefHeight="77.0" prefWidth="233.0" text="Reproducir Informes" textFill="#070101">
-         <font>
-            <Font size="19.0" />
-         </font></Button>
-      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="287.0" layoutY="14.0" text="DONAR SANGRE" textAlignment="CENTER" textFill="#f20c0c">
+      <Button fx:id="adminDonantes" layoutX="331.0" layoutY="115.0" mnemonicParsing="false" onAction="#abrirVentanaDonante" prefHeight="91.0" prefWidth="238.0" text="Gestión de Donantes">
+         <graphic>
+            <ImageView fitHeight="72.0" fitWidth="85.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../../Users/javichu/Desktop/PROYECTO%20APLICACION%20DONAR%20SANGRE/icono%20boton%20donante.jpg" />
+               </image></ImageView>
+         </graphic></Button>
+      <Button fx:id="adminDonaciones" layoutX="14.0" layoutY="284.0" mnemonicParsing="false" onAction="#abrirVentanaFormulario" prefHeight="96.0" prefWidth="273.0" text="Gestión de Donaciones">
+         <graphic>
+            <ImageView fitHeight="82.0" fitWidth="107.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../../Users/javichu/Desktop/PROYECTO%20APLICACION%20DONAR%20SANGRE/icono%20boton%20donacion.jpg" />
+               </image>
+            </ImageView>
+         </graphic></Button>
+      <Button fx:id="adminInformesyestadisticas" layoutX="323.0" layoutY="286.0" mnemonicParsing="false" onAction="#abrirVentanaInformes" prefHeight="93.0" prefWidth="273.0" text="Reproducir Informes" textFill="#070101">
+         <graphic>
+            <ImageView fitHeight="79.0" fitWidth="114.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../../Users/javichu/Desktop/PROYECTO%20APLICACION%20DONAR%20SANGRE/informes%20y%20estadisticas%20boton.jpg" />
+               </image>
+            </ImageView>
+         </graphic></Button>
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="320.0" layoutY="14.0" text="DONAR SANGRE" textAlignment="CENTER" textFill="#f20c0c">
          <font>
             <Font size="32.0" />
          </font>
       </Label>
-      <Label layoutX="290.0" layoutY="61.0" text="ES DONAR VIDA" textFill="#e10000">
+      <Label layoutX="323.0" layoutY="61.0" text="ES DONAR VIDA" textFill="#e10000">
          <font>
             <Font size="32.0" />
          </font>

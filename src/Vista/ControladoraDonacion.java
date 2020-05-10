@@ -196,9 +196,9 @@ public class ControladoraDonacion  {
 					alert.showAndWait();
 					}
 					else{
-
+						
 					if(edicion == true){
-
+						System.out.println("entroooooo!");
 				// Hago la llamda al método que hace el update en la base de datos
 					ConexionBBDD con = new ConexionBBDD();
 					
@@ -345,14 +345,14 @@ public class ControladoraDonacion  {
 				TA_DIAST.setText("");
 				HB_CAP.setText("");
 				HB_VEN.setText("");
+				
 				edicion = false;
 				indiceedicion = 0;
 			}
 
 			//***********************************BBDD EDITAR(EDITAR DONACION)******************************
 			public void Editar(){
-
-
+				
 				int index = tabla.getSelectionModel().getSelectedIndex();
 
 
@@ -364,15 +364,17 @@ public class ControladoraDonacion  {
 
 
 					Donacion seleccionada = tabla.getSelectionModel().getSelectedItem();
-					NUM_DONACION.setPromptText(seleccionada.getNUM_DONACION());
+					NUM_DONACION.setText(seleccionada.getNUM_DONACION());
 					COD_COLECTA.setText(seleccionada.getCOD_COLECTA());
-					TIPO_DONACION.setPromptText(seleccionada.getTIPO_DONACION());
-					PULSO.setPromptText(seleccionada.getPULSO());
+					TIPO_DONACION.setValue(seleccionada.getTIPO_DONACION());
+					PULSO.setValue(seleccionada.getPULSO());
 					TA_SIST.setText(seleccionada.getTA_SIST());
 					TA_DIAST.setText(seleccionada.getTA_DIAST());
 					HB_CAP.setText(seleccionada.getHB_CAP());
 					HB_VEN.setText(seleccionada.getHB_VEN());
-					FECHA.setAccessibleText(seleccionada.getFECHA());
+					DateTimeFormatter isoFecha = DateTimeFormatter.ISO_LOCAL_DATE;
+					FECHA.getValue().format(isoFecha);
+					
 				}
 			}
 

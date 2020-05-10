@@ -9,6 +9,8 @@
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
@@ -37,12 +39,40 @@
                   <Label layoutX="566.0" layoutY="149.0" prefHeight="17.0" prefWidth="56.0" text="HB_VEN" />
                   <Label layoutX="33.0" layoutY="188.0" prefHeight="17.0" prefWidth="48.0" text="FECHA" />
                   <DatePicker fx:id="FECHA" layoutX="93.0" layoutY="184.0" />
-                  <Button fx:id="BotonbuscartipoDonacion" layoutX="641.0" layoutY="69.0" mnemonicParsing="false" onAction="#Buscar" prefHeight="28.0" prefWidth="149.0" text="Buscar tipo donacion" />
-                  <TextField fx:id="TextFieldBuacarTipoDonacion" layoutX="483.0" layoutY="70.0" />
-                  <Button fx:id="GUARDAR" layoutX="516.0" layoutY="197.0" mnemonicParsing="false" onAction="#Guardar" text="Guardar" textFill="#078326" />
-                  <Button fx:id="BORRAR" layoutX="598.0" layoutY="197.0" mnemonicParsing="false" onAction="#Borrar" text="Borrar Datos  " />
-                  <Button fx:id="ELIMINAR" layoutX="715.0" layoutY="197.0" mnemonicParsing="false" onAction="#Eliminar" text="Eliminar" textFill="#b20707" />
-                  <Button fx:id="buttonvolver" mnemonicParsing="false" onAction="#closeWindow" text="Atras" />
+                  <Button fx:id="BotonbuscartipoDonacion" layoutX="557.0" layoutY="24.0" mnemonicParsing="false" onAction="#Buscar" prefHeight="68.0" prefWidth="232.0" text="Buscar tipo donacion">
+                     <graphic>
+                        <ImageView fitHeight="54.0" fitWidth="78.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../../../Users/javichu/Desktop/PROYECTO%20APLICACION%20DONAR%20SANGRE/buscar%20boton.jpg" />
+                           </image>
+                        </ImageView>
+                     </graphic></Button>
+                  <TextField fx:id="TextFieldBuacarTipoDonacion" layoutX="389.0" layoutY="37.0" prefHeight="40.0" prefWidth="150.0" />
+                  <Button fx:id="GUARDAR" layoutX="401.0" layoutY="178.0" mnemonicParsing="false" onAction="#Guardar" prefHeight="48.0" prefWidth="125.0" text="Guardar" textFill="#078326">
+                     <graphic>
+                        <ImageView fitHeight="45.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@guardar%20boton.jpg" />
+                           </image>
+                        </ImageView>
+                     </graphic></Button>
+                  <Button fx:id="BORRAR" layoutX="542.0" layoutY="182.0" mnemonicParsing="false" onAction="#Borrar" prefHeight="59.0" prefWidth="114.0" text="Borrar Datos  " />
+                  <Button fx:id="ELIMINAR" layoutX="673.0" layoutY="183.0" mnemonicParsing="false" onAction="#Eliminar" prefHeight="59.0" prefWidth="114.0" text="Eliminar" textFill="#b20707">
+                     <graphic>
+                        <ImageView fitHeight="49.0" fitWidth="43.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@cerrrar%20ventana.jpg" />
+                           </image>
+                        </ImageView>
+                     </graphic></Button>
+                  <Button fx:id="buttonvolver" mnemonicParsing="false" onAction="#closeWindow">
+                     <graphic>
+                        <ImageView fitHeight="22.0" fitWidth="49.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../../../Users/javichu/Desktop/PROYECTO%20APLICACION%20DONAR%20SANGRE/atras%20boton.jpg" />
+                           </image>
+                        </ImageView>
+                     </graphic></Button>
                   <TextField fx:id="TA_SIST" layoutX="193.0" layoutY="145.0" prefHeight="25.0" prefWidth="77.0" />
                   <TextField fx:id="TA_DIAST" layoutX="338.0" layoutY="145.0" prefHeight="25.0" prefWidth="77.0" />
                   <TextField fx:id="HB_CAP" layoutX="478.0" layoutY="145.0" prefHeight="25.0" prefWidth="77.0" />
