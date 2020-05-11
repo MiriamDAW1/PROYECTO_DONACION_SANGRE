@@ -124,6 +124,7 @@ public class ConexionBBDD {
 					String GRUPO_SANGUINEO=resultado.getString(15);
 					Blob FOTO=resultado.getBlob(16);
 					
+					
 					Donante nueva = new Donante(NUM_DONANTE, NOMBRE, APELLIDO1,APELLIDO2,DNI,FECHA_NACIMIENTO,PAIS_NACIMIENTO,DIRECCION,POBLACION,CODIGO_POSTAL,TELEFONO,TELEFONO2,CORREO_ELECTRONICO,SEXO,GRUPO_SANGUINEO,FOTO);
 					listaDonantes.add(nueva);
 				}
@@ -152,7 +153,7 @@ public class ConexionBBDD {
 		 *
 		 *
 		 */
-		public int InsertarDonante(String NUM_DONANTE,String NOMBRE,String APELLIDO1,String APELLIDO2,String  DNI,String FECHA_NACIMIENTO,String PAIS_NACIMIENTO,String DIRECCION ,String POBLACION,String CODIGO_POSTAL,String TELEFONO,String TELEFONO2,String CORREO_ELECTRONICO,char SEXO,String GRUPO_SANGUINEO,String foto) throws SQLException{
+		public int InsertarDonante(String NUM_DONANTE,String NOMBRE,String APELLIDO1,String APELLIDO2,String  DNI,String FECHA_NACIMIENTO,String PAIS_NACIMIENTO,String DIRECCION ,String POBLACION,String CODIGO_POSTAL,String TELEFONO,String TELEFONO2,String CORREO_ELECTRONICO,char SEXO,String GRUPO_SANGUINEO,BLOB FOTO) throws SQLException{
 
 			// Preparo la sentencia SQL CrearTablaPersonas
 			String insertsql = "INSERT INTO " + esptrab+".DONANTE VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
@@ -175,7 +176,7 @@ public class ConexionBBDD {
 			pstmt.setString(13,CORREO_ELECTRONICO);
 			pstmt.setString(3, Character.toString(SEXO));
 			pstmt.setString(15,GRUPO_SANGUINEO);
-			pstmt.setString(16, foto);
+			pstmt.setBlob(16,FOTO);
 			
 			//ejecuto la sentencia
 			try{
@@ -207,7 +208,7 @@ public class ConexionBBDD {
 
 
 		/*
-		 * El método ModificarPersona devuelve un código de error para los siguientes casos:
+		 * El método ModificarDonante devuelve un código de error para los siguientes casos:
 		 *
 		 * 0 - Persona insertada OK!
 		 * 1 - Se ha queriro introducir uan persona con un email existente (Primary key violated)
@@ -215,7 +216,7 @@ public class ConexionBBDD {
 		 *
 		 *
 		 */
-		public int ModificarDonante(String NUM_DONANTE,String NOMBRE,String APELLIDO1,String APELLIDO2,String  DNI,String FECHA_NACIMIENTO,String PAIS_NACIMIENTO,String DIRECCION ,String POBLACION,String CODIGO_POSTAL,String TELEFONO,String TELEFONO2,String CORREO_ELECTRONICO,char SEXO,String GRUPO_SANGUINEO,Blob FOTO) throws SQLException{
+		public int ModificarDonante(String NUM_DONANTE,String NOMBRE,String APELLIDO1,String APELLIDO2,String  DNI,String FECHA_NACIMIENTO,String PAIS_NACIMIENTO,String DIRECCION ,String POBLACION,String CODIGO_POSTAL,String TELEFONO,String TELEFONO2,String CORREO_ELECTRONICO,char SEXO,String GRUPO_SANGUINEO,BLOB FOTO) throws SQLException{
 
 			// Preparo la sentencia SQL CrearTablaPersonas
 			String updatesql = "UPDATE " + esptrab+".DONANTE SET NOMBRE=?,APELLIDO1=?,APELLIDO2=?,DNI=?,FECHA_NACIMIENTO=?,PAIS_NACIMIENTO=?,DIRECCION=?,POBLACION=?,CODIGO_POSTAL=?,TELEFONO=?,TELEFONO2=?,CORREO_ELECTRONICO=?,SEXO=?,GRUPO_SANGUINEO=?,FOTO=? WHERE NUM_DONANTE=?";
@@ -539,7 +540,7 @@ public class ConexionBBDD {
 			}
 			
 			//eliminar Donacion
-			public int BorrarPersona(String NUM_DONACION) throws SQLException{
+			public int EliminarDonacion(String NUM_DONACION) throws SQLException{
 
 				// Preparo la sentencia SQL
 				String deletesql = "DELETE "+ esptrab+".DONACION WHERE NUM_DONACION=?";
@@ -571,7 +572,7 @@ public class ConexionBBDD {
 			}
 
 			//buscar por tipo de donacion
-			public ObservableList<Donacion> BuscarPersonas(String tipodonacion) throws SQLException{
+			public ObservableList<Donacion> BuscarTipoDonacion(String tipodonacion) throws SQLException{
 
 				ObservableList<Donacion> listapersonas = FXCollections.observableArrayList();		
 				

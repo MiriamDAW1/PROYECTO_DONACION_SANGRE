@@ -27,6 +27,7 @@ import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
+import oracle.sql.BLOB;
 
 public class ControladoraDonante {
 	//pantalla
@@ -336,15 +337,16 @@ public class ControladoraDonante {
 				}
 				
 				
+				
 				//***********************************BBDDGUARDAR(INSERTAR DONACION)******************************
 				public void Guardar() throws SQLException{
 					char sexo;
 
-					if(H.isSelected())
+					if(H.isSelected()) {
 						sexo = 'H';
-					else
+					}else {
 						sexo = 'M';
-
+					}
 
 					// Añadir un chequeo de campos vacíos o de validación de formato como el email
 					if(NUM_DONANTE.getText().equals("") || NOMBRE.getText().equals("") || APELLIDO1.getText().equals("") || APELLIDO2.getText().equals("") || DNI.getText().equals("") || DIRECCION.getText().equals("") || POBLACION.getText().equals("") || CODIGO_POSTAL.getText().equals("") || TELEFONO.getText().equals("") || TELEFONO2.getText().equals("") || CORREO_ELECTRONICO.getText().equals("") ){
@@ -360,10 +362,13 @@ public class ControladoraDonante {
 
 							// Hago la llamda al método que hace el update en la base de datos
 							ConexionBBDD con = new ConexionBBDD();
+							
 							DateTimeFormatter isoFecha = DateTimeFormatter.ISO_LOCAL_DATE;
 							String fcita = FECHA_NACIMIENTO.getValue().format(isoFecha);
 							
-							int res = con.ModificarDonante(NUM_DONANTE.getText(),NOMBRE.getText(),APELLIDO1.getText(),APELLIDO2.getText(),DNI.getText(),fcita,PAIS_NACIMIENTO.getValue(),DIRECCION.getText(),POBLACION.getText(),CODIGO_POSTAL.getText(),TELEFONO.getText(),TELEFONO2.getText(),CORREO_ELECTRONICO.getText(),sexo,GRUPO_SANGUINEO.getValue(),null);
+							BLOB Foto =null;
+							
+							int res = con.ModificarDonante(NUM_DONANTE.getText(),NOMBRE.getText(),APELLIDO1.getText(),APELLIDO2.getText(),DNI.getText(),fcita,PAIS_NACIMIENTO.getValue(),DIRECCION.getText(),POBLACION.getText(),CODIGO_POSTAL.getText(),TELEFONO.getText(),TELEFONO2.getText(),CORREO_ELECTRONICO.getText(),sexo,GRUPO_SANGUINEO.getValue(),Foto);
 							switch (res){
 
 								case 0:
@@ -399,8 +404,8 @@ public class ControladoraDonante {
 							DateTimeFormatter isoFecha = DateTimeFormatter.ISO_LOCAL_DATE;
 							String fcita = FECHA_NACIMIENTO.getValue().format(isoFecha);
 							
-							
-							int res = con.InsertarDonante(NUM_DONANTE.getText(),NOMBRE.getText(),APELLIDO1.getText(),APELLIDO2.getText(),DNI.getText(),fcita,PAIS_NACIMIENTO.getValue(),DIRECCION.getText(),POBLACION.getText(),CODIGO_POSTAL.getText(),TELEFONO.getText(),TELEFONO2.getText(),CORREO_ELECTRONICO.getText(),sexo,GRUPO_SANGUINEO.getValue(),null);
+							BLOB Foto =null;
+							int res = con.InsertarDonante(NUM_DONANTE.getText(),NOMBRE.getText(),APELLIDO1.getText(),APELLIDO2.getText(),DNI.getText(),fcita,PAIS_NACIMIENTO.getValue(),DIRECCION.getText(),POBLACION.getText(),CODIGO_POSTAL.getText(),TELEFONO.getText(),TELEFONO2.getText(),CORREO_ELECTRONICO.getText(),sexo,GRUPO_SANGUINEO.getValue(),Foto);
 							
 						
 							switch (res){
@@ -454,7 +459,7 @@ public class ControladoraDonante {
 						Alert alert = new Alert(AlertType.CONFIRMATION);
 						alert.setTitle("Conformación!!!");
 						alert.setHeaderText("Por favor confirme el borrado");
-						alert.setContentText("Dese borrar al usuario "+ seleccionada.getNOMBRE() + " " +seleccionada.getAPELLIDO1() +" ?");
+						alert.setContentText("Dese borrar al usuario "+ seleccionada.getNUM_DONANTE()+ ""+seleccionada.getNOMBRE() + " " +seleccionada.getAPELLIDO1() +" ?");
 
 						Optional<ButtonType> result = alert.showAndWait();
 						if (result.get() == ButtonType.OK){
@@ -462,7 +467,7 @@ public class ControladoraDonante {
 
 							// Llamar a un método que realice el DELETE en la base de datos
 							ConexionBBDD con = new ConexionBBDD();
-							int res = con.BorrarPersona(seleccionada.getCORREO_ELECTRONICO());
+							int res = con.BorrarDonante(seleccionada.getNUM_DONANTE());
 							switch(res){
 								case 0:
 									alert = new Alert(AlertType.INFORMATION);

@@ -1,6 +1,5 @@
 package Vista;
 
-import java.sql.Date;
 import java.sql.SQLException;
 import java.time.format.DateTimeFormatter;
 import java.util.Optional;
@@ -8,7 +7,6 @@ import java.util.Optional;
 import Controlador.Main;
 import Modelo.ConexionBBDD;
 import Modelo.Donacion;
-import Modelo.Donante;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -301,7 +299,7 @@ public class ControladoraDonacion  {
 
 						// Llamar a un método que realice el DELETE en la base de datos
 						ConexionBBDD con = new ConexionBBDD();
-						int res = con.BorrarPersona(seleccionada.getNUM_DONACION());
+						int res = con.EliminarDonacion(seleccionada.getNUM_DONACION());
 						switch(res){
 							case 0:
 								alert = new Alert(AlertType.INFORMATION);
@@ -384,11 +382,9 @@ public class ControladoraDonacion  {
 				System.out.println(buscar);
 				// llama a un  método  que haga el select de la base de datos
 				ConexionBBDD con = new ConexionBBDD();
-				datos = con.BuscarPersonas(buscar);
+				datos = con.BuscarTipoDonacion(buscar);
 
 				tabla.setItems(datos);
-
-
 			}
 
 			
