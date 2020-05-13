@@ -701,7 +701,7 @@ System.out.println(FOTO);
 			
 
 			//buscar por DNI
-			public ObservableList<Donante> BuscarTipoDonante(String tipodonante) throws SQLException{
+			public ObservableList<Donante> BuscarTipo(String tipodonante) throws SQLException{
 
 				ObservableList<Donante> listaDonantes = FXCollections.observableArrayList();		
 				

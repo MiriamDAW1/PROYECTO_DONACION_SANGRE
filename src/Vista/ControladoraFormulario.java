@@ -61,13 +61,35 @@ public class ControladoraFormulario  implements Initializable {
 		 @FXML
 			private Button Guardar;
 		 
-	
-		 //pregunta 1
+		 //pregunta 1 EXCLUSION DEFINITIVA
+		 @FXML
+			ToggleGroup opcion1;
+		 @FXML
+			RadioButton S;
+
+			@FXML
+			RadioButton N;
+
+			
+		 //pregunta 2 EXCLUSION DEFINITIVA
 		 
-		 //pregunta 2
-		 
-		 
-	
+			 @FXML
+				ToggleGroup opcion2;
+			 @FXML
+				RadioButton s;
+
+				@FXML
+				RadioButton n;
+
+		 //pregunta 3 EXCLUSION DEFINITIVA
+				 @FXML
+					ToggleGroup opcion3;
+				 @FXML
+					RadioButton si;
+
+					@FXML
+					RadioButton no;
+
 		
 		
 		

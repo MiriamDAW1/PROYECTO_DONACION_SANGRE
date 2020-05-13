@@ -3,7 +3,8 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -51,10 +52,15 @@
                </image>
             </ImageView>
          </graphic></Button>
-      <Button fx:id="BuscarPorTipoDonante" layoutX="43.0" layoutY="174.0" mnemonicParsing="false" text="bucar por tipo donante" />
-      <Button fx:id="BuscarPorFecha" layoutX="274.0" layoutY="176.0" mnemonicParsing="false" prefHeight="28.0" prefWidth="191.0" text="buscar por fecha inicial" />
+      <Button fx:id="BuscarPorTipoDonante" layoutX="220.0" layoutY="172.0" mnemonicParsing="false" onAction="#BuscarDon" text="bucar por tipo donante" />
       <TextField fx:id="textTipoDonante" layoutX="325.0" layoutY="103.0" />
-      <TextArea fx:id="resultadoTipodonacion" layoutX="29.0" layoutY="213.0" prefHeight="112.0" prefWidth="200.0" />
-      <TextArea layoutX="270.0" layoutY="213.0" prefHeight="112.0" prefWidth="200.0" />
+      <TableView fx:id="tabla" layoutX="36.0" layoutY="210.0" prefHeight="115.0" prefWidth="497.0">
+        <columns>
+          <TableColumn fx:id="col_FechaInicial" prefWidth="98.0" text="fecha inicial" />
+          <TableColumn fx:id="col_FechaFinal" prefWidth="118.0" text="fecha final" />
+            <TableColumn fx:id="col_TipoDonante" prefWidth="138.0" text="Donante  tipo" />
+            <TableColumn fx:id="col_volumentiposanguineo" prefWidth="142.0" text="volumen sanguineo" />
+        </columns>
+      </TableView>
    </children>
 </AnchorPane>
