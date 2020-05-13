@@ -18,7 +18,7 @@
                <children>
                   <SplitPane dividerPositions="0.2034805890227577" layoutX="2.0" layoutY="-8.0" orientation="VERTICAL" prefHeight="749.0" prefWidth="661.0">
                     <items>
-                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="145.0" prefWidth="659.0">
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="164.0" prefWidth="659.0">
                            <children>
                               <Label alignment="CENTER" layoutX="87.0" layoutY="19.0" text="FORMULARIO GENERAL AL DONANTE DE SANGRE " textAlignment="CENTER">
                                  <font>

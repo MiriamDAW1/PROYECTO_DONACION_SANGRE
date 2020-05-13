@@ -9,7 +9,9 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.DatePicker;
+import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
+import javafx.scene.control.ToggleGroup;
 import javafx.stage.Stage;
 
 public class ControladoraFormulario  implements Initializable {
@@ -43,6 +45,7 @@ public class ControladoraFormulario  implements Initializable {
 		  }
 		 @FXML
 		    public void abrirVentanaDonacion() {
+			
 		       	this.ProgramaPrincipal.mostrarVentanaDonaciones();
 		       	this.ventana.close();
 		    }
@@ -55,7 +58,16 @@ public class ControladoraFormulario  implements Initializable {
 			private DatePicker FECHA;
 		 @FXML
 			private Button borrar;
-
+		 @FXML
+			private Button Guardar;
+		 
+	
+		 //pregunta 1
+		 
+		 //pregunta 2
+		 
+		 
+	
 		
 		
 		

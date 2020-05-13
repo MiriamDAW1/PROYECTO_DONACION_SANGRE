@@ -12,6 +12,8 @@ import com.itextpdf.text.Image;
 import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.pdf.PdfWriter;
 
+import Modelo.Donante;
+
 public class ImprimeArchivo {
 	private String filename;
 	private String filepath;
@@ -26,7 +28,7 @@ public class ImprimeArchivo {
 
 
 	/* Este método generará el PDF  */
-	public void generarArchivoPDF() throws FileNotFoundException, DocumentException {
+	public void generarArchivoPDF(Donante seleccionada) throws FileNotFoundException, DocumentException {
 
 		// Crea el nombre del archivo con el path, el nombre del  fichero y la extensión PDF
 		String sFileNamePath = filepath + filename+".pdf";
@@ -56,7 +58,7 @@ public class ImprimeArchivo {
 
 		Paragraph p1 = new Paragraph("CARNET DE DONANTE",
 		FontFactory.getFont("arial",   // fuente
-		11,                            // tamaño
+		12,                            // tamaño
 		Font.BOLD));
 
 		// Una vez creado el párrafo puedes modificar varias opciones... como aquí la alineación
@@ -66,14 +68,16 @@ public class ImprimeArchivo {
 		// Añade el párrafo al documeento
 		documento.add(p1);
 
-		Paragraph p2 = new Paragraph("Nombre: " ,
+		Paragraph p2 = new Paragraph("NOMBRE: " + seleccionada.getNOMBRE() + "/n" +
+				"APELLIDOS: " + seleccionada.getAPELLIDO1() + " " +seleccionada.getAPELLIDO2(),
+				
 				FontFactory.getFont("Garamond",   // fuente
 				14,                            // tamaño
 				Font.ITALIC));
 
 		// Una vez creado el párrafo puedes modificar varias opciones... como aquí la alineación
 		// ALIGN_CENTER || ALIGN_LEFT || ALIGN_RIGHT ALIGN_JUSTIFY
-		p2.setAlignment(Element.ALIGN_LEFT);
+		p2.setAlignment(Element.ALIGN_RIGHT);
 
 		// Añade el párrafo al documeento
 		documento.add(p2);
@@ -85,7 +89,7 @@ public class ImprimeArchivo {
 		{
 			String path = "src\\Vista\\imagen1.jpg";
 			Image foto = Image.getInstance(path);
-			foto.scaleToFit(130, 100);
+			foto.scaleToFit(200, 200);
 			foto.setAbsolutePosition(20, 740);
 			documento.add(foto);
 		}

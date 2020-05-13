@@ -1,21 +1,25 @@
 package Vista;
 
-import java.net.URL;
-import java.util.ResourceBundle;
+import java.sql.SQLException;
 
 import Controlador.Main;
+import Modelo.ConexionBBDD;
+import Modelo.Donante;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
+
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
-public class Controladorainformes implements Initializable{
+public class Controladorainformes {
 
 	//pantalla
 	 private  Main ProgramaPrincipal;
@@ -40,37 +44,42 @@ public class Controladorainformes implements Initializable{
 		  }
 		//elementos
 		 @FXML
-			private DatePicker FechaInicial;
+			private DatePicker textFechaInicial;
 		 @FXML
 			private DatePicker FechaFinal;
 		 @FXML
-			private ComboBox<String> TipoDonante;
+			private TextField textTipoDonante;
 		@FXML
 			private TextField volumentiposanguineo;
+		
+		
 		@FXML
-			private TextArea resultados;
+		private Button BuscarPorTipoDonante;
+		
 		@FXML
-		private Button Buscar;
+		private Button BuscarPorFecha;
+		
 		@FXML
 		private Button Borrar;
-		 
-		 //comboboxañadir
-			ObservableList<String>ListaTipodonante=FXCollections.observableArrayList();
+		@FXML
+		private TextArea resultadoTipodonacion;
 
-			@Override
-			public void initialize(URL arg0, ResourceBundle arg1) {
-				//listaComboGrupoSanguineo
-				ListaTipodonante.add("A POSITIVO");
-				ListaTipodonante.add("A NEGATIVO");
-				ListaTipodonante.add("B POSITIVO");
-				ListaTipodonante.add("B NEGATIVO");
-				ListaTipodonante.add("AB POSITIVO");
-				ListaTipodonante.add("AB NEGATIVO");
-				ListaTipodonante.add("0 POSITIVO");
-				ListaTipodonante.add("0 NEGATIVO");
-				TipoDonante.setItems(ListaTipodonante);
-			}
+		//datos tabla
+			ObservableList<Donante> datos = FXCollections.observableArrayList();
 		
+		
+		
+		//metodo borrar
+		public void Borrar(){
+			textTipoDonante.setText("");
+			volumentiposanguineo.setText("");
+		}
+	
+		
+	
+
+		
+
 			
 			
 		

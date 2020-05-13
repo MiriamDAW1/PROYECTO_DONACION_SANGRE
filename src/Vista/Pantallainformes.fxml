@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextArea?>
@@ -30,25 +29,15 @@
       </Label>
       <Label layoutX="43.0" layoutY="355.0" prefHeight="17.0" prefWidth="475.0" text="Mas informacion en:    http://www.hdsc.org/estadisticas-de-la-donacion-en-espana/ " />
       <Label layoutX="251.0" layoutY="53.0" text="Fecha inicial" />
-      <DatePicker fx:id="FechaInicial" layoutX="322.0" layoutY="49.0" />
+      <DatePicker fx:id="textFechaInicial" layoutX="322.0" layoutY="49.0" />
       <Label layoutX="251.0" layoutY="80.0" text="Fecha Final " />
       <DatePicker fx:id="FechaFinal" layoutX="322.0" layoutY="76.0" />
-      <TextArea fx:id="resultados" layoutX="20.0" layoutY="179.0" prefHeight="156.0" prefWidth="454.0" />
       <Label layoutX="252.0" layoutY="107.0" text="Donante Tipo" />
-      <ComboBox fx:id="TipoDonante" layoutX="334.0" layoutY="103.0" prefHeight="25.0" prefWidth="111.0" />
       <Label layoutX="247.0" layoutY="138.0" text="Volumen tipo sanguineo" />
       <TextField fx:id="volumentiposanguineo" layoutX="388.0" layoutY="134.0" prefHeight="25.0" prefWidth="62.0" />
-      <Button fx:id="Buscar" layoutX="479.0" layoutY="186.0" mnemonicParsing="false">
+      <Button fx:id="Borrar" layoutX="529.0" layoutY="52.0" mnemonicParsing="false" onAction="#Borrar" prefHeight="38.0" prefWidth="41.0">
          <graphic>
-            <ImageView fitHeight="52.0" fitWidth="89.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../../../../../Users/javichu/Desktop/PROYECTO%20APLICACION%20DONAR%20SANGRE/buscar%20boton.jpg" />
-               </image>
-            </ImageView>
-         </graphic></Button>
-      <Button fx:id="Borrar" layoutX="480.0" layoutY="261.0" mnemonicParsing="false" prefHeight="66.0" prefWidth="77.0">
-         <graphic>
-            <ImageView fitHeight="60.0" fitWidth="63.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="35.0" fitWidth="51.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../../../../Users/javichu/Desktop/PROYECTO%20APLICACION%20DONAR%20SANGRE/cerrrar%20ventana.jpg" />
                </image>
@@ -62,5 +51,10 @@
                </image>
             </ImageView>
          </graphic></Button>
+      <Button fx:id="BuscarPorTipoDonante" layoutX="43.0" layoutY="174.0" mnemonicParsing="false" text="bucar por tipo donante" />
+      <Button fx:id="BuscarPorFecha" layoutX="274.0" layoutY="176.0" mnemonicParsing="false" prefHeight="28.0" prefWidth="191.0" text="buscar por fecha inicial" />
+      <TextField fx:id="textTipoDonante" layoutX="325.0" layoutY="103.0" />
+      <TextArea fx:id="resultadoTipodonacion" layoutX="29.0" layoutY="213.0" prefHeight="112.0" prefWidth="200.0" />
+      <TextArea layoutX="270.0" layoutY="213.0" prefHeight="112.0" prefWidth="200.0" />
    </children>
 </AnchorPane>

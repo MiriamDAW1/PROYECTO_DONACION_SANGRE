@@ -2,6 +2,7 @@ package Modelo;
 
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.sql.Array;
@@ -153,13 +154,13 @@ public class ConexionBBDD {
 		 *
 		 *
 		 */
-		public int InsertarDonante(String NUM_DONANTE,String NOMBRE,String APELLIDO1,String APELLIDO2,String  DNI,String FECHA_NACIMIENTO,String PAIS_NACIMIENTO,String DIRECCION ,String POBLACION,String CODIGO_POSTAL,String TELEFONO,String TELEFONO2,String CORREO_ELECTRONICO,char SEXO,String GRUPO_SANGUINEO,BLOB FOTO) throws SQLException{
+		public int InsertarDonante(String NUM_DONANTE,String NOMBRE,String APELLIDO1,String APELLIDO2,String  DNI,String FECHA_NACIMIENTO,String PAIS_NACIMIENTO,String DIRECCION ,String POBLACION,String CODIGO_POSTAL,String TELEFONO,String TELEFONO2,String CORREO_ELECTRONICO,char SEXO,String GRUPO_SANGUINEO,Blob FOTO) throws SQLException{
 
 			// Preparo la sentencia SQL CrearTablaPersonas
 			String insertsql = "INSERT INTO " + esptrab+".DONANTE VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 
 			//Seguridad en las Aplicaciones: SQL Injection
-
+System.out.println(FOTO);
 			PreparedStatement pstmt = conexion.prepareStatement (insertsql);
 			pstmt.setString(1, NUM_DONANTE);
 			pstmt.setString(2, NOMBRE);
@@ -174,14 +175,14 @@ public class ConexionBBDD {
 			pstmt.setString(11,TELEFONO);
 			pstmt.setString(12,TELEFONO2);
 			pstmt.setString(13,CORREO_ELECTRONICO);
-			pstmt.setString(3, Character.toString(SEXO));
+			pstmt.setString(14, Character.toString(SEXO));
 			pstmt.setString(15,GRUPO_SANGUINEO);
 			pstmt.setBlob(16,FOTO);
-			
+
 			//ejecuto la sentencia
 			try{
 				int resultado = pstmt.executeUpdate();//pstmt y tiene que estar vacio
-
+				System.out.println(resultado);
 				if(resultado != 1)
 					System.out.println("Error en la inserción " + resultado);
 				else
@@ -205,6 +206,8 @@ public class ConexionBBDD {
 			}
 
 		}
+		
+			
 
 
 		/*
@@ -216,14 +219,13 @@ public class ConexionBBDD {
 		 *
 		 *
 		 */
-		public int ModificarDonante(String NUM_DONANTE,String NOMBRE,String APELLIDO1,String APELLIDO2,String  DNI,String FECHA_NACIMIENTO,String PAIS_NACIMIENTO,String DIRECCION ,String POBLACION,String CODIGO_POSTAL,String TELEFONO,String TELEFONO2,String CORREO_ELECTRONICO,char SEXO,String GRUPO_SANGUINEO,BLOB FOTO) throws SQLException{
+		public int ModificarDonante(String NUM_DONANTE,String NOMBRE,String APELLIDO1,String APELLIDO2,String  DNI,String FECHA_NACIMIENTO,String PAIS_NACIMIENTO,String DIRECCION ,String POBLACION,String CODIGO_POSTAL,String TELEFONO,String TELEFONO2,String CORREO_ELECTRONICO,char SEXO,String GRUPO_SANGUINEO,Blob FOTO) throws SQLException, FileNotFoundException{
 
 			// Preparo la sentencia SQL CrearTablaPersonas
 			String updatesql = "UPDATE " + esptrab+".DONANTE SET NOMBRE=?,APELLIDO1=?,APELLIDO2=?,DNI=?,FECHA_NACIMIENTO=?,PAIS_NACIMIENTO=?,DIRECCION=?,POBLACION=?,CODIGO_POSTAL=?,TELEFONO=?,TELEFONO2=?,CORREO_ELECTRONICO=?,SEXO=?,GRUPO_SANGUINEO=?,FOTO=? WHERE NUM_DONANTE=?";
 
 			//Seguridad en las Aplicaciones: SQL Injection
-
-					PreparedStatement pstmt = conexion.prepareStatement (updatesql);
+				PreparedStatement pstmt = conexion.prepareStatement (updatesql);
 					pstmt.setString(1, NUM_DONANTE);
 					pstmt.setString(2, NOMBRE);
 					pstmt.setString(3, APELLIDO1);
@@ -239,7 +241,7 @@ public class ConexionBBDD {
 					pstmt.setString(13,CORREO_ELECTRONICO);
 					pstmt.setString(3, Character.toString(SEXO));
 					pstmt.setString(15,GRUPO_SANGUINEO);
-					pstmt.setBlob(16, FOTO);
+					pstmt.setBlob(16,FOTO);
 					
 					
 			//ejecuto la sentencia
@@ -363,9 +365,82 @@ public class ConexionBBDD {
 		
 		
 		
+		//IMAGEN METODOS
+		//leer nombre
+		public ArrayList<String> LeerNOMBRE() throws SQLException{
+
+			ArrayList<String> lista = new ArrayList<String>();
+
+			//ejecuto la sentencia
+			try{
+				// Preparo la sentencia SQL
+				String insertsql = "SELECT NOMBRE FROM CUENTAORACLE.DONANTE";
+				// Prepoparo la sentencia para ejecutar en la base de datos
+				PreparedStatement pstmt = conexion.prepareStatement (insertsql);
+
+
+				ResultSet resultado = pstmt.executeQuery();
+
+				int contador = 0;
+				while(resultado.next()){
+					contador++;
+					lista.add(resultado.getString(1));
+
+				}
+
+				if(contador==0)
+					System.out.println("no data found");
+
+
+			}catch(SQLException sqle){
+
+				int pos = sqle.getMessage().indexOf(":");
+				String codeErrorSQL = sqle.getMessage().substring(0,pos);
+
+
+					System.out.println( codeErrorSQL);
+			}
+
+			return lista;
+		}
 		
-		
-		
+		//leerFoto
+		public byte[] LeerFoto(String nombre) throws SQLException{
+
+			byte[] byteImage = null;
+			//ejecuto la sentencia
+			try{
+				// Preparo la sentencia SQL
+				String insertsql = "SELECT FOTO FROM CUENTAORACLE.DONANTE WHERE NOMBRE=?";
+				// Prepoparo la sentencia para ejecutar en la base de datos
+				PreparedStatement pstmt = conexion.prepareStatement (insertsql);
+				pstmt.setString(1, nombre);
+				ResultSet resultado = pstmt.executeQuery();
+
+				int contador = 0;
+				while(resultado.next()){
+					contador++;
+					// obtener la columna imagen, luego el arreglo de bytes
+				    Blob blob = resultado.getBlob(1);
+				    byteImage = blob.getBytes(1, (int) blob.length());
+
+				}
+
+				if(contador==0)
+					System.out.println("no data found");
+
+			}catch(SQLException sqle){
+
+				int pos = sqle.getMessage().indexOf(":");
+				String codeErrorSQL = sqle.getMessage().substring(0,pos);
+
+
+					System.out.println( codeErrorSQL);
+			}
+
+			return byteImage;
+		}
+
 		
 		
 			
@@ -622,9 +697,67 @@ public class ConexionBBDD {
 
 
 
+			//++++++++++++++++++++++++++INFORMES++++++++++++++++++++++++++++++++++++++++++++++
+			
 
+			//buscar por DNI
+			public ObservableList<Donante> BuscarTipoDonante(String tipodonante) throws SQLException{
 
+				ObservableList<Donante> listaDonantes = FXCollections.observableArrayList();		
+				
+				// Preparo la sentencia SQL en función de lo que venga en apellido
+				String selectsql ="SELECT COUNT(TIPO_DONACION) FROM "+ esptrab+".DONACION";
 
+				
+				//Seguridad en las Aplicaciones: SQL Injection
+				PreparedStatement pstmt = conexion.prepareStatement (selectsql);
+				pstmt.setString(1, tipodonante);
+				
+				//ejecuto la sentencia
+				try{
+					ResultSet resultado = pstmt.executeQuery();//pstmt y tiene que estar vacio
+
+					int contador = 0;
+					while(resultado.next()){
+						contador++;
+						String NUM_DONANTE = resultado.getString(1);
+						String NOMBRE = resultado.getString(2);
+						String APELLIDO1 = resultado.getString(3);
+						String APELLIDO2 = resultado.getString(4);
+						String DNI=resultado.getString(5);
+						String FECHA_NACIMIENTO=resultado.getString(6);
+						String PAIS_NACIMIENTO=resultado.getString(7);
+						String DIRECCION=resultado.getString(8);
+						String POBLACION=resultado.getString(9);
+						String CODIGO_POSTAL=resultado.getString(10);
+						String TELEFONO=resultado.getString(11);
+						String TELEFONO2=resultado.getString(12);
+						String CORREO_ELECTRONICO=resultado.getString(13);
+						char SEXO = resultado.getString(14).charAt(0);
+						String GRUPO_SANGUINEO=resultado.getString(15);
+						Blob FOTO=resultado.getBlob(16);
+						
+						Donante nueva = new Donante(NUM_DONANTE, NOMBRE, APELLIDO1,APELLIDO2,DNI,FECHA_NACIMIENTO,PAIS_NACIMIENTO,DIRECCION,POBLACION,CODIGO_POSTAL,TELEFONO,TELEFONO2,CORREO_ELECTRONICO,SEXO,GRUPO_SANGUINEO,FOTO);
+						listaDonantes.add(nueva);
+					}
+
+					if(contador==0)
+						System.out.println("no data found");
+
+				}catch(SQLException sqle){
+
+					int pos = sqle.getMessage().indexOf(":");
+					String codeErrorSQL = sqle.getMessage().substring(0,pos);
+
+					System.out.println(codeErrorSQL);
+				}
+
+				return listaDonantes;
+			}
+			
+				
+				
+				
 				
 		
 		

@@ -196,7 +196,6 @@ public class ControladoraDonacion  {
 					else{
 						
 					if(edicion == true){
-						System.out.println("entroooooo!");
 				// Hago la llamda al método que hace el update en la base de datos
 					ConexionBBDD con = new ConexionBBDD();
 					

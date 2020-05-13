@@ -1,8 +1,10 @@
 package Vista;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.sql.Blob;
 import java.sql.SQLException;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 import java.util.Optional;
 
 import com.itextpdf.text.DocumentException;
@@ -25,8 +27,11 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.stage.FileChooser;
 import javafx.stage.Stage;
+import javafx.stage.Window;
 import oracle.sql.BLOB;
 
 public class ControladoraDonante {
@@ -108,6 +113,9 @@ public class ControladoraDonante {
 		private int position;
 		private int maximo;
 		private File file;
+
+		ArrayList<String> lista;
+
 		
 		@FXML
 		private TextField txtf_ruta;
@@ -330,16 +338,17 @@ public class ControladoraDonante {
 				
 				//imprimir carnet
 				public void imprimeCarnet() throws FileNotFoundException, DocumentException{
-				
+					int index = tabla.getSelectionModel().getSelectedIndex();
+					Donante seleccionada = tabla.getSelectionModel().getSelectedItem();
+					
 				ImprimeArchivo imprime = new ImprimeArchivo("CarnetDonante2020","C:\\Users\\javichu\\Downloads\\");
-				imprime.generarArchivoPDF();
+				imprime.generarArchivoPDF(seleccionada);
 
 				}
 				
-				
-				
+			
 				//***********************************BBDDGUARDAR(INSERTAR DONACION)******************************
-				public void Guardar() throws SQLException{
+				public void Guardar() throws SQLException, FileNotFoundException{
 					char sexo;
 
 					if(H.isSelected()) {
@@ -366,9 +375,8 @@ public class ControladoraDonante {
 							DateTimeFormatter isoFecha = DateTimeFormatter.ISO_LOCAL_DATE;
 							String fcita = FECHA_NACIMIENTO.getValue().format(isoFecha);
 							
-							BLOB Foto =null;
-							
-							int res = con.ModificarDonante(NUM_DONANTE.getText(),NOMBRE.getText(),APELLIDO1.getText(),APELLIDO2.getText(),DNI.getText(),fcita,PAIS_NACIMIENTO.getValue(),DIRECCION.getText(),POBLACION.getText(),CODIGO_POSTAL.getText(),TELEFONO.getText(),TELEFONO2.getText(),CORREO_ELECTRONICO.getText(),sexo,GRUPO_SANGUINEO.getValue(),Foto);
+							Blob foto=null;
+							int res = con.ModificarDonante(NUM_DONANTE.getText(),NOMBRE.getText(),APELLIDO1.getText(),APELLIDO2.getText(),DNI.getText(),fcita,PAIS_NACIMIENTO.getValue(),DIRECCION.getText(),POBLACION.getText(),CODIGO_POSTAL.getText(),TELEFONO.getText(),TELEFONO2.getText(),CORREO_ELECTRONICO.getText(),sexo,GRUPO_SANGUINEO.getValue(),foto);
 							switch (res){
 
 								case 0:
@@ -404,8 +412,8 @@ public class ControladoraDonante {
 							DateTimeFormatter isoFecha = DateTimeFormatter.ISO_LOCAL_DATE;
 							String fcita = FECHA_NACIMIENTO.getValue().format(isoFecha);
 							
-							BLOB Foto =null;
-							int res = con.InsertarDonante(NUM_DONANTE.getText(),NOMBRE.getText(),APELLIDO1.getText(),APELLIDO2.getText(),DNI.getText(),fcita,PAIS_NACIMIENTO.getValue(),DIRECCION.getText(),POBLACION.getText(),CODIGO_POSTAL.getText(),TELEFONO.getText(),TELEFONO2.getText(),CORREO_ELECTRONICO.getText(),sexo,GRUPO_SANGUINEO.getValue(),Foto);
+							Blob foto=null;
+							int res = con.InsertarDonante(NUM_DONANTE.getText(),NOMBRE.getText(),APELLIDO1.getText(),APELLIDO2.getText(),DNI.getText(),fcita,PAIS_NACIMIENTO.getValue(),DIRECCION.getText(),POBLACION.getText(),CODIGO_POSTAL.getText(),TELEFONO.getText(),TELEFONO2.getText(),CORREO_ELECTRONICO.getText(),sexo,GRUPO_SANGUINEO.getValue(),foto);
 							
 						
 							switch (res){
@@ -459,7 +467,7 @@ public class ControladoraDonante {
 						Alert alert = new Alert(AlertType.CONFIRMATION);
 						alert.setTitle("Conformación!!!");
 						alert.setHeaderText("Por favor confirme el borrado");
-						alert.setContentText("Dese borrar al usuario "+ seleccionada.getNUM_DONANTE()+ ""+seleccionada.getNOMBRE() + " " +seleccionada.getAPELLIDO1() +" ?");
+						alert.setContentText("Dese borrar al usuario "+ seleccionada.getNUM_DONANTE()+ " "+seleccionada.getNOMBRE() + " " +seleccionada.getAPELLIDO1() +" ?");
 
 						Optional<ButtonType> result = alert.showAndWait();
 						if (result.get() == ButtonType.OK){
