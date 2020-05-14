@@ -56,47 +56,165 @@ public class ImprimeArchivo {
 		// La unidad para imprimir es el párrafo se pasa el texto del párrafo, se pueden poner saltos de línea dentro
 		// el tipo, tamaño de letra y si es en negrita (BOLD), cursiva (ITALIC), en cursivaNEgrita (BOLDITALIC) o normal (NORMAL)
 
-		Paragraph p1 = new Paragraph("CARNET DE DONANTE",
-		FontFactory.getFont("arial",   // fuente
-		12,                            // tamaño
+		Paragraph p1 = new Paragraph( "NUM DONANTE:" +seleccionada.getNUM_DONANTE(),
+		FontFactory.getFont("Curlz MT",   // fuente
+		16,                            // tamaño
 		Font.BOLD));
 
 		// Una vez creado el párrafo puedes modificar varias opciones... como aquí la alineación
-		// ALIGN_CENTER || ALIGN_LEFT || ALIGN_RIGHT ALIGN_JUSTIFY
+		// ALIGN_CENTER || ALIGN_LEFT || ALIGN_RIGHT ALIGN_JUSTIFIED
 		p1.setAlignment(Element.ALIGN_CENTER);
 
 		// Añade el párrafo al documeento
 		documento.add(p1);
 
-		Paragraph p2 = new Paragraph("NOMBRE: " + seleccionada.getNOMBRE() + "/n" +
-				"APELLIDOS: " + seleccionada.getAPELLIDO1() + " " +seleccionada.getAPELLIDO2(),
-				
+		Paragraph p2 = new Paragraph("                    "+"NOMBRE: " + seleccionada.getNOMBRE() + " GENERO: " + seleccionada.getSEXO(),
 				FontFactory.getFont("Garamond",   // fuente
-				14,                            // tamaño
+				12,                            // tamaño
 				Font.ITALIC));
 
 		// Una vez creado el párrafo puedes modificar varias opciones... como aquí la alineación
-		// ALIGN_CENTER || ALIGN_LEFT || ALIGN_RIGHT ALIGN_JUSTIFY
-		p2.setAlignment(Element.ALIGN_RIGHT);
+		// ALIGN_CENTER || ALIGN_LEFT || ALIGN_RIGHT ALIGN_JUSTIFIED
+		p2.setAlignment(Element.ALIGN_CENTER);
 
 		// Añade el párrafo al documeento
 		documento.add(p2);
+
+
+		Paragraph p3 = new Paragraph("                                                              "+ "APELLIDOS: " + seleccionada.getAPELLIDO1() + seleccionada.getAPELLIDO2(),
+				FontFactory.getFont("Garamond",   // fuente
+				12,                            // tamaño
+				Font.ITALIC));
+
+		// Una vez creado el párrafo puedes modificar varias opciones... como aquí la alineación
+		// ALIGN_CENTER || ALIGN_LEFT || ALIGN_RIGHT ALIGN_JUSTIFIED
+		p2.setAlignment(Element.ALIGN_CENTER);
+
+		// Añade el párrafo al documeento
+		documento.add(p3);
+
+		Paragraph p4 = new Paragraph("                                                              "+ "DNI: " + seleccionada.getDNI(),
+				FontFactory.getFont("Garamond",   // fuente
+				12,                            // tamaño
+				Font.ITALIC));
+
+		// Una vez creado el párrafo puedes modificar varias opciones... como aquí la alineación
+		// ALIGN_CENTER || ALIGN_LEFT || ALIGN_RIGHT ALIGN_JUSTIFIED
+		p2.setAlignment(Element.ALIGN_CENTER);
+
+		// Añade el párrafo al documeento
+		documento.add(p4);
+		
+		Paragraph p5 = new Paragraph("                                                              "+ "Fecha Nacimiento: " + seleccionada.getFECHA_NACIMIENTO(),
+				FontFactory.getFont("Garamond",   // fuente
+				12,                            // tamaño
+				Font.ITALIC));
+
+		// Una vez creado el párrafo puedes modificar varias opciones... como aquí la alineación
+		// ALIGN_CENTER || ALIGN_LEFT || ALIGN_RIGHT ALIGN_JUSTIFIED
+		p2.setAlignment(Element.ALIGN_CENTER);
+
+		// Añade el párrafo al documeento
+		documento.add(p5);
+		
+		Paragraph p6 = new Paragraph("                                                              "+ "PAIS NACIMIENTO: " + seleccionada.getPAIS_NACIMIENTO(),
+				FontFactory.getFont("Garamond",   // fuente
+				12,                            // tamaño
+				Font.ITALIC));
+
+		// Una vez creado el párrafo puedes modificar varias opciones... como aquí la alineación
+		// ALIGN_CENTER || ALIGN_LEFT || ALIGN_RIGHT ALIGN_JUSTIFIED
+		p2.setAlignment(Element.ALIGN_CENTER);
+
+		// Añade el párrafo al documeento
+		documento.add(p6);
+		
+		
+		Paragraph p7 = new Paragraph("                                                              "+ "DIRECCION: " + seleccionada.getDIRECCION(),
+				FontFactory.getFont("Garamond",   // fuente
+				12,                            // tamaño
+				Font.ITALIC));
+
+		// Una vez creado el párrafo puedes modificar varias opciones... como aquí la alineación
+		// ALIGN_CENTER || ALIGN_LEFT || ALIGN_RIGHT ALIGN_JUSTIFIED
+		p2.setAlignment(Element.ALIGN_CENTER);
+
+		// Añade el párrafo al documeento
+		documento.add(p7);
+		
+		Paragraph p8 = new Paragraph("                                                              "+ "POBLACION: " + seleccionada.getPOBLACION() + " CODIGO_POSTAL: " + seleccionada.getCODIGO_POSTAL(),
+				FontFactory.getFont("Garamond",   // fuente
+				12,                            // tamaño
+				Font.ITALIC));
+
+		// Una vez creado el párrafo puedes modificar varias opciones... como aquí la alineación
+		// ALIGN_CENTER || ALIGN_LEFT || ALIGN_RIGHT ALIGN_JUSTIFIED
+		p2.setAlignment(Element.ALIGN_CENTER);
+
+		// Añade el párrafo al documeento
+		documento.add(p8);
+		
+		
+		Paragraph p9 = new Paragraph("                                                              "+ "TELEFONO : " + seleccionada.getTELEFONO() + " TELEFONO 2: " + seleccionada.getTELEFONO2(),
+				FontFactory.getFont("Garamond",   // fuente
+				12,                            // tamaño
+				Font.ITALIC));
+
+		// Una vez creado el párrafo puedes modificar varias opciones... como aquí la alineación
+		// ALIGN_CENTER || ALIGN_LEFT || ALIGN_RIGHT ALIGN_JUSTIFIED
+		p2.setAlignment(Element.ALIGN_CENTER);
+
+		// Añade el párrafo al documeento
+		documento.add(p9);
+		
+		
+		
+		Paragraph p10 = new Paragraph("                                                              "+ "CORREO ELECTRONICO : " + seleccionada.getCORREO_ELECTRONICO(),
+				FontFactory.getFont("Garamond",   // fuente
+				12,                            // tamaño
+				Font.ITALIC));
+
+		// Una vez creado el párrafo puedes modificar varias opciones... como aquí la alineación
+		// ALIGN_CENTER || ALIGN_LEFT || ALIGN_RIGHT ALIGN_JUSTIFIED
+		p2.setAlignment(Element.ALIGN_CENTER);
+
+		// Añade el párrafo al documeento
+		documento.add(p10);
+		
+		
+		
+		
+		Paragraph p11 = new Paragraph("                                                                                                                                                                                                                        "+"GRUPO SANGUINEO:" +seleccionada.getGRUPO_SANGUINEO(),
+				FontFactory.getFont("Curlz MT",   // fuente
+				20,                            // tamaño
+				Font.ITALIC));
+
+				// Una vez creado el párrafo puedes modificar varias opciones... como aquí la alineación
+				// ALIGN_CENTER || ALIGN_LEFT || ALIGN_RIGHT ALIGN_JUSTIFIED
+				p1.setAlignment(Element.ALIGN_CENTER);
+
+				// Añade el párrafo al documeento
+				documento.add(p11);
+
+		
 
 
 		// Meter una imagen
 
 		try
 		{
-			String path = "src\\Vista\\imagen1.jpg";
+			String path = "src\\Vista\\carnet donante.jpg";
 			Image foto = Image.getInstance(path);
-			foto.scaleToFit(200, 200);
-			foto.setAbsolutePosition(20, 740);
+			foto.scaleToFit(550, 550);  
+			foto.setAbsolutePosition(8, 440);
 			documento.add(foto);
 		}
 		catch ( Exception e )
 		{
 			System.out.println(e.getMessage());
 		}
+
+		
 
 
 		documento.close();

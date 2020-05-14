@@ -160,7 +160,7 @@ public class ConexionBBDD {
 			String insertsql = "INSERT INTO " + esptrab+".DONANTE VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 
 			//Seguridad en las Aplicaciones: SQL Injection
-System.out.println(FOTO);
+
 			PreparedStatement pstmt = conexion.prepareStatement (insertsql);
 			pstmt.setString(1, NUM_DONANTE);
 			pstmt.setString(2, NOMBRE);
@@ -181,12 +181,12 @@ System.out.println(FOTO);
 
 			//ejecuto la sentencia
 			try{
-				int resultado = pstmt.executeUpdate();//pstmt y tiene que estar vacio
-				System.out.println(resultado);
+				int resultado = pstmt.executeUpdate(); //pstmt y tiene que estar vacio
+
 				if(resultado != 1)
-					System.out.println("Error en la inserción " + resultado);
+					System.out.println("Error en la actualización " + resultado);
 				else
-					System.out.println("Persona insertada con éxito!!!");
+					System.out.println("Persona actualizada con éxito!!!");
 
 				return 0;
 			}catch(SQLException sqle){
@@ -219,7 +219,7 @@ System.out.println(FOTO);
 		 *
 		 *
 		 */
-		public int ModificarDonante(String NUM_DONANTE,String NOMBRE,String APELLIDO1,String APELLIDO2,String  DNI,String FECHA_NACIMIENTO,String PAIS_NACIMIENTO,String DIRECCION ,String POBLACION,String CODIGO_POSTAL,String TELEFONO,String TELEFONO2,String CORREO_ELECTRONICO,char SEXO,String GRUPO_SANGUINEO,Blob FOTO) throws SQLException, FileNotFoundException{
+		public int ModificarDonante(String NUM_DONANTE,String NOMBRE,String APELLIDO1,String APELLIDO2,String  DNI,String FECHA_NACIMIENTO,String PAIS_NACIMIENTO,String DIRECCION ,String POBLACION,String CODIGO_POSTAL,String TELEFONO,String TELEFONO2,String CORREO_ELECTRONICO,char SEXO,String GRUPO_SANGUINEO,Blob FOTO) throws SQLException{
 
 			// Preparo la sentencia SQL CrearTablaPersonas
 			String updatesql = "UPDATE " + esptrab+".DONANTE SET NOMBRE=?,APELLIDO1=?,APELLIDO2=?,DNI=?,FECHA_NACIMIENTO=?,PAIS_NACIMIENTO=?,DIRECCION=?,POBLACION=?,CODIGO_POSTAL=?,TELEFONO=?,TELEFONO2=?,CORREO_ELECTRONICO=?,SEXO=?,GRUPO_SANGUINEO=?,FOTO=? WHERE NUM_DONANTE=?";
@@ -243,34 +243,16 @@ System.out.println(FOTO);
 					pstmt.setString(15,GRUPO_SANGUINEO);
 					pstmt.setBlob(16,FOTO);
 					
+					//ejecuto la sentencia
 					
-			//ejecuto la sentencia
-			try{
-				int resultado = pstmt.executeUpdate(); //pstmt y tiene que estar vacio
+						System.out.println("  ");
+						return 0;
+					
 
-				if(resultado != 1)
-					System.out.println("Error en la actualización " + resultado);
-				else
-					System.out.println("Persona actualizada con éxito!!!");
-
-				return 0;
-			}catch(SQLException sqle){
-
-				int pos = sqle.getMessage().indexOf(":");
-				String codeErrorSQL = sqle.getMessage().substring(0,pos);
-
-				if(codeErrorSQL.equals("ORA-00001") ){
-					System.out.println("Ya existe una persona con  ese email!!");
-					return 1;
 				}
-				else{
-					System.out.println("Ha habido algún problema con  Oracle al hacer la insercion");
-					return 2;
-				}
+			
 
-			}
 
-		}
 
 
 				

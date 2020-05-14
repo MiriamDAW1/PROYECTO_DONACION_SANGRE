@@ -7,6 +7,7 @@
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.SplitPane?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
@@ -526,12 +527,15 @@
                                     <Font size="9.0" />
                                  </font>
                               </Label>
-                              <RadioButton layoutX="569.0" layoutY="508.0" mnemonicParsing="false" text="SI">
+                              <RadioButton fx:id="S" layoutX="569.0" layoutY="508.0" mnemonicParsing="false" text="SI">
                                  <font>
                                     <Font size="9.0" />
                                  </font>
+                                 <toggleGroup>
+                                    <ToggleGroup fx:id="opcion1" />
+                                 </toggleGroup>
                               </RadioButton>
-                              <RadioButton layoutX="601.0" layoutY="508.0" mnemonicParsing="false" text="NO">
+                              <RadioButton fx:id="N" layoutX="601.0" layoutY="508.0" mnemonicParsing="false" text="NO">
                                  <font>
                                     <Font size="9.0" />
                                  </font>
@@ -541,12 +545,15 @@
                                     <Font size="9.0" />
                                  </font>
                               </Label>
-                              <RadioButton layoutX="569.0" layoutY="521.0" mnemonicParsing="false" text="SI">
+                              <RadioButton fx:id="s" layoutX="569.0" layoutY="521.0" mnemonicParsing="false" text="SI">
                                  <font>
                                     <Font size="9.0" />
                                  </font>
+                                 <toggleGroup>
+                                    <ToggleGroup fx:id="opcion2" />
+                                 </toggleGroup>
                               </RadioButton>
-                              <RadioButton layoutX="601.0" layoutY="521.0" mnemonicParsing="false" text="NO">
+                              <RadioButton fx:id="n" layoutX="601.0" layoutY="521.0" mnemonicParsing="false" text="NO">
                                  <font>
                                     <Font size="9.0" />
                                  </font>
@@ -556,17 +563,20 @@
                                     <Font size="9.0" />
                                  </font>
                               </Label>
-                              <RadioButton layoutX="569.0" layoutY="534.0" mnemonicParsing="false" prefHeight="7.0" prefWidth="24.0" text="SI">
+                              <RadioButton fx:id="si" layoutX="569.0" layoutY="534.0" mnemonicParsing="false" prefHeight="7.0" prefWidth="24.0" text="SI">
+                                 <font>
+                                    <Font size="9.0" />
+                                 </font>
+                                 <toggleGroup>
+                                    <ToggleGroup fx:id="opcion3" />
+                                 </toggleGroup>
+                              </RadioButton>
+                              <RadioButton fx:id="no" layoutX="601.0" layoutY="534.0" mnemonicParsing="false" text="NO">
                                  <font>
                                     <Font size="9.0" />
                                  </font>
                               </RadioButton>
-                              <RadioButton layoutX="601.0" layoutY="534.0" mnemonicParsing="false" text="NO">
-                                 <font>
-                                    <Font size="9.0" />
-                                 </font>
-                              </RadioButton>
-                              <Button fx:id="guardar" layoutX="231.0" layoutY="547.0" mnemonicParsing="false" onAction="#abrirVentanaDonacion" text="GUARDAR ">
+                              <Button fx:id="Guardar" layoutX="231.0" layoutY="547.0" mnemonicParsing="false" onAction="#abrirVentanaDonacion" text="GUARDAR ">
                                  <font>
                                     <Font size="13.0" />
                                  </font>

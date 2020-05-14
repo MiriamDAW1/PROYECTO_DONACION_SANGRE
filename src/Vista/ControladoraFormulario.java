@@ -87,7 +87,7 @@ public class ControladoraFormulario  implements Initializable {
 				 @FXML
 					RadioButton si;
 
-					@FXML
+				@FXML
 					RadioButton no;
 
 		
