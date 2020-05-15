@@ -225,7 +225,8 @@ public class ConexionBBDD {
 			String updatesql = "UPDATE " + esptrab+".DONANTE SET NOMBRE=?,APELLIDO1=?,APELLIDO2=?,DNI=?,FECHA_NACIMIENTO=?,PAIS_NACIMIENTO=?,DIRECCION=?,POBLACION=?,CODIGO_POSTAL=?,TELEFONO=?,TELEFONO2=?,CORREO_ELECTRONICO=?,SEXO=?,GRUPO_SANGUINEO=?,FOTO=? WHERE NUM_DONANTE=?";
 
 			//Seguridad en las Aplicaciones: SQL Injection
-				PreparedStatement pstmt = conexion.prepareStatement (updatesql);
+				System.out.println(" gh");
+			PreparedStatement pstmt = conexion.prepareStatement (updatesql);
 					pstmt.setString(1, NUM_DONANTE);
 					pstmt.setString(2, NOMBRE);
 					pstmt.setString(3, APELLIDO1);
@@ -243,11 +244,32 @@ public class ConexionBBDD {
 					pstmt.setString(15,GRUPO_SANGUINEO);
 					pstmt.setBlob(16,FOTO);
 					
+					
 					//ejecuto la sentencia
-					
-						System.out.println("  ");
+					try{
+						int resultado = pstmt.executeUpdate(); //pstmt y tiene que estar vacio
+
+						if(resultado != 1)
+							System.out.println("Error en la actualización " + resultado);
+						else
+							System.out.println("Persona actualizada con éxito!!!");
+
 						return 0;
-					
+					}catch(SQLException sqle){
+
+						int pos = sqle.getMessage().indexOf(":");
+						String codeErrorSQL = sqle.getMessage().substring(0,pos);
+
+						if(codeErrorSQL.equals("ORA-00001") ){
+							System.out.println("Ya existe una persona con  ese email!!");
+							return 1;
+						}
+						else{
+							System.out.println("Ha habido algún problema con  Oracle al hacer la insercion");
+							return 2;
+						}
+
+					}
 
 				}
 			

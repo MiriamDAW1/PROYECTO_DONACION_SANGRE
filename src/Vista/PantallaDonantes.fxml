@@ -220,7 +220,7 @@
             </AnchorPane>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="222.0" prefWidth="952.0">
                <children>
-                  <TableView fx:id="tabla" prefHeight="228.0" prefWidth="957.0">
+                  <TableView fx:id="tabla" onMouseClicked="#Editar" prefHeight="228.0" prefWidth="957.0">
                     <columns>
                       <TableColumn fx:id="col_NUM_DONANTE" prefWidth="105.0" text="NUM_DONANTE" />
                       <TableColumn fx:id="col_NOMBRE" prefWidth="98.0" text="NOMBRE" />

@@ -552,20 +552,20 @@ public class ControladoraDonante {
 						APELLIDO1.setText(seleccionada.getCORREO_ELECTRONICO());
 						APELLIDO2.setText(seleccionada.getAPELLIDO2());
 						DNI.setText(seleccionada.getDNI());
-						FECHA_NACIMIENTO.setAccessibleText(seleccionada.getFECHA_NACIMIENTO());
-						PAIS_NACIMIENTO.setAccessibleText(seleccionada.getPAIS_NACIMIENTO());
-						DIRECCION.setAccessibleText(seleccionada.getDIRECCION());
-						POBLACION.setAccessibleText(seleccionada.getPOBLACION());
-						CODIGO_POSTAL.setAccessibleText(seleccionada.getCODIGO_POSTAL());
-						TELEFONO.setAccessibleText(seleccionada.getTELEFONO());
-						TELEFONO2.setAccessibleText(seleccionada.getTELEFONO2());
-						CORREO_ELECTRONICO.setAccessibleText(seleccionada.getCORREO_ELECTRONICO());
+						FECHA_NACIMIENTO.getChronology();
+						PAIS_NACIMIENTO.setValue(seleccionada.getPAIS_NACIMIENTO());;
+						DIRECCION.setText(seleccionada.getDIRECCION());
+						POBLACION.setText(seleccionada.getPOBLACION());
+						CODIGO_POSTAL.setText(seleccionada.getCODIGO_POSTAL());;
+						TELEFONO.setText(seleccionada.getTELEFONO());
+						TELEFONO2.setText(seleccionada.getTELEFONO2());
+						CORREO_ELECTRONICO.setText(seleccionada.getCORREO_ELECTRONICO());
 						if(seleccionada.getSEXO() == 'H')
 							H.setSelected(true);
 						else
-							M.setSelected(true);
+							M.setSelected(false);
 						
-						GRUPO_SANGUINEO.setAccessibleText(seleccionada.getGRUPO_SANGUINEO());
+						GRUPO_SANGUINEO.setValue(seleccionada.getGRUPO_SANGUINEO());
 
 					}
 				}
