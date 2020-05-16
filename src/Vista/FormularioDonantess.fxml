@@ -7,7 +7,6 @@
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.SplitPane?>
 <?import javafx.scene.control.TextField?>
-<?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
@@ -527,55 +526,16 @@
                                     <Font size="9.0" />
                                  </font>
                               </Label>
-                              <RadioButton fx:id="S" layoutX="569.0" layoutY="508.0" mnemonicParsing="false" text="SI">
-                                 <font>
-                                    <Font size="9.0" />
-                                 </font>
-                                 <toggleGroup>
-                                    <ToggleGroup fx:id="opcion1" />
-                                 </toggleGroup>
-                              </RadioButton>
-                              <RadioButton fx:id="N" layoutX="601.0" layoutY="508.0" mnemonicParsing="false" text="NO">
-                                 <font>
-                                    <Font size="9.0" />
-                                 </font>
-                              </RadioButton>
                               <Label layoutX="14.0" layoutY="521.0" prefHeight="13.0" prefWidth="555.0" text="2- ¿Ha mantenido una relación sexual con una nueva pareja en los últimos 4 meses sin protección? ............................................................................  ">
                                  <font>
                                     <Font size="9.0" />
                                  </font>
                               </Label>
-                              <RadioButton fx:id="s" layoutX="569.0" layoutY="521.0" mnemonicParsing="false" text="SI">
-                                 <font>
-                                    <Font size="9.0" />
-                                 </font>
-                                 <toggleGroup>
-                                    <ToggleGroup fx:id="opcion2" />
-                                 </toggleGroup>
-                              </RadioButton>
-                              <RadioButton fx:id="n" layoutX="601.0" layoutY="521.0" mnemonicParsing="false" text="NO">
-                                 <font>
-                                    <Font size="9.0" />
-                                 </font>
-                              </RadioButton>
                               <Label layoutX="14.0" layoutY="534.0" prefHeight="13.0" prefWidth="555.0" text="3-¿Ha consumido drogas ilegales alguna vez (heroína, cocaína, etc)?...............................................................................................................................................">
                                  <font>
                                     <Font size="9.0" />
                                  </font>
                               </Label>
-                              <RadioButton fx:id="si" layoutX="569.0" layoutY="534.0" mnemonicParsing="false" prefHeight="7.0" prefWidth="24.0" text="SI">
-                                 <font>
-                                    <Font size="9.0" />
-                                 </font>
-                                 <toggleGroup>
-                                    <ToggleGroup fx:id="opcion3" />
-                                 </toggleGroup>
-                              </RadioButton>
-                              <RadioButton fx:id="no" layoutX="601.0" layoutY="534.0" mnemonicParsing="false" text="NO">
-                                 <font>
-                                    <Font size="9.0" />
-                                 </font>
-                              </RadioButton>
                               <Button fx:id="Guardar" layoutX="231.0" layoutY="547.0" mnemonicParsing="false" onAction="#abrirVentanaDonacion" text="GUARDAR ">
                                  <font>
                                     <Font size="13.0" />
@@ -602,6 +562,21 @@
                                  </font>
                               </RadioButton>
                               <Label layoutX="241.0" layoutY="488.0" prefHeight="17.0" prefWidth="111.0" text="Preguntas exclusion:" textFill="#083eff" />
+                              <TextField fx:id="preguntaexdef1" layoutX="571.0" layoutY="501.0" prefHeight="14.0" prefWidth="56.0">
+                                 <font>
+                                    <Font size="6.0" />
+                                 </font>
+                              </TextField>
+                              <TextField fx:id="preguntaexdef2" layoutX="571.0" layoutY="521.0" prefHeight="14.0" prefWidth="56.0">
+                                 <font>
+                                    <Font size="6.0" />
+                                 </font>
+                              </TextField>
+                              <TextField fx:id="preguntaexdef3" layoutX="571.0" layoutY="540.0" prefHeight="14.0" prefWidth="56.0">
+                                 <font>
+                                    <Font size="6.0" />
+                                 </font>
+                              </TextField>
                            </children>
                         </AnchorPane>
                     </items>

@@ -6,6 +6,8 @@ import java.util.ResourceBundle;
 import Controlador.Main;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.DatePicker;
@@ -43,12 +45,7 @@ public class ControladoraFormulario  implements Initializable {
 		 public void setProgramaPrincipal(Main ProgramaPrincipal) {
 		     this.ProgramaPrincipal = ProgramaPrincipal;
 		  }
-		 @FXML
-		    public void abrirVentanaDonacion() {
-			
-		       	this.ProgramaPrincipal.mostrarVentanaDonaciones();
-		       	this.ventana.close();
-		    }
+		
 		 
 		//***********elementos************
 		
@@ -62,34 +59,34 @@ public class ControladoraFormulario  implements Initializable {
 			private Button Guardar;
 		 
 		 //pregunta 1 EXCLUSION DEFINITIVA
+		
 		 @FXML
-			ToggleGroup opcion1;
-		 @FXML
-			RadioButton S;
+			TextField preguntaexdef1;
 
-			@FXML
-			RadioButton N;
-
-			
 		 //pregunta 2 EXCLUSION DEFINITIVA
-		 
+		
 			 @FXML
-				ToggleGroup opcion2;
-			 @FXML
-				RadioButton s;
-
-				@FXML
-				RadioButton n;
+			 TextField preguntaexdef2;
 
 		 //pregunta 3 EXCLUSION DEFINITIVA
-				 @FXML
-					ToggleGroup opcion3;
-				 @FXML
-					RadioButton si;
+			 @FXML
+			 TextField preguntaexdef3;
 
-				@FXML
-					RadioButton no;
+		 @FXML
+			 public void abrirVentanaDonacion() {
+			 if(preguntaexdef1.getText().equals("NO") && preguntaexdef2.getText().equals("NO") && preguntaexdef3.getText().equals("NO")) {
+				 this.ProgramaPrincipal.mostrarVentanaDonaciones();
+					this.ventana.close();
+			 }else {
+				 Alert alert = new Alert(AlertType.INFORMATION);
+				 alert.setTitle("Informacion");
+				 alert.setHeaderText("NO PUEDE REALIZAR UNA DONACION!");
+				 alert.setContentText("TIENES MOTIVOS DE EXCLUSION");
 
+				 alert.showAndWait();
+			 }
+				
+			}
 		
 		
 		
