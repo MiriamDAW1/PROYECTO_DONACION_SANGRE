@@ -62,26 +62,47 @@ public class ControladoraFormulario  implements Initializable {
 		
 		 @FXML
 			TextField preguntaexdef1;
-
-		 //pregunta 2 EXCLUSION DEFINITIVA
 		
 			 @FXML
 			 TextField preguntaexdef2;
 
-		 //pregunta 3 EXCLUSION DEFINITIVA
 			 @FXML
 			 TextField preguntaexdef3;
 
+			 //pregunta 5 EXCLUSION TEMPORAL
+			 @FXML
+			 TextField preguntaexdef5;
+			 @FXML
+			 TextField preguntaexdef1temporal;
+			 
+			 @FXML
+			 TextField preguntaexdef3temporal;
+			 
+			 @FXML
+			 TextField preguntaexdef12;
+			 @FXML
+			 TextField preguntaexdef14;
+			 @FXML
+			 TextField preguntaexdef16;
+			 @FXML
+			 TextField preguntaexdef17;
 		 @FXML
 			 public void abrirVentanaDonacion() {
-			 if(preguntaexdef1.getText().equals("NO") && preguntaexdef2.getText().equals("NO") && preguntaexdef3.getText().equals("NO")) {
+			 if(preguntaexdef1.getText().equals("NO") && preguntaexdef2.getText().equals("NO") && preguntaexdef3.getText().equals("NO")&& preguntaexdef5.getText().equals("SI") && preguntaexdef1temporal.getText().equals("NO") && preguntaexdef3temporal.getText().equals("NO") && preguntaexdef12.getText().equals("SI") && preguntaexdef14.getText().equals("SI") && preguntaexdef16.getText().equals("SI") && preguntaexdef17.getText().equals("SI")) {
 				 this.ProgramaPrincipal.mostrarVentanaDonaciones();
 					this.ventana.close();
+					
+					Alert alert = new Alert(AlertType.INFORMATION);
+					alert.setTitle("Informacion de datos");
+					alert.setHeaderText("comprobando datos.....");
+					alert.setContentText("EXCELENTE YA PUEDE REALIZAR LA DONACION!!!");
+
+					alert.showAndWait();
 			 }else {
 				 Alert alert = new Alert(AlertType.INFORMATION);
 				 alert.setTitle("Informacion");
-				 alert.setHeaderText("NO PUEDE REALIZAR UNA DONACION!");
-				 alert.setContentText("TIENES MOTIVOS DE EXCLUSION");
+				 alert.setHeaderText("comprobando datos.....");
+				 alert.setContentText("NO PUEDE REALIZAR UNA DONACION TIENES MOTIVOS DE EXCLUSION");
 
 				 alert.showAndWait();
 			 }
